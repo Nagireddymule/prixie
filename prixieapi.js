@@ -3,11 +3,15 @@ var app = express();
 
 app.set('port',process.env.PORT||3000)
 
-app.get('',function(req,res){
+app.get('/',function(req,res){
   res.send('working');
 })
 app.get('/:id',function(req, res){
-  res.send("your id is :"+req.params.id);
+  res.send("your id is :"+(req.params.id));
+
+})
+app.post('/interview/:date',function(req, res){
+  res.send("your id is :"+req.params.date);
 
 })
 
