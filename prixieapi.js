@@ -1,14 +1,24 @@
 var express =require("express");
+var MongoClient = require("mongodb").MongoClient;
 var app = express();
-
+var mongourl = "mongodb://localhost:27017/walkins";
 app.set('port',process.env.PORT||3000)
 
 app.get('/',function(req,res){
   res.send('working');
-})
+});
 
-app.get('/interview_schedule',function(req, res){
-  res.send("interview Schedule");
+app.get('/interview_schedules',function(req, res){
+
+    MongoClient.connect(mongourl,function(err,db){
+          var collection = db.collection("today_walkins");
+          collection.find({}).toArray(function(err,data){
+              if(err) throw err;
+              console.log(data);
+              db.close();
+              res.send(data);
+          });
+    });
 });
 
 app.get('/consultancy',function(req, res){
