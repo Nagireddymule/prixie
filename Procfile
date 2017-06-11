@@ -1,1 +1,1 @@
-web: node prixieapi.js
+web: node webhookapi.js
