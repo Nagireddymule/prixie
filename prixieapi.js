@@ -53,7 +53,7 @@ app.get('/payroll_consultencies',function(req, res){
   res.send("Payroll consultancies List");
 });
 
-app.get('/tutorial',function(req, res){
+app.get('/tutorials',function(req, res){
   res.send("Tutorials for IT and Non-IT subjects");
 });
 
