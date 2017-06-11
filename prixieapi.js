@@ -24,6 +24,7 @@ app.get('/required_documents',function(req, res){
 app.get('/it_selection_process',function(req, res){
   res.send("selection procedure for IT recruitment");
 });
+
 app.get('/non_it_selection_process',function(req, res){
   res.send("selection procedure for Non-IT recruitment");
 });
@@ -44,22 +45,28 @@ app.get('/varcent_round',function(req, res){
   res.send("About vercent round");
 });
 
+app.get('/salary',function(req, res){
+  res.send("here we provides salary details...");
+});
+
 app.get('/payroll_consultencies',function(req, res){
   res.send("Payroll consultancies List");
 });
 
 app.get('/tutorial',function(req, res){
-  res.send("Tutorials for IT and non it subjects");
+  res.send("Tutorials for IT and Non-IT subjects");
 });
 
 app.get('/previous_question_papers',function(req, res){
   res.send("past 10 years question papers");
 });
 
-
+app.get('/resume_tips',function(req, res){
+  res.send("here we provides resume tips");
+});
 
 
 
 app.listen(app.get('port'),function(){
-  console.log("prixie is running on port"+app.get('port'));
+  console.log("prixie is running on port "+app.get('port'));
 });
