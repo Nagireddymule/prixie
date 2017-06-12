@@ -71,6 +71,7 @@ function receivedMessage(event) {
   }
   callSendAPI(messageData);
 }
+}
 function sendGenericMessage(recipientId, messageText) {
 
 }
