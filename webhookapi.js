@@ -67,7 +67,7 @@ function sendGenericMessage(recipientId, messageText) {
 //for response as a text
 function sendTextMessage(recipientId, messageText) {
   let textmsg;
-  var msg = app.textRequest(messageText, {
+  var msg = api.textRequest(messageText, {
       sessionId: 'recipientId'
   });
 
@@ -78,7 +78,6 @@ function sendTextMessage(recipientId, messageText) {
   msg.on('error', function(error) {
     console.log(error);
   });
-
   msg.end();
 
   var messageData = {
