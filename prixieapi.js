@@ -216,9 +216,30 @@ app.get('/salary',function(req, res){
   res.send("here we provides salary details...");
 });
 
+
+
+
+
 app.get('/payroll_consultencies',function(req, res){
-  res.send("Payroll consultancies List");
+  var connection = mysql.createConnection({
+    host     : 'localhost',
+    user     : 'root',
+    password : 'root',
+    database : 'prixie'
+  });
+  connection.connect();
+  connection.query("select payroll from consultancy where consultancy_type='Payroll'", function (error, results, fields) {
+  if (error) throw error;
+
+  console.log(results);
+  var result = JSON.stringify(results);
+  connection.end();
+    res.send("payroll List"+result);
 });
+});
+
+
+
 
 app.get('/tutorials',function(req, res){
   res.send("Tutorials for IT and Non-IT subjects");
