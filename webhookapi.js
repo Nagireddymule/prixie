@@ -38,7 +38,7 @@ app.post('/webhook', function (req, res) {
         } else {
           console.log("Webhook received unknown event: ", event);
         }
-      });
+      }); 
     });
     res.sendStatus(200);
   }
