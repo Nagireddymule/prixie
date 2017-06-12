@@ -1,6 +1,9 @@
 var express = require("express");
 var request = require("request");
 var bodyParser = require('body-parser');
+var apiai = require("apiai");
+
+var api = apiai("7433fe3c52d24fe18ab37483aadb517a");
 
 var app = express();
 app.set('port',(process.env.PORT||5000));
@@ -61,19 +64,34 @@ function receivedMessage(event) {
 
 function sendGenericMessage(recipientId, messageText) {
 }
-
+//for response as a text
 function sendTextMessage(recipientId, messageText) {
+  let textmsg;
+  var msg = app.textRequest(messageText, {
+      sessionId: 'recipientId'
+  });
+
+  msg.on('response', function(response) {
+      console.log(response);
+      textmsg = response;
+  });
+  msg.on('error', function(error) {
+    console.log(error);
+  });
+
+  msg.end();
+
   var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-        text: messageText
+        text: textmsg
       }
   };
   callSendAPI(messageData);
 }
-
+//for response as an attachments
 function sendAttachmentMessage(recipientId, messageText) {
   var messageData = {
     recipient: {
