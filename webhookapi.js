@@ -29,9 +29,9 @@ app.post('/webhook', function (req, res) {
           receivedMessage(event);
           console.log(event);
         }
-        else {
-          console.log("Webhook received unknown event: ", event);
-        }
+      //  else {
+        //  console.log("Webhook received unknown event: ", event);
+      //  }
       });
     });
     res.sendStatus(200);
