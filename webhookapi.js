@@ -66,29 +66,27 @@ function sendGenericMessage(recipientId, messageText) {
 }
 //for response as a text
 function sendTextMessage(recipientId, messageText) {
-  let textmsg;
   var msg = api.textRequest(messageText, {
       sessionId: 'recipientId'
   });
 
   msg.on('response', function(response) {
-      console.log(response);
-      textmsg = response.result.fulfillment.speech;
+      //console.log(response);
+      var textmsg = response.result.fulfillment.speech;
+      var messageData = {
+        recipient: {
+          id: recipientId
+        },
+        message: {
+            text: textmsg
+          }
+      };
+      callSendAPI(messageData);
   });
   msg.on('error', function(error) {
     console.log(error);
   });
   msg.end();
-
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    message: {
-        text: textmsg
-      }
-  };
-  callSendAPI(messageData);
 }
 //for response as an attachments
 function sendAttachmentMessage(recipientId, messageText) {
