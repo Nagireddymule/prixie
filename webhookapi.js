@@ -75,16 +75,15 @@ function sendTextMessage(recipientId, messageText) {
     recipient: {
       id: recipientId
     },
-
-
     "message":{
     "attachment":{
-      "type":"video",
+      "type":"image",
       "payload":{
-        "url":"https://youtu.be/J6vIS8jb6Fs"
+        "url":"https://petersapparel.com/img/shirt.png"
       }
     }
   }
+
   /*  message: {
       text: messageText
     }

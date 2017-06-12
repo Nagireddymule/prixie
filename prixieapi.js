@@ -228,7 +228,7 @@ app.get('/payroll_consultencies',function(req, res){
     database : 'prixie'
   });
   connection.connect();
-  connection.query("select payroll from consultancy where consultancy_type='Payroll'", function (error, results, fields) {
+  connection.query("select address from consultancy where consultancy_type='Payroll'", function (error, results, fields) {
   if (error) throw error;
 
   console.log(results);
