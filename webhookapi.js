@@ -48,24 +48,17 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
   if (messageText) {
-    switch (messageText) {
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
 
-      default:
         sendTextMessage(senderID, messageText);
-    }
+        
   } else if (messageAttachments) {
 
       sendAttachmentMessage(senderID, messageText);
     }
 }
-
-function sendGenericMessage(recipientId, messageText) {
-}
 //for response as a text
 function sendTextMessage(recipientId, messageText) {
+
   var msg = api.textRequest(messageText, {
       sessionId: 'recipientId'
   });
@@ -102,7 +95,6 @@ function sendAttachmentMessage(recipientId, messageText) {
           }
         }
       }
-
 }
     callSendAPI(messageData);
 }
@@ -126,13 +118,6 @@ function callSendAPI(messageData) {
     }
   });
 }
-
-
-
-
-
-
-
 app.listen(app.get('port'),function(){
 console.log("webhook is running on port "+app.get('port'));
 })
