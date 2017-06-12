@@ -73,7 +73,7 @@ function sendTextMessage(recipientId, messageText) {
 
   msg.on('response', function(response) {
       console.log(response);
-      textmsg = response;
+      textmsg = response.result.fulfillment.speech;
   });
   msg.on('error', function(error) {
     console.log(error);
