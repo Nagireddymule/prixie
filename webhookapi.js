@@ -32,7 +32,7 @@ app.post('/webhook', function (req, res) {
       var timeOfEvent = entry.time;
       entry.messaging.forEach(function(event) {
         if (event.message) {
-        //  console.log(event);
+          console.log(event.message.text);
           receivedMessage(event);
         } else {
           console.log("Webhook received unknown event: ", event);
