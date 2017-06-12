@@ -23,11 +23,9 @@ app.get('/webhook/', function(req, res) {
   }
 });
 
-
-
 app.post('/webhook', function (req, res) {
   var data = req.body;
-  console.log("entry array"+data);
+  console.log("req body"+JSON.stringify(data));
   if (data.object === 'page') {
     data.entry.forEach(function(entry) {
       var pageID = entry.id;
