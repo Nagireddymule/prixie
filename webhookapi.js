@@ -55,25 +55,11 @@ function receivedMessage(event) {
     }
   } else if (messageAttachments) {
 
-    var messageData = {
-      recipient: {
-        id: recipientId
-      },
-      "message":{
-          "attachment":{
-            "type":"image",
-            "payload":{
-              "url":"https://image.ibb.co/hPbfqv/zimage.jpg"
-            }
-          }
-        }
-    //sendTextMessage(senderID, messageData);
-  }
-  callSendAPI(messageData);
+      sendAttachmentMessage(senderID, messageText);
+    }
 }
-}
-function sendGenericMessage(recipientId, messageText) {
 
+function sendGenericMessage(recipientId, messageText) {
 }
 
 function sendTextMessage(recipientId, messageText) {
@@ -84,7 +70,16 @@ function sendTextMessage(recipientId, messageText) {
     message: {
         text: messageText
       }
-  /*    "message":{
+  };
+  callSendAPI(messageData);
+}
+
+function sendAttachmentMessage(recipientId, messageText) {
+  var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    "message":{
         "attachment":{
           "type":"image",
           "payload":{
@@ -92,12 +87,11 @@ function sendTextMessage(recipientId, messageText) {
           }
         }
       }
-      */
 
-
-  };
-  callSendAPI(messageData);
 }
+    callSendAPI(messageData);
+}
+
 
 function callSendAPI(messageData) {
   request({
