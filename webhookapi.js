@@ -75,11 +75,24 @@ function sendTextMessage(recipientId, messageText) {
     recipient: {
       id: recipientId
     },
-    message:{
+    "message":{
     "attachment":{
-      "type":"image",
+      "type":"template",
       "payload":{
-        "url":"https://petersapparel.com/img/shirt.png"
+        "template_type":"button",
+        "text":"What do you want to do next?",
+        "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://petersapparel.parseapp.com",
+            "title":"Show Website"
+          },
+          {
+            "type":"postback",
+            "title":"Start Chatting",
+            "payload":"USER_DEFINED_PAYLOAD"
+          }
+        ]
       }
     }
   }
