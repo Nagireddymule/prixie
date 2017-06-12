@@ -54,8 +54,22 @@ function receivedMessage(event) {
         sendTextMessage(senderID, messageText);
     }
   } else if (messageAttachments) {
-    sendTextMessage(senderID, "Message with attachment received");
+
+    var messageData = {
+      recipient: {
+        id: recipientId
+      },
+      "message":{
+          "attachment":{
+            "type":"image",
+            "payload":{
+              "url":"https://image.ibb.co/hPbfqv/zimage.jpg"
+            }
+          }
+        }
+    //sendTextMessage(senderID, messageData);
   }
+  callSendAPI(messageData);
 }
 function sendGenericMessage(recipientId, messageText) {
 
@@ -66,7 +80,10 @@ function sendTextMessage(recipientId, messageText) {
     recipient: {
       id: recipientId
     },
-    "message":{
+    message: {
+        text: messageText
+      }
+  /*    "message":{
         "attachment":{
           "type":"image",
           "payload":{
@@ -74,10 +91,9 @@ function sendTextMessage(recipientId, messageText) {
           }
         }
       }
-  /*  message: {
-      text: messageText
-    }
-    */
+      */
+
+
   };
   callSendAPI(messageData);
 }
@@ -97,7 +113,6 @@ function callSendAPI(messageData) {
     } else {
       console.error("Unable to send message.");
       console.log(body);
-
     }
   });
 }
