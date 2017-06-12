@@ -27,22 +27,24 @@ app.get('/webhook/', function(req, res) {
 
 app.post('/webhook', function (req, res) {
   var data = req.body;
+  console.log(data.entry[0]);
   if (data.object === 'page') {
     data.entry.forEach(function(entry) {
       var pageID = entry.id;
       var timeOfEvent = entry.time;
       entry.messaging.forEach(function(event) {
         if (event.message) {
-          console.log(event);
+        //  console.log(event);
           receivedMessage(event);
         } else {
           console.log("Webhook received unknown event: ", event);
         }
-      }); 
+      });
     });
     res.sendStatus(200);
   }
 });
+
 function receivedMessage(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
