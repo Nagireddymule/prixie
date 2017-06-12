@@ -77,7 +77,7 @@ function sendTextMessage(recipientId, messageText) {
     },
 
 
-    message:{
+    "message":{
     "attachment":{
       "type":"video",
       "payload":{
