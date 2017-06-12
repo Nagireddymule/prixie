@@ -81,7 +81,7 @@ function sendTextMessage(recipientId, messageText) {
     "attachment":{
       "type":"video",
       "payload":{
-        "url":"https://petersapparel.com/bin/clip.mp4"
+        "url":"https://youtu.be/J6vIS8jb6Fs"
       }
     }
   }
