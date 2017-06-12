@@ -75,7 +75,7 @@ function sendTextMessage(recipientId, messageText) {
     recipient: {
       id: recipientId
     },
-    "message":{
+    message:{
     "attachment":{
       "type":"image",
       "payload":{
