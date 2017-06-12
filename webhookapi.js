@@ -31,7 +31,7 @@ app.post('/webhook', function (req, res) {
       var pageID = entry.id;
       var timeOfEvent = entry.time;
       entry.messaging.forEach(function(event) {
-        if (event.message.text()) {
+        if (event.message {
           receivedMessage(event);
         }
         else {
