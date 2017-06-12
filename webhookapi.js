@@ -89,9 +89,6 @@ function receivedMessage(event) {
   }
 }
 
-function sendGenericMessage(recipientId, messageText) {
-  // To be expanded in later sections
-}
 
 function sendTextMessage(recipientId, messageText) {
   var messageData = {
