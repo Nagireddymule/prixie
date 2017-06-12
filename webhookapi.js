@@ -12,18 +12,6 @@ app.get('/',function(req,res){
 
 var token="EAACHuWOOEu4BAIAEpfIELBhs63ExhJNZARLGrwCChkteb3arwFHTJ2i9ZBrDKc175HwEy3MrM1n55Y68QEQ3XjUyveljluZAVlxOyhnxayo4Bu445p2YTZA02rbnUUyoZAZAHNdSuNXNYb5mx2rZAeOBSKYfSoHfyGcqV7L4bdf6wZDZD";
 
-/*app.get('/webhook/', function(req, res) {
-  if (req.query['hub.mode'] === 'subscribe' &&
-      req.query['hub.verify_token'] === "prixieverificationtoken") {
-    console.log("Validating webhook");
-    res.status(200).send(req.query['hub.challenge']);
-  } else {
-    console.error("Failed validation. Make sure the validation tokens match.");
-    res.sendStatus(403);
-  }
-});
-*/
-
 app.get('/webhook/', function (req, res) {
     if (req.query['hub.verify_token'] === 'prixieverificationtoken') {
       res.send(req.query['hub.challenge']);
@@ -69,6 +57,9 @@ function receivedMessage(event) {
     sendTextMessage(senderID, "Message with attachment received");
   }
 }
+function sendGenericMessage(recipientId, messageText) {
+
+}
 
 function sendTextMessage(recipientId, messageText) {
   var messageData = {
@@ -76,21 +67,13 @@ function sendTextMessage(recipientId, messageText) {
       id: recipientId
     },
     "message":{
-    "text":"Pick a color:",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Red",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-      },
-      {
-        "content_type":"text",
-        "title":"Green",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        "attachment":{
+          "type":"image",
+          "payload":{
+            "url":"https://image.ibb.co/hPbfqv/zimage.jpg"
+          }
+        }
       }
-    ]
-  }
-
   /*  message: {
       text: messageText
     }
