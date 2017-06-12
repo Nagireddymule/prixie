@@ -34,11 +34,8 @@ app.get('/webhook/', function (req, res) {
 
 app.post('/webhook', function (req, res) {
   var data = req.body;
-//  console.log("req body"+JSON.stringify(data));
   if (data.object === 'page') {
     data.entry.forEach(function(entry) {
-      //var pageID = entry.id;
-      //var timeOfEvent = entry.time;
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
@@ -78,9 +75,20 @@ function sendTextMessage(recipientId, messageText) {
     recipient: {
       id: recipientId
     },
-    message: {
+
+
+    message:{
+    "attachment":{
+      "type":"video",
+      "payload":{
+        "url":"https://petersapparel.com/bin/clip.mp4"
+      }
+    }
+  }
+  /*  message: {
       text: messageText
     }
+    */
   };
   callSendAPI(messageData);
 }
