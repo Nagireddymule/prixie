@@ -62,6 +62,15 @@ function sendTextMessage(recipientId, messageText) {
 
   msg.on('response', function(response) {
     if (response.result.parameters.documents) {
+
+request({
+  url:'https://prixie-api.herokuapp.com/documents'
+  method:'Get'
+},function(error,res){
+console.log(res);
+
+});
+
       console.log("got parameter");
     }else {
       console.log("no parameters");
