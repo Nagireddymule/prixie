@@ -80,6 +80,21 @@ var messageData = {
         "title":"javascript",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
+      {
+        "content_type":"text",
+        "title":".net",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
+      {
+        "content_type":"text",
+        "title":"php",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
+      {
+        "content_type":"text",
+        "title":"nodejs",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
     ]
   }
 }
