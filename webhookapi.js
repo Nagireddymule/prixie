@@ -59,12 +59,13 @@ function sendTextMessage(recipientId, messageText) {
       sessionId: 'recipientId'
   });
   msg.on('response', function(response) {
-    console.log("got parameter");
+
     console.log(response.result.parameters);
     if (response.result.parameters.tutorials) {
+      console.log("got parameter");
 var messageData = {
   "recipient":{
-    "id":"recipientId"
+    "id":recipientId
   },
   "message":{
     "text":"choose a subject:",
