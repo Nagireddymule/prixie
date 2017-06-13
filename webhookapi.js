@@ -61,7 +61,7 @@ function sendTextMessage(recipientId, messageText) {
   });
 
   msg.on('response', function(response) {
-      console.log("response from api :"+response);
+      console.log(response);
       var textmsg = response.result.fulfillment.speech;
       var messageData = {
         recipient: {
