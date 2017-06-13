@@ -62,7 +62,7 @@ function sendTextMessage(recipientId, messageText) {
     console.log("got parameter");
     console.log(response.result.parameters);
     if (response.result.parameters.tutorials) {
-var msgdata = {
+var messageData = {
   "recipient":{
     "id":"recipientId"
   },
