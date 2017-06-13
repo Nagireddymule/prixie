@@ -32,9 +32,6 @@ app.post('/webhook', function (req, res) {
           receivedMessage(event);
           console.log(event);
         }
-      //  else {
-        //  console.log("Webhook received unknown event: ", event);
-      //  }
       });
     });
     res.sendStatus(200);
@@ -50,7 +47,7 @@ function receivedMessage(event) {
   if (messageText) {
 
         sendTextMessage(senderID, messageText);
-        
+
   } else if (messageAttachments) {
 
       sendAttachmentMessage(senderID, messageText);
@@ -64,7 +61,7 @@ function sendTextMessage(recipientId, messageText) {
   });
 
   msg.on('response', function(response) {
-      //console.log(response);
+      console.log(response);
       var textmsg = response.result.fulfillment.speech;
       var messageData = {
         recipient: {
