@@ -68,7 +68,7 @@ request({
   method:'Get',
 },function(error,res){
   var data = JSON.parse(res.body);
-console.log(data);
+console.log(data[0].title);
 
 });
 
