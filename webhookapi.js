@@ -58,12 +58,11 @@ function sendTextMessage(recipientId, messageText) {
   var msg = api.textRequest(messageText, {
       sessionId: 'recipientId'
   });
-  msg.on('response', function(response) {
 
+  msg.on('response', function(response) {
     console.log(response.result.parameters);
     if (response.result.parameters.tutorials||response.result.parameters.subject) {
-      console.log("got parameter");
-
+        console.log("got parameter");
         if (response.result.parameters.subject) {
         var url =response.result.parameters.subject;
         request({
@@ -72,9 +71,9 @@ function sendTextMessage(recipientId, messageText) {
         },function(error,res){
         //  var data = JSON.parse(res.body);
         console.log(res.body);
-
         });
-      }else {
+        }else
+        {
         var messageData = {
         "recipient":{
           "id":recipientId
@@ -112,44 +111,25 @@ function sendTextMessage(recipientId, messageText) {
         }
       }
 callSendAPI(messageData);
-/*request({
-  url:'https://prixie-api.herokuapp.com/tutorials_list',
-  method:'Get',
-},function(error,res){
-  var data = JSON.parse(res.body);
-console.log(data[0].title);
-
-});
-*/
-
     }else {
       console.log("no parameters");
+          var textmsg = response.result.fulfillment.speech;
+          var messageData = {
+            recipient: {
+              id: recipientId
+            },
+            message: {
+                text: textmsg
+              }
+          };
+          callSendAPI(messageData);
     }
-
-
-
-
-
-
-
-
-
-  /*    var textmsg = response.result.fulfillment.speech;
-      var messageData = {
-        recipient: {
-          id: recipientId
-        },
-        message: {
-            text: textmsg
-          }
-      };
-      callSendAPI(messageData);*/
   });
   msg.on('error', function(error) {
     console.log(error);
   });
   msg.end();
-}
+}//closing sendTextMessage function
 //for response as an attachments
 function sendAttachmentMessage(recipientId, messageText) {
   var messageData = {
