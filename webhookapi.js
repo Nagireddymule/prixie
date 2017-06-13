@@ -61,7 +61,10 @@ function sendTextMessage(recipientId, messageText) {
   });
 
   msg.on('response', function(response) {
-      console.log(response.result.parameters);
+    if (response.result.parameters.documents) {
+      console.log("got parameter");
+    }
+
 
 
 
