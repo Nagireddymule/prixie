@@ -59,6 +59,7 @@ function sendTextMessage(recipientId, messageText) {
       sessionId: 'recipientId'
   });
   msg.on('response', function(response) {
+    console.log("got parameter");
     console.log(response.result.parameters);
     if (response.result.parameters.tutorials) {
 var msgdata = {
@@ -90,7 +91,7 @@ console.log(data[0].title);
 
 });
 */callSendAPI(messageData);
-      console.log("got parameter");
+
     }else {
       console.log("no parameters");
     }
@@ -103,7 +104,7 @@ console.log(data[0].title);
 
 
 
-      var textmsg = response.result.fulfillment.speech;
+  /*    var textmsg = response.result.fulfillment.speech;
       var messageData = {
         recipient: {
           id: recipientId
@@ -112,7 +113,7 @@ console.log(data[0].title);
             text: textmsg
           }
       };
-      callSendAPI(messageData);
+      callSendAPI(messageData);*/
   });
   msg.on('error', function(error) {
     console.log(error);
