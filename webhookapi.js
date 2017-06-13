@@ -64,7 +64,7 @@ function sendTextMessage(recipientId, messageText) {
     if (response.result.parameters.documents) {
 
 request({
-  url:'https://prixie-api.herokuapp.com/documents',
+  url:'https://prixie-api.herokuapp.com/consultancy',
   method:'Get',
 },function(error,apidata){
 console.log(apidata);
