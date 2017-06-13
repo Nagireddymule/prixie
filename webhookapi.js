@@ -67,7 +67,7 @@ request({
   url:'https://prixie-api.herokuapp.com/documents',
   method:'Get',
 },function(error,res){
-console.log(res);
+console.log(res.body);
 
 });
 
