@@ -64,10 +64,10 @@ function sendTextMessage(recipientId, messageText) {
     if (response.result.parameters.documents) {
 
 request({
-  url:'https://prixie-api.herokuapp.com/consultancy',
+  url:'https://prixie-api.herokuapp.com/',
   method:'Get',
 },function(error,apidata){
-console.log(error);
+console.log(apidata);
 
 });
 
