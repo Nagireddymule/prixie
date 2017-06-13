@@ -61,43 +61,57 @@ function sendTextMessage(recipientId, messageText) {
   msg.on('response', function(response) {
 
     console.log(response.result.parameters);
-    if (response.result.parameters.tutorials) {
+    if (response.result.parameters.tutorials||response.result.parameters.subject) {
       console.log("got parameter");
-var messageData = {
-  "recipient":{
-    "id":recipientId
-  },
-  "message":{
-    "text":"choose a subject:",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"java",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-      },
-      {
-        "content_type":"text",
-        "title":"javascript",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":".net",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"php",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"nodejs",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-    ]
-  }
-}
+
+        if (response.result.parameters.subject) {
+        var url =response.result.parameters.subject;
+        request({
+          url:`https://prixie-api.herokuapp.com/tutorial_urls/$(url)`,
+          method:'Get',
+        },function(error,res){
+          var data = JSON.parse(res.body);
+        console.log(data[0].title);
+
+        });
+      }else {
+        var messageData = {
+        "recipient":{
+          "id":recipientId
+        },
+        "message":{
+          "text":"choose a subject:",
+          "quick_replies":[
+            {
+              "content_type":"text",
+              "title":"java",
+              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+            },
+            {
+              "content_type":"text",
+              "title":"javascript",
+              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+            },
+            {
+              "content_type":"text",
+              "title":".net",
+              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+            },
+            {
+              "content_type":"text",
+              "title":"php",
+              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+            },
+            {
+              "content_type":"text",
+              "title":"nodejs",
+              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+            },
+          ]
+        }
+        }
+      }
+callSendAPI(messageData);
 /*request({
   url:'https://prixie-api.herokuapp.com/tutorials_list',
   method:'Get',
@@ -106,7 +120,7 @@ var messageData = {
 console.log(data[0].title);
 
 });
-*/callSendAPI(messageData);
+*/
 
     }else {
       console.log("no parameters");
