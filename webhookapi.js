@@ -55,16 +55,33 @@ function receivedMessage(event) {
 }
 //for response as a text
 function sendTextMessage(recipientId, messageText) {
-
   var msg = api.textRequest(messageText, {
       sessionId: 'recipientId'
   });
-
   msg.on('response', function(response) {
     console.log(response.result.parameters);
     if (response.result.parameters.tutorials) {
-
-request({
+var msgdata = {
+  "recipient":{
+    "id":"recipientId"
+  },
+  "message":{
+    "text":"choose a subject:",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"java",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+      },
+      {
+        "content_type":"text",
+        "title":"javascript",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
+    ]
+  }
+}
+/*request({
   url:'https://prixie-api.herokuapp.com/tutorials_list',
   method:'Get',
 },function(error,res){
@@ -72,7 +89,7 @@ request({
 console.log(data[0].title);
 
 });
-
+*/callSendAPI(messageData);
       console.log("got parameter");
     }else {
       console.log("no parameters");
