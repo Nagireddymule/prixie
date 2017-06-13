@@ -67,7 +67,8 @@ request({
   url:'https://prixie-api.herokuapp.com/tutorials_list',
   method:'Get',
 },function(error,res){
-console.log(Array.isArray(res.body));
+  var data = JSON.strigify(res);
+console.log(data[0].title);
 
 });
 
