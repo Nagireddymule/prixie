@@ -71,7 +71,7 @@ function sendTextMessage(recipientId, messageText) {
           method:'Get',
         },function(error,res){
           var data = JSON.parse(res.body);
-        console.log(data[0].title);
+        console.log(data);
 
         });
       }else {
