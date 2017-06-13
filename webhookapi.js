@@ -66,8 +66,8 @@ function sendTextMessage(recipientId, messageText) {
 request({
   url:'https://prixie-api.herokuapp.com/',
   method:'Get',
-},function(error,apidata){
-console.log(apidata);
+},function(error,res){
+console.log(res.body);
 
 });
 
