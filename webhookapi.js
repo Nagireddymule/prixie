@@ -65,7 +65,7 @@ function sendTextMessage(recipientId, messageText) {
       console.log("got parameter");
 
         if (response.result.parameters.subject) {
-        var url =response.result.parameters.subject;
+        var url ="javascript";
         request({
           url:"https://prixie-api.herokuapp.com/tutorial_urls/"+url,
           method:'Get',
