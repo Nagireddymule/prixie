@@ -78,7 +78,7 @@ function sendTextMessage(recipientId, messageText) {
         "recipient":{
           "id":recipientId
         },
-        "message":{"text":"choose a catogory","buttons":[
+        "message":{"buttons":[
       {
         "content_type":"text",
         "title":"java",
