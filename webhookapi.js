@@ -71,7 +71,7 @@ function sendTextMessage(recipientId, messageText) {
   });
 
   msg.on('response', function(response) {
-    //console.log(JSON.stringify(response.result.parameters.attachments));
+
     if (response.result.parameters.tutorials||response.result.parameters.subject) {
         console.log("got parameter");
         if (response.result.parameters.subject) {
@@ -81,7 +81,7 @@ function sendTextMessage(recipientId, messageText) {
           method:'Get',
         },function(error,res){
         //  var data = JSON.parse(res.body);
-        //console.log(res.body);
+        console.log(res.body);
         });
         }else
         {
@@ -89,7 +89,7 @@ function sendTextMessage(recipientId, messageText) {
         "recipient":{
           "id":recipientId
         },"message":{
-    "text":"Pick a color:",
+    "text":"choose a subject",
     "quick_replies":[
       {
         "content_type":"text",
