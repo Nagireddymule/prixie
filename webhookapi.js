@@ -74,7 +74,7 @@ function sendTextMessage(recipientId, messageText) {
         });
         }else
         {
-        var messageData = {
+        var messageData = [{
         "recipient":{
           "id":recipientId
         },"message":{
@@ -98,7 +98,6 @@ function sendTextMessage(recipientId, messageText) {
       }
     }
   }
-
       /*  "message":{
           "text":"choose a subject:",
           "quick_replies":[
@@ -129,12 +128,63 @@ function sendTextMessage(recipientId, messageText) {
             },
           ]
         }*/
+      },{
+      "recipient":{
+        "id":recipientId
+      },"message":{
+  "attachment":{
+    "type":"template",
+    "payload":{
+      "template_type":"button",
+      "text":"What do you want to do next?",
+      "buttons":[
+        {
+          "type":"web_url",
+          "url":"https://petersapparel.parseapp.com",
+          "title":"Show Website"
+        },
+        {
+          "type":"postback",
+          "title":"Start Chatting",
+          "payload":"USER_DEFINED_PAYLOAD"
         }
+      ]
+    }
+  }
+}
+    /*  "message":{
+        "text":"choose a subject:",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"java",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+          },
+          {
+            "content_type":"text",
+            "title":"javascript",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+          },
+          {
+            "content_type":"text",
+            "title":".net",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+          },
+          {
+            "content_type":"text",
+            "title":"php",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+          },
+          {
+            "content_type":"text",
+            "title":"nodejs",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+          },
+        ]
+      }*/
+    }]
       }
-      for (var i = 0; i < 3; i++) {
-      callSendAPI(messageData);
-      }
-
+callSendAPI(messageData);
     }else {
       console.log("no parameters");
           var textmsg = response.result.fulfillment.speech;
