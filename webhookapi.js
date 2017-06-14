@@ -79,7 +79,7 @@ function sendTextMessage(recipientId, messageText) {
           "id":recipientId
         },
         "message":{
-      "attachment":{
+      "attachment":[{
         "type":"template",
         "payload":{
         "template_type":"button",
@@ -107,7 +107,36 @@ function sendTextMessage(recipientId, messageText) {
             }*/
           ]
         }
-      }
+      },
+      {
+        "type":"template",
+        "payload":{
+        "template_type":"button",
+          "text":"choose a subject?",
+          "buttons":[
+            {
+              "type":"postback",
+              "title":"java",
+              "payload":"USER_DEFINED_PAYLOAD"
+            },
+            {
+              "type":"postback",
+              "title":".net",
+              "payload":"USER_DEFINED_PAYLOAD"
+            },
+            {
+              "type":"postback",
+              "title":"javascript",
+              "payload":"USER_DEFINED_PAYLOAD"
+            },
+            /*{
+              "type":"web_url",
+              "url":"https://petersapparel.parseapp.com",
+              "title":"Show Website"
+            }*/
+          ]
+        }
+      }]
     }
 
         /*
