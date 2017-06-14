@@ -107,13 +107,14 @@ for (var i = 0; i < tutlist.length; i++) {
   //tutlist[i]
   listarr.push({"content_type":"test","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
 }
-console.log(listarr);
+var listarrdata = JSON.stringify(listarr);
+console.log(listarrdata);
             var messageData ={
             "recipient":{
               "id":recipientId
             },"message":{
             "text":"choose a Tutorial",
-            "quick_replies":listarr
+            "quick_replies":listarrdata
             }
             }
 
