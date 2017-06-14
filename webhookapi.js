@@ -82,7 +82,7 @@ function sendTextMessage(recipientId, messageText) {
         },function(error,res){
 
         var data = JSON.parse(res.body);
-console.log(data);
+        console.log(data);
         var textmsg = data.urls[0];
         var messageData = {
           recipient: {
@@ -96,6 +96,14 @@ console.log(data);
         });
         }else
         {
+          request({
+              url:"https://prixie-api.herokuapp.com/tutorials_list"
+              method:"get"
+          },function(error,res){
+
+            console.log(res.body);
+          });
+
         var messageData ={
         "recipient":{
           "id":recipientId
