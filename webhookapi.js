@@ -119,7 +119,7 @@ function sendTextMessage(recipientId, messageText) {
 
 
       }
-      }
+      
         callSendAPI(messageData);
     }else {
       console.log("no parameters");
