@@ -101,10 +101,15 @@ function sendTextMessage(recipientId, messageText) {
               "payload":"USER_DEFINED_PAYLOAD"
             },
             {
+              "type":"postback",
+              "title":"nodejs",
+              "payload":"USER_DEFINED_PAYLOAD"
+            },
+            /*{
               "type":"web_url",
               "url":"https://petersapparel.parseapp.com",
               "title":"Show Website"
-            }
+            }*/
           ]
         }
       }
