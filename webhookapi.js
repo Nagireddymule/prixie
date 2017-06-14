@@ -78,7 +78,7 @@ function sendTextMessage(recipientId, messageText) {
         "recipient":{
           "id":recipientId
         },
-        "message":{
+        "message":[{
       "attachment":{
         "type":"template",
         "payload":{
@@ -113,7 +113,7 @@ function sendTextMessage(recipientId, messageText) {
           ]
         }
       }
-    },"message":{
+    },{
   "attachment":{
     "type":"template",
     "payload":{
@@ -149,7 +149,7 @@ function sendTextMessage(recipientId, messageText) {
     }
   }
 }
-
+]
 
         /*
         "message":{
