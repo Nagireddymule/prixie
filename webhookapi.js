@@ -90,16 +90,15 @@ function sendTextMessage(recipientId, messageText) {
             "default_action": {
               "type": "web_url",
               "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
-              
               "webview_height_ratio": "tall",
               "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
             },
             "buttons":[
-              {
-                "type":"web_url",
-                "url":"https://image.ibb.co/hPbfqv/zimage.jpg",
-                "title":"View Website"
-              },{
+                {
+                "type":"postback",
+                "title":"Start Chatting",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                },{
                 "type":"postback",
                 "title":"Start Chatting",
                 "payload":"DEVELOPER_DEFINED_PAYLOAD"
