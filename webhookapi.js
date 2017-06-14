@@ -87,45 +87,45 @@ function sendTextMessage(recipientId, messageText) {
             "elements": [
                 {
                     "title": "Classic White T-Shirt",
-                   "image_url": "https://image.ibb.co/hPbfqv/zimage.jpg",
+                  // "image_url": "https://image.ibb.co/hPbfqv/zimage.jpg",
                     "subtitle": "100% Cotton, 200% Comfortable",
                     "default_action": {
                         "type": "web_url",
-                      "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
+                    //  "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
                         "messenger_extensions": true,
                         "webview_height_ratio": "tall",
-                        "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
+                      //  "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
                     },
                     "buttons": [
                         {
                             "title": "Buy",
                             "type": "web_url",
-                            "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
+                        //    "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
                             "messenger_extensions": true,
                             "webview_height_ratio": "tall",
-                          "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
+                          //"fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
                         }
                     ]
                 },
                 {
                     "title": "Classic White T-Shirt",
-                    "image_url": "https://image.ibb.co/hPbfqv/zimage.jpg",
+                  //  "image_url": "https://image.ibb.co/hPbfqv/zimage.jpg",
                     "subtitle": "100% Cotton, 200% Comfortable",
                     "default_action": {
                         "type": "web_url",
-                        "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
+                    //    "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
                         "messenger_extensions": true,
                         "webview_height_ratio": "tall",
-                        "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
+                      //  "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
                     },
                     "buttons": [
                         {
                             "title": "Buy",
                             "type": "web_url",
-                            "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
+                        //    "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
                             "messenger_extensions": true,
                             "webview_height_ratio": "tall",
-                            "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
+                          //  "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
                         }
                     ]
                 }
