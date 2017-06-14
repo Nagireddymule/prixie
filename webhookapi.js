@@ -77,72 +77,29 @@ function sendTextMessage(recipientId, messageText) {
         var messageData = {
         "recipient":{
           "id":recipientId
-        },
-        "message": {
-    "attachment": {
-        "type": "template",
-        "payload": {
-            "template_type": "list",
-            "top_element_style": "compact",
-            "elements": [
-                {
-                    "title": "Classic White T-Shirt",
-                  // "image_url": "https://image.ibb.co/hPbfqv/zimage.jpg",
-                    "subtitle": "100% Cotton, 200% Comfortable",
-                    "default_action": {
-                        "type": "web_url",
-                    //  "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                      //  "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
-                    },
-                    "buttons": [
-                        {
-                            "title": "Buy",
-                            "type": "web_url",
-                        //    "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                          //"fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
-                        }
-                    ]
-                },
-                {
-                    "title": "Classic White T-Shirt",
-                  //  "image_url": "https://image.ibb.co/hPbfqv/zimage.jpg",
-                    "subtitle": "100% Cotton, 200% Comfortable",
-                    "default_action": {
-                        "type": "web_url",
-                    //    "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
-                        "messenger_extensions": true,
-                        "webview_height_ratio": "tall",
-                      //  "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
-                    },
-                    "buttons": [
-                        {
-                            "title": "Buy",
-                            "type": "web_url",
-                        //    "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
-                            "messenger_extensions": true,
-                            "webview_height_ratio": "tall",
-                          //  "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
-                        }
-                    ]
-                }
-
-            ],
-             "buttons": [
-                {
-                    "title": "View More",
-                    "type": "postback",
-                    "payload": "payload"
-                }
-            ]
-        }
+        },"message":{
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":"What do you want to do next?",
+        "buttons":[
+          {
+            "type":"web_url",
+            "url":"https://petersapparel.parseapp.com",
+            "title":"Show Website"
+          },
+          {
+            "type":"postback",
+            "title":"Start Chatting",
+            "payload":"USER_DEFINED_PAYLOAD"
+          }
+        ]
+      }
     }
-}
-        /*
-        "message":{
+  }
+
+      /*  "message":{
           "text":"choose a subject:",
           "quick_replies":[
             {
