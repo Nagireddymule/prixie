@@ -74,10 +74,44 @@ function sendTextMessage(recipientId, messageText) {
         });
         }else
         {
-        var messageData = [{
+        var messageData ={
         "recipient":{
           "id":recipientId
         },"message":{
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements":[
+           {
+            "title":"Welcome to Peter\'s Hats",
+            "image_url":"https://petersfancybrownhats.com/company_image.png",
+            "subtitle":"We\'ve got the right hat for everyone.",
+            "default_action": {
+              "type": "web_url",
+              "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
+              "messenger_extensions": true,
+              "webview_height_ratio": "tall",
+              "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
+            },
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://petersfancybrownhats.com",
+                "title":"View Website"
+              },{
+                "type":"postback",
+                "title":"Start Chatting",
+                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+
+        /*"message":{
     "attachment":{
       "type":"template",
       "payload":{
@@ -102,102 +136,10 @@ function sendTextMessage(recipientId, messageText) {
         ]
       }
     }
-  }
-      /*  "message":{
-          "text":"choose a subject:",
-          "quick_replies":[
-            {
-              "content_type":"text",
-              "title":"java",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-            },
-            {
-              "content_type":"text",
-              "title":"javascript",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-            },
-            {
-              "content_type":"text",
-              "title":".net",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-            },
-            {
-              "content_type":"text",
-              "title":"php",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-            },
-            {
-              "content_type":"text",
-              "title":"nodejs",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-            },
-          ]
-        }*/
-      },{
-      "recipient":{
-        "id":recipientId
-      },"message":{
-  "attachment":{
-    "type":"template",
-    "payload":{
-      "template_type":"button",
-      "text":" ",
-      "buttons":[
-        {
-          "type":"web_url",
-          "url":"https://petersapparel.parseapp.com",
-          "title":"javascript"
-        },
-        {
-          "type":"web_url",
-          "url":"https://petersapparel.parseapp.com",
-          "title":"php"
-        },
-        {
-          "type":"web_url",
-          "url":"https://petersapparel.parseapp.com",
-          "title":"Mysql"
-        }
-      ]
-    }
-  }
-}
-    /*  "message":{
-        "text":"choose a subject:",
-        "quick_replies":[
-          {
-            "content_type":"text",
-            "title":"java",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-          },
-          {
-            "content_type":"text",
-            "title":"javascript",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-          },
-          {
-            "content_type":"text",
-            "title":".net",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-          },
-          {
-            "content_type":"text",
-            "title":"php",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-          },
-          {
-            "content_type":"text",
-            "title":"nodejs",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-          },
-        ]
-      }*/
-    }]
+  }*/
       }
-      for (var i = 0; i < messageData.length; i++) {
-        callSendAPI(messageData[i]);
       }
-
+        callSendAPI(messageData);
     }else {
       console.log("no parameters");
           var textmsg = response.result.fulfillment.speech;
