@@ -78,14 +78,14 @@ function sendTextMessage(recipientId, messageText) {
         "recipient":{
           "id":recipientId
         },
-        "message":{"buttons":[
+        "buttons":[
       {
         "content_type":"text",
         "title":"java",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
       }
     ]
-  }
+
 
         /*
         "message":{
