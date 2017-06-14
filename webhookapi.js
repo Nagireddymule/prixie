@@ -85,13 +85,13 @@ function sendTextMessage(recipientId, messageText) {
         "elements":[
            {
             "title":"Welcome to Peter\'s Hats",
-            "image_url":"https://image.ibb.co/hPbfqv/zimage.jpg",
+            "image_url":"https://petersfancybrownhats.com/company_image.png",
             "subtitle":"We\'ve got the right hat for everyone.",
             "default_action": {
               "type": "web_url",
-              "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
+              "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
               "webview_height_ratio": "tall",
-              "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
+              "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
             },
             "buttons":[
                 {
