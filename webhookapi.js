@@ -85,19 +85,19 @@ function sendTextMessage(recipientId, messageText) {
         "elements":[
            {
             "title":"Welcome to Peter\'s Hats",
-            "image_url":"",
+            "image_url":"https://image.ibb.co/hPbfqv/zimage.jpg",
             "subtitle":"We\'ve got the right hat for everyone.",
             "default_action": {
               "type": "web_url",
               "url": "",
-              "messenger_extensions": true,
+              "messenger_extensions": "true",
               "webview_height_ratio": "tall",
               "fallback_url": ""
             },
             "buttons":[
               {
                 "type":"web_url",
-                "url":"",
+                "url":"https://image.ibb.co/hPbfqv/zimage.jpg",
                 "title":"View Website"
               },{
                 "type":"postback",
