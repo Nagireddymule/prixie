@@ -80,9 +80,10 @@ function sendTextMessage(recipientId, messageText) {
           url:"https://prixie-api.herokuapp.com/tutorial_urls/"+url,
           method:'Get',
         },function(error,res){
-        //  var data = JSON.parse(res.body);
-        console.log(res.body);
-        var textmsg = res.body;
+          console.log(res.body);
+        var data = JSON.parse(res.body);
+
+        var textmsg = data.urls;
         var messageData = {
           recipient: {
             id: recipientId
