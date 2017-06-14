@@ -30,7 +30,7 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
-          console.log(event.message.attachments);
+          console.log(event);
         }
       });
     });
@@ -89,48 +89,42 @@ function sendTextMessage(recipientId, messageText) {
         "recipient":{
           "id":recipientId
         },"message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"generic",
-        "elements":[
-           {
-            "title":"Welcome to Peter\'s Hats",
-            "image_url":"https://petersfancybrownhats.com/company_image.png",
-            "subtitle":"We\'ve got the right hat for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
-              "messenger_extensions": "true",
-              "webview_height_ratio": "tall",
-              "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-            },
-            "buttons":[
-                {
-                "type":"postback",
-                "title":"java",
-                "payload":"java"
-                },{
-                "type":"postback",
-                "title":"javascript",
-                "payload":"javascript"
-              },{
-              "type":"postback",
-              "title":".net",
-              "payload":".net"
-            }
-            ]
-          }
-          ]
-        }
-
+    "text":"Pick a color:",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"java",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+      },
+      {
+        "content_type":"text",
+        "title":".net",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      },{
+        "content_type":"text",
+        "title":"javascript",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      },{
+        "content_type":"text",
+        "title":"nodejs",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      },{
+        "content_type":"text",
+        "title":"Mysql",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      },
+      {
+        "content_type":"text",
+        "title":"Android",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
-    }
+    ]
   }
 
 
-      }
 
+  }
+      }
         callSendAPI(messageData);
     }else {
       console.log("no parameters");
