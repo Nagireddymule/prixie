@@ -97,7 +97,7 @@ function sendTextMessage(recipientId, messageText) {
         }else
         {
           request({
-              url:"https://prixie-api.herokuapp.com/tutorials_list"
+              url:"https://prixie-api.herokuapp.com/tutorials_list",
               method:"get"
           },function(error,res){
 
