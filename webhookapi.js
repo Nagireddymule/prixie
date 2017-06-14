@@ -82,8 +82,16 @@ function sendTextMessage(recipientId, messageText) {
         },function(error,res){
         //  var data = JSON.parse(res.body);
         console.log(res.body);
-        resdata = res.body;
-        callSendAPI(resdata);
+        var textmsg = res.body;
+        var messageData = {
+          recipient: {
+            id: recipientId
+          },
+          message: {
+              text: textmsg
+            }
+        };
+        callSendAPI(messageData);
         });
         }else
         {
@@ -180,7 +188,7 @@ function callSendAPI(messageData) {
         messageId, recipientId);
     } else {
       console.error("Unable to send message.");
-      //console.log(body);
+      console.log(body);
     }
   });
 }
