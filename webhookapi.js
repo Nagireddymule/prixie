@@ -30,7 +30,7 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
-          console.log(event);
+          //console.log(event);
         }
       });
     });
@@ -173,7 +173,7 @@ function callSendAPI(messageData) {
         messageId, recipientId);
     } else {
       console.error("Unable to send message.");
-      console.log(body);
+      //console.log(body);
     }
   });
 }
