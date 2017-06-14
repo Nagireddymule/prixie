@@ -97,7 +97,7 @@ function sendTextMessage(recipientId, messageText) {
             "buttons":[
               {
                 "type":"web_url",
-                "url":"https://petersfancybrownhats.com",
+                "url":"",
                 "title":"View Website"
               },{
                 "type":"postback",
