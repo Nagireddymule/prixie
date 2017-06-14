@@ -110,6 +110,32 @@ function sendTextMessage(recipientId, messageText) {
               "url":"https://petersapparel.parseapp.com",
               "title":"Show Website"
             }*/
+          ],"buttons":[
+            {
+              "type":"postback",
+              "title":"java",
+              "payload":"USER_DEFINED_PAYLOAD"
+            },
+            {
+              "type":"postback",
+              "title":".net",
+              "payload":"USER_DEFINED_PAYLOAD"
+            },
+            {
+              "type":"postback",
+              "title":"javascript",
+              "payload":"USER_DEFINED_PAYLOAD"
+            },
+            {
+              "type":"postback",
+              "title":"nodejs",
+              "payload":"USER_DEFINED_PAYLOAD"
+            },
+            /*{
+              "type":"web_url",
+              "url":"https://petersapparel.parseapp.com",
+              "title":"Show Website"
+            }*/
           ]
         }
       }
