@@ -45,11 +45,11 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
   if (messageText) {
-
+console.log("text message came");
         sendTextMessage(senderID, messageText);
 
   } else if (messageAttachments) {
-
+console.log("attachment came");
       sendAttachmentMessage(senderID, messageText);
     }
 }
