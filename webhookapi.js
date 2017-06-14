@@ -100,11 +100,6 @@ function sendTextMessage(recipientId, messageText) {
               "title":"javascript",
               "payload":"USER_DEFINED_PAYLOAD"
             },
-            {
-              "type":"postback",
-              "title":"nodejs",
-              "payload":"USER_DEFINED_PAYLOAD"
-            },
             /*{
               "type":"web_url",
               "url":"https://petersapparel.parseapp.com",
@@ -135,11 +130,7 @@ function sendTextMessage(recipientId, messageText) {
           "title":"javascript",
           "payload":"USER_DEFINED_PAYLOAD"
         },
-        {
-          "type":"postback",
-          "title":"nodejs",
-          "payload":"USER_DEFINED_PAYLOAD"
-        },
+
         /*{
           "type":"web_url",
           "url":"https://petersapparel.parseapp.com",
