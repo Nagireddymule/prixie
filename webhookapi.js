@@ -97,13 +97,17 @@ function sendTextMessage(recipientId, messageText) {
             "buttons":[
                 {
                 "type":"postback",
-                "title":"Start Chatting",
-                "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                "title":"java",
+                "payload":"java"
                 },{
                 "type":"postback",
-                "title":"Start Chatting",
-                "payload":"DEVELOPER_DEFINED_PAYLOAD"
-              }
+                "title":"javascript",
+                "payload":"javascript"
+              },{
+              "type":"postback",
+              "title":".net",
+              "payload":".net"
+            }
             ]
           },
           {
@@ -120,15 +124,20 @@ function sendTextMessage(recipientId, messageText) {
            "buttons":[
                {
                "type":"postback",
-               "title":"Start Chatting",
-               "payload":"DEVELOPER_DEFINED_PAYLOAD"
+               "title":"nodejs",
+               "payload":"nodejs"
                },{
                "type":"postback",
-               "title":"Start Chatting",
-               "payload":"DEVELOPER_DEFINED_PAYLOAD"
-             }
+               "title":"php",
+               "payload":"php"
+             },{
+             "type":"postback",
+             "title":"mysql",
+             "payload":"mysql"
+           }
            ]
-         },{
+         },
+         {
           "title":"Welcome to Peter\'s Hats",
           "image_url":"https://petersfancybrownhats.com/company_image.png",
           "subtitle":"We\'ve got the right hat for everyone.",
@@ -142,13 +151,17 @@ function sendTextMessage(recipientId, messageText) {
           "buttons":[
               {
               "type":"postback",
-              "title":"Start Chatting",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD"
+              "title":"Android",
+              "payload":"Android"
               },{
               "type":"postback",
               "title":"Start Chatting",
               "payload":"DEVELOPER_DEFINED_PAYLOAD"
-            }
+            },{
+            "type":"postback",
+            "title":"Start Chatting",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD"
+          }
           ]
         }
         ]
