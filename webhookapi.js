@@ -99,6 +99,11 @@ function sendTextMessage(recipientId, messageText) {
               "type":"postback",
               "title":"javascript",
               "payload":"USER_DEFINED_PAYLOAD"
+            },
+            {
+              "type":"web_url",
+              "url":"https://petersapparel.parseapp.com",
+              "title":"Show Website"
             }
           ]
         }
