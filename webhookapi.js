@@ -81,7 +81,7 @@ function sendTextMessage(recipientId, messageText) {
         "message":{
       "attachment":{
         //"type":"template",
-        "payload":{
+      //  "payload":{
         //  "template_type":"button",
           "text":"What do you want to do next?",
           "buttons":[
@@ -96,7 +96,7 @@ function sendTextMessage(recipientId, messageText) {
               "payload":"USER_DEFINED_PAYLOAD"
             }
           ]
-        }
+        //}
       }
     }
 
