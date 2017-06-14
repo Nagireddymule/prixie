@@ -60,7 +60,7 @@ function sendTextMessage(recipientId, messageText) {
   });
 
   msg.on('response', function(response) {
-    console.log(response.result.parameters);
+    //console.log(response.result.parameters);
     if (response.result.parameters.tutorials||response.result.parameters.subject) {
         console.log("got parameter");
         if (response.result.parameters.subject) {
@@ -119,7 +119,7 @@ function sendTextMessage(recipientId, messageText) {
 
 
       }
-      
+
         callSendAPI(messageData);
     }else {
       console.log("no parameters");
