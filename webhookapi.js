@@ -78,6 +78,15 @@ function sendTextMessage(recipientId, messageText) {
         "recipient":{
           "id":recipientId
         },
+        "message":{"text":"choose a catogory","buttons":[
+      {
+        "type":"postback",
+        "title":"Bookmark Item",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD"
+      }
+    ]}
+
+        /*
         "message":{
           "text":"choose a subject:",
           "quick_replies":[
@@ -107,7 +116,7 @@ function sendTextMessage(recipientId, messageText) {
               "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
             },
           ]
-        }
+        }*/
         }
       }
 callSendAPI(messageData);
