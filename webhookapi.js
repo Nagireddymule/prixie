@@ -82,6 +82,8 @@ function sendTextMessage(recipientId, messageText) {
         },function(error,res){
         //  var data = JSON.parse(res.body);
         console.log(res.body);
+        resdata = res.body;
+        callSendAPI(resdata);
         });
         }else
         {
