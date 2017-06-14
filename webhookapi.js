@@ -83,7 +83,7 @@ function sendTextMessage(recipientId, messageText) {
 
         var data = JSON.parse(res.body);
 console.log(data);
-        var textmsg = data.urls;
+        var textmsg = data.urls[0];
         var messageData = {
           recipient: {
             id: recipientId
