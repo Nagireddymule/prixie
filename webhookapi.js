@@ -80,9 +80,9 @@ function sendTextMessage(recipientId, messageText) {
         },
         "buttons":[
       {
-        "content_type":"text",
-        "title":"java",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+        "type":"postback",
+        "title":"Bookmark Item",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD"
       }
     ]
 
