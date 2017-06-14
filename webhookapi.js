@@ -101,12 +101,13 @@ function sendTextMessage(recipientId, messageText) {
               method:"get"
           },function(error,res){
             var tutlist = JSON.parse(res.body);
-            console.log(tutlist);
+            //console.log(tutlist);
             var listarr = [];
 for (var i = 0; i < tutlist.length; i++) {
   //tutlist[i]
   listarr.push({"content_type":"test","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
 }
+console.log(listarr);
             var messageData ={
             "recipient":{
               "id":recipientId
