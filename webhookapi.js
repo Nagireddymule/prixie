@@ -82,17 +82,22 @@ function sendTextMessage(recipientId, messageText) {
       "type":"template",
       "payload":{
         "template_type":"button",
-        "text":"What do you want to do next?",
+        "text":"chooose a subject",
         "buttons":[
           {
             "type":"web_url",
             "url":"https://petersapparel.parseapp.com",
-            "title":"Show Website"
+            "title":"java"
           },
           {
-            "type":"postback",
-            "title":"Start Chatting",
-            "payload":"USER_DEFINED_PAYLOAD"
+            "type":"web_url",
+            "url":"https://petersapparel.parseapp.com",
+            "title":".net"
+          },
+          {
+            "type":"web_url",
+            "url":"https://petersapparel.parseapp.com",
+            "title":"nodejs"
           }
         ]
       }
@@ -136,17 +141,22 @@ function sendTextMessage(recipientId, messageText) {
     "type":"template",
     "payload":{
       "template_type":"button",
-      "text":"What do you want to do next?",
+      "text":"",
       "buttons":[
         {
           "type":"web_url",
           "url":"https://petersapparel.parseapp.com",
-          "title":"Show Website"
+          "title":"javascript"
         },
         {
-          "type":"postback",
-          "title":"Start Chatting",
-          "payload":"USER_DEFINED_PAYLOAD"
+          "type":"web_url",
+          "url":"https://petersapparel.parseapp.com",
+          "title":"php"
+        },
+        {
+          "type":"web_url",
+          "url":"https://petersapparel.parseapp.com",
+          "title":"Mysql"
         }
       ]
     }
