@@ -109,92 +109,15 @@ function sendTextMessage(recipientId, messageText) {
               "payload":".net"
             }
             ]
-          },
-          {
-           "title":"Welcome to Peter\'s Hats",
-           "image_url":"https://petersfancybrownhats.com/company_image.png",
-           "subtitle":"We\'ve got the right hat for everyone.",
-           "default_action": {
-             "type": "web_url",
-             "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
-             "messenger_extensions": "true",
-             "webview_height_ratio": "tall",
-             "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-           },
-           "buttons":[
-               {
-               "type":"postback",
-               "title":"nodejs",
-               "payload":"nodejs"
-               },{
-               "type":"postback",
-               "title":"php",
-               "payload":"php"
-             },{
-             "type":"postback",
-             "title":"mysql",
-             "payload":"mysql"
-           }
-           ]
-         },
-         {
-          "title":"Welcome to Peter\'s Hats",
-          "image_url":"https://petersfancybrownhats.com/company_image.png",
-          "subtitle":"We\'ve got the right hat for everyone.",
-          "default_action": {
-            "type": "web_url",
-            "url": "https://peterssendreceiveapp.ngrok.io/view?item=103",
-            "messenger_extensions": "true",
-            "webview_height_ratio": "tall",
-            "fallback_url": "https://peterssendreceiveapp.ngrok.io/"
-          },
-          "buttons":[
-              {
-              "type":"postback",
-              "title":"Android",
-              "payload":"Android"
-              },{
-              "type":"postback",
-              "title":"Start Chatting",
-              "payload":"DEVELOPER_DEFINED_PAYLOAD"
-            },{
-            "type":"postback",
-            "title":"Start Chatting",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD"
           }
           ]
         }
-        ]
+
       }
     }
   }
 
-        /*"message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"button",
-        "text":"chooose a subject",
-        "buttons":[
-          {
-            "type":"web_url",
-            "url":"https://petersapparel.parseapp.com",
-            "title":"java"
-          },
-          {
-            "type":"web_url",
-            "url":"https://petersapparel.parseapp.com",
-            "title":".net"
-          },
-          {
-            "type":"web_url",
-            "url":"https://petersapparel.parseapp.com",
-            "title":"nodejs"
-          }
-        ]
-      }
-    }
-  }*/
+
       }
       }
         callSendAPI(messageData);
