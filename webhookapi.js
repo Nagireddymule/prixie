@@ -184,7 +184,10 @@ function sendTextMessage(recipientId, messageText) {
       }*/
     }]
       }
-callSendAPI(messageData);
+      for (var i = 0; i < messageData.length; i++) {
+        callSendAPI(messageData[i]);
+      }
+
     }else {
       console.log("no parameters");
           var textmsg = response.result.fulfillment.speech;
