@@ -80,11 +80,12 @@ function sendTextMessage(recipientId, messageText) {
         },
         "message":{"text":"choose a catogory","buttons":[
       {
-        "type":"postback",
-        "title":"Bookmark Item",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD"
+        "content_type":"text",
+        "title":"java",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
       }
-    ]}
+    ]
+  }
 
         /*
         "message":{
