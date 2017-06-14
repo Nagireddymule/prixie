@@ -141,7 +141,7 @@ function sendTextMessage(recipientId, messageText) {
     "type":"template",
     "payload":{
       "template_type":"button",
-      "text":"",
+      "text":">",
       "buttons":[
         {
           "type":"web_url",
