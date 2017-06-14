@@ -100,8 +100,8 @@ function sendTextMessage(recipientId, messageText) {
               url:"https://prixie-api.herokuapp.com/tutorials_list",
               method:"get"
           },function(error,res){
-
-            console.log(res.body);
+            var tutlist = JSON.parse(res.body);
+            console.log(tutlist);
           });
 
         var messageData ={
