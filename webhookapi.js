@@ -80,9 +80,9 @@ function sendTextMessage(recipientId, messageText) {
         },
         "message":{
       "attachment":{
-        "type":"template",
+        //"type":"template",
         "payload":{
-          "template_type":"button",
+        //  "template_type":"button",
           "text":"What do you want to do next?",
           "buttons":[
             {
