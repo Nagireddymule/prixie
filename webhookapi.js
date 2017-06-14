@@ -102,47 +102,27 @@ function sendTextMessage(recipientId, messageText) {
           },function(error,res){
             var tutlist = JSON.parse(res.body);
             console.log(tutlist);
+            var listarr = [];
+for (var i = 0; i < tutlist.length; i++) {
+  //tutlist[i]
+  listarr.push({"content_type":"test","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
+}
+            var messageData ={
+            "recipient":{
+              "id":recipientId
+            },"message":{
+            "text":"choose a Tutorial",
+            "quick_replies":listarr
+            }
+            }
+
           });
 
-        var messageData ={
-        "recipient":{
-          "id":recipientId
-        },"message":{
-    "text":"choose a subject",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"java",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-      },
-      {
-        "content_type":"text",
-        "title":".net",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },{
-        "content_type":"text",
-        "title":"javascript",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },{
-        "content_type":"text",
-        "title":"nodejs",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },{
-        "content_type":"text",
-        "title":"Mysql",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      },
-      {
-        "content_type":"text",
-        "title":"Android",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-      }
-    ]
-  }
 
 
 
-  }
+
+
       }
         callSendAPI(messageData);
     }else {
