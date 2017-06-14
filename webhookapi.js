@@ -77,7 +77,7 @@ function sendTextMessage(recipientId, messageText) {
         var messageData ={
         "recipient":{
           "id":recipientId
-        },"message":"message":{
+        },"message":{
     "attachment":{
       "type":"template",
       "payload":{
