@@ -91,10 +91,10 @@ function sendTextMessage(recipientId, messageText) {
                     "subtitle": "100% Cotton, 200% Comfortable",
                     "default_action": {
                         "type": "web_url",
-                        "url": "",
+                        "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
                         "messenger_extensions": true,
                         "webview_height_ratio": "tall",
-                        "fallback_url": ""
+                        "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
                     },
                     "buttons": [
                         {
@@ -103,7 +103,7 @@ function sendTextMessage(recipientId, messageText) {
                             "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
                             "messenger_extensions": true,
                             "webview_height_ratio": "tall",
-                            "fallback_url": ""
+                            "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
                         }
                     ]
                 },
@@ -113,10 +113,10 @@ function sendTextMessage(recipientId, messageText) {
                     "subtitle": "100% Cotton, 200% Comfortable",
                     "default_action": {
                         "type": "web_url",
-                        "url": "",
+                        "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
                         "messenger_extensions": true,
                         "webview_height_ratio": "tall",
-                        "fallback_url": ""
+                        "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
                     },
                     "buttons": [
                         {
@@ -125,7 +125,7 @@ function sendTextMessage(recipientId, messageText) {
                             "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
                             "messenger_extensions": true,
                             "webview_height_ratio": "tall",
-                            "fallback_url": ""
+                            "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
                         }
                     ]
                 }
