@@ -140,7 +140,7 @@ for (var i = 0; i < today.length; i++) {
     "quick_replies":[
 
       {
-        "content_type":"text",
+        "content_type":"button",
         "title":"more",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
