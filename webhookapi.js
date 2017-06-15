@@ -30,7 +30,7 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
-          //console.log(event);
+          console.log(event);
         }
       });
     });
@@ -107,7 +107,6 @@ var listarrdata = JSON.stringify(listarr);
     "quick_replies":listarrdata
   }
 }
-console.log(messageData);
   callSendAPI(messageData);
           });
 
