@@ -112,7 +112,7 @@ function sendTextMessage(recipientId, messageText) {
       if(response.result.parameters.schedule) {
         console.log("parameter came as schedule");
         request({
-          url:"https://prixie-api.herokuapp.com/interview_schedules/0/10",
+          url:"https://prixie-api.herokuapp.com/interview_schedules/0/5",
           method:"Get"
         },function(error,res){
           var today = JSON.parse(res.body);
