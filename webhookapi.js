@@ -122,7 +122,7 @@ function sendTextMessage(recipientId, messageText) {
           var companies = [];
 for (var i = 0; i < today.length; i++) {
 
-  var data = data+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+" ";
+  var data = data+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+" ");
   companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
 
