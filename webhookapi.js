@@ -122,12 +122,13 @@ function sendTextMessage(recipientId, messageText) {
           var companies = [];
           var data1 = "";
 for (var i = 0; i < today.length; i++) {
+  console.log(data1);
   data1 = data1+today[i].company
   //data = data+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n");
   //companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
 
-console.log(data1);
+
           for (var i = 0; i < 10; i++) {
             var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
           //  console.log(comapanyData);
