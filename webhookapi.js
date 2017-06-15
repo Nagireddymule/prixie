@@ -129,7 +129,7 @@ for (var i = 0; i < today.length; i++) {
             console.log(comapanyData);
             callSendAPI(comapanyData);
           }
-          var messageData = { 
+          var messageData = {
   "recipient":{
     "id":recipientId
   },
@@ -148,7 +148,8 @@ for (var i = 0; i < today.length; i++) {
       }
     ]
   }
-}           callSendAPI(messageData);
+};           
+callSendAPI(messageData);
         });
 
       }
