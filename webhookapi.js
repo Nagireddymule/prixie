@@ -30,7 +30,7 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
-          console.log(event);
+          console.log("logging event object"+event);
         }
       });
     });
@@ -120,10 +120,7 @@ function sendTextMessage(recipientId, messageText) {
           var companies = [];
           var data1 = "";
 for (var i = 0; i < today.length; i++) {
-  //console.log(data1);
-  //data1 = data1+today[i].company.toString();
   data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
-  //companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
             var messageData = {
                 "recipient":{
