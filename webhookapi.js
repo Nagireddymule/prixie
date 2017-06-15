@@ -121,11 +121,12 @@ console.log(listarr);
     ]
   }
 }
+console.log(messageData);
+  callSendAPI(messageData);
           });
 
       }
-      console.log(messageData);
-        callSendAPI(messageData);
+
     }else {
       console.log("no parameters");
           var textmsg = response.result.fulfillment.speech;
