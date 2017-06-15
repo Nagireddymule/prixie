@@ -30,8 +30,8 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
-          console.log("logging event object");
-          console.log(event);
+          //console.log("logging event object");
+          //console.log(event);
         }
       });
     });
@@ -47,6 +47,7 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
   if (messageText) {
     console.log("text message came");
+    console.log(messageText);
         sendTextMessage(senderID, messageText);
     } else if (messageAttachments) {
       console.log("attachment came");
@@ -119,9 +120,9 @@ function sendTextMessage(recipientId, messageText) {
         },function(error,res){
           var today = JSON.parse(res.body);
           var data1 = "";
-for (var i = 0; i < today.length; i++) {
-  data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
-}
+          for (var i = 0; i < today.length; i++) {
+            data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
+          }
             var messageData = {
                 "recipient":{
                     "id":recipientId
