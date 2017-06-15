@@ -112,6 +112,14 @@ function sendTextMessage(recipientId, messageText) {
 
       }
       if(response.result.parameters.schedule) {
+        var url=
+        request({
+          url:"https://prixie-api.herokuapp.com/interview_schedules",
+          method:"Get"},function(error,res){
+            console.log(res.body);
+          })
+
+
         console.log("parameter came as schedule");
       }
 
