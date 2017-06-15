@@ -120,17 +120,18 @@ function sendTextMessage(recipientId, messageText) {
           var today = JSON.parse(res.body);
           //console.log(today);
           var companies = [];
+          var data = "";
 for (var i = 0; i < today.length; i++) {
 
-  var data = data+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+" ");
+  data = data+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+" ");
   companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
 
-
+console.log(data);
           for (var i = 0; i < 10; i++) {
             var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
-            console.log(comapanyData);
-            callSendAPI(comapanyData);
+          //  console.log(comapanyData);
+            //callSendAPI(comapanyData);
           }
 
           var messageData = {
@@ -149,7 +150,7 @@ for (var i = 0; i < today.length; i++) {
     ]
   }
 };
-callSendAPI(messageData);
+//callSendAPI(messageData);
         });
 
       }
