@@ -95,7 +95,7 @@ function sendTextMessage(recipientId, messageText) {
             var tutlist = JSON.parse(res.body);
             //console.log(tutlist);
             var listarr = [];
-for (var i = 0; i < tutlist.length; i++) {
+for (var i = 0; i < 10; i++) {
   //tutlist[i]
   listarr.push({"content_type":"text","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
 }
