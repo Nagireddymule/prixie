@@ -123,7 +123,7 @@ function sendTextMessage(recipientId, messageText) {
           var data1 = "";
 for (var i = 0; i < today.length; i++) {
   console.log(data1);
-  data1 = data1+today[i].company
+  data1 = data1+today[i].company.toString();
   //data = data+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n");
   //companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
