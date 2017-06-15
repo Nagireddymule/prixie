@@ -126,8 +126,8 @@ for (var i = 0; i < today.length; i++) {
   websites.push("http://todaywalkins.com/"+today[i].website);
 }
 console.log(companies);console.log(websites);
-
           console.log(today.length);
+          
           for (var i = 0; i < today.length; i++) {
             var messageData = {
               recipient: {
