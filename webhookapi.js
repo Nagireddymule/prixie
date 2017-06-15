@@ -102,14 +102,25 @@ for (var i = 0; i < tutlist.length; i++) {
 var listarrdata = JSON.stringify(listarr);
 console.log(listarr);
             var messageData ={
-            "recipient":{
-              "id":recipientId
-            },"message":{
-            "text":"choose a Tutorial",
-            "quick_replies":[{"content_type":"text","title":"java","payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_JAVA"},
-                              {"content_type":"text","title":"javascript","payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_JAVA"}]
-            }
-            }
+  "recipient":{
+    "id":"USER_ID"
+  },
+  "message":{
+    "text":"Pick a color:",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Red",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+      },
+      {
+        "content_type":"text",
+        "title":"Green",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
+    ]
+  }
+}
           });
 
       }
