@@ -45,6 +45,13 @@ function receivedMessage(event) {
   var message = event.message;
   var messageText = message.text;
   var messageAttachments = message.attachments;
+  if (message.quick_replies.payload) {
+    console.log("quick_replies came");
+  }
+
+
+
+
   if (messageText) {
     console.log("text message came");
     console.log(messageText);
