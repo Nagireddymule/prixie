@@ -45,24 +45,16 @@ function receivedMessage(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
   if (messageText) {
-console.log("text message came");
-switch (messageText) {
-      case 'generic':
-        sendGenericMessage(senderID);
-        break;
-
-      default:
+    console.log("text message came");
         sendTextMessage(senderID, messageText);
-    }
     } else if (messageAttachments) {
-console.log("attachment came");
+      console.log("attachment came");
       sendAttachmentMessage(senderID, messageText);
     }
 }
-function sendGenericMessage(recipientId, messageText) {
+/*function sendGenericMessage(recipientId, messageText) {
   console.log("generic message received");
-}
-
+}*/
 
 //for response as a text
 function sendTextMessage(recipientId, messageText) {
