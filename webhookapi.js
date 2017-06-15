@@ -124,8 +124,8 @@ for (var i = 0; i < 10; i++) {
   companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
 
-        companies.forEach(function(i) {
-          var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
+        companies.forEach(function(ele) {
+          var comapanyData = {recipient: {id: recipientId},message: {text:companies[ele] } };
           console.log(comapanyData);
           callSendAPI(comapanyData);
 });
