@@ -131,6 +131,7 @@ function sendTextMessage(recipientId, messageText) {
                 text: walkins
               }
           };
+          console.log(messageData);
           callSendAPI(messageData);
         });
 
