@@ -130,7 +130,7 @@ function sendTextMessage(recipientId, messageText) {
                 }
             };
             console.log(messageData);
-
+            callSendAPI(messageData);
           //  walkins.push({"company name ":today[i].company,"website ":"http://todaywalkins.com/"+today[i].website});
             //walkins.push({" "+today[i].company:"http://todaywalkins.com/"+today[i].website});
           }
