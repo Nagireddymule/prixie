@@ -119,7 +119,7 @@ function sendTextMessage(recipientId, messageText) {
         },function(error,res){
           var today = JSON.parse(res.body);
           var walkins = [];
-          for (var i = 0; i < walkins.length; i++) {
+          for (var i = 0; i < today.length; i++) {
             var messageData = {
               recipient: {
                 id: recipientId
