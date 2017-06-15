@@ -137,7 +137,6 @@ function sendTextMessage(recipientId, messageText) {
         });
 
 
-
       }
 
 
