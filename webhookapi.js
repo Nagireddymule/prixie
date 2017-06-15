@@ -134,7 +134,7 @@ console.log(companies);console.log(websites);
                 id: recipientId
               },
               message: {
-                  text:
+                  text:"h"
                 }
             };
             //console.log(messageData);
