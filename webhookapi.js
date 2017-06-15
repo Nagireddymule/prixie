@@ -114,7 +114,7 @@ console.log(listarrdata);
               id:recipientId
             },"message":{
             "text":"choose a Tutorial",
-            "quick_replies":listarrdata
+            "quick_replies":'listarrdata'
             }
             }
 
