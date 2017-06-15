@@ -123,19 +123,35 @@ function sendTextMessage(recipientId, messageText) {
 for (var i = 0; i < today.length; i++) {
   companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
-
-          console.log(today.length);
           for (var i = 0; i < 10; i++) {
+
             var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
             console.log(comapanyData);
             callSendAPI(comapanyData);
           }
-
+          var messageData = {
+  "recipient":{
+    "id":recipientId
+  },
+  "message":{
+    "text":"want more click here",
+    "quick_replies":[
+      {
+        "content_type":"text",
+        "title":"Red",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+      },
+      {
+        "content_type":"text",
+        "title":"Green",
+        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      }
+    ]
+  }
+}           callSendAPI(messageData);
         });
 
-
       }
-
 
     else {
       console.log("no parameters");
