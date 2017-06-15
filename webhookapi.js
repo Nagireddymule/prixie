@@ -61,7 +61,7 @@ function sendTextMessage(recipientId, messageText) {
   });
 
   msg.on('response', function(response) {
-
+    console.log(response.result.parameters);
     if (response.result.parameters.tutorials||response.result.parameters.subject) {
         console.log("got parameter");
         if (response.result.parameters.subject) {
@@ -103,7 +103,7 @@ var listarrdata = JSON.stringify(listarr);
     "id":recipientId
   },
   "message":{
-    "text":"Pick a color:",
+    "text":"Choose a tutorial:",
     "quick_replies":listarrdata
   }
 }
