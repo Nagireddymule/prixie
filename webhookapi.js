@@ -103,7 +103,7 @@ var listarrdata = JSON.stringify(listarr);
 console.log(listarr);
             var messageData ={
   "recipient":{
-    "id":"USER_ID"
+    "id":recipientId
   },
   "message":{
     "text":"Pick a color:",
