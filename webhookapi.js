@@ -118,7 +118,7 @@ function sendTextMessage(recipientId, messageText) {
           method:"Get"
         },function(error,res){
           var today = JSON.parse(res.body);
-          console.log(today);
+          //console.log(today);
           var walkins = [];
           console.log(today.length);
           for (var i = 0; i < today.length; i++) {
@@ -127,7 +127,7 @@ function sendTextMessage(recipientId, messageText) {
                 id: recipientId
               },
               message: {
-                  text: "as"
+                  text: today[i].comapny
                 }
             };
             console.log(messageData);
