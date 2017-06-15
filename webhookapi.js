@@ -30,7 +30,7 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
-          console.log(event);
+          //console.log(event);
         }
       });
     });
@@ -52,8 +52,6 @@ function receivedMessage(event) {
       sendAttachmentMessage(senderID, messageText);
     }
 }
-
-
 //for response as a text
 function sendTextMessage(recipientId, messageText) {
   var msg = api.textRequest(messageText, {
@@ -93,26 +91,32 @@ function sendTextMessage(recipientId, messageText) {
             var tutlist = JSON.parse(res.body);
             //console.log(tutlist);
             var listarr = [];
-for (var i = 0; i < 10; i++) {
+            for (var i = 0; i < 10; i++) {
   //tutlist[i]
-  listarr.push({"content_type":"text","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
-}
-var listarrdata = JSON.stringify(listarr);
+          listarr.push({"content_type":"text","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
+          }
+            var listarrdata = JSON.stringify(listarr);
             var messageData ={
-  "recipient":{
-    "id":recipientId
-  },
-  "message":{
-    "text":"Choose a tutorial:",
-    "quick_replies":listarrdata
-  }
-}
-  callSendAPI(messageData);
+              "recipient":{
+                "id":recipientId
+              },
+                "message":{
+                  "text":"Choose a tutorial:",
+                  "quick_replies":listarrdata
+                }
+              }
+              callSendAPI(messageData);
           });
 
+        }
+
+      }
+      else if (response.result.parameters.schedule) {
+        console.log("parameter came as schedule");
       }
 
-    }else {
+
+    else {
       console.log("no parameters");
           var textmsg = response.result.fulfillment.speech;
           var messageData = {
@@ -125,7 +129,8 @@ var listarrdata = JSON.stringify(listarr);
           };
           callSendAPI(messageData);
     }
-  });
+
+  });//closing of apiai msg.on(response) function
   msg.on('error', function(error) {
     console.log(error);
   });
