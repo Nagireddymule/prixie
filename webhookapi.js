@@ -119,7 +119,14 @@ function sendTextMessage(recipientId, messageText) {
         },function(error,res){
           var today = JSON.parse(res.body);
           //console.log(today);
-          var walkins = [];
+          var companies = [];
+          var websites = [];
+for (var i = 0; i < today.length; i++) {
+  companies.push(today[i].company);
+  websites.push(today[i].website);
+}
+console.log(companies);console.log(websites);
+
           console.log(today.length);
           for (var i = 0; i < today.length; i++) {
             var messageData = {
@@ -127,10 +134,10 @@ function sendTextMessage(recipientId, messageText) {
                 id: recipientId
               },
               message: {
-                  text: JSON.stringify(today[i].comapny)
+                  text:
                 }
             };
-            console.log(messageData);
+            //console.log(messageData);
             //callSendAPI(messageData);
           //  walkins.push({"company name ":today[i].company,"website ":"http://todaywalkins.com/"+today[i].website});
             //walkins.push({" "+today[i].company:"http://todaywalkins.com/"+today[i].website});
