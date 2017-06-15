@@ -114,7 +114,8 @@ console.log(listarr);
               id:recipientId
             },"message":{
             "text":"choose a Tutorial",
-            "quick_replies":listarr
+            "quick_replies":[{"content_type":"text","title":"java","payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_JAVA"},
+                              {"content_type":"text","title":"javascript","payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_JAVA"}]
             }
             }
           });
