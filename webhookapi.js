@@ -45,9 +45,7 @@ function receivedMessage(event) {
   var message = event.message;
   var messageText = message.text;
   var messageAttachments = message.attachments;
-  if (message.quick_replies.text == more) {
-    console.log("quick_replies came");
-  }
+  console.log(message);
 
 
 
