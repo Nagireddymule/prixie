@@ -124,17 +124,13 @@ for (var i = 0; i < 10; i++) {
   companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
 
-        companies.forEach(function(ele) {
-          var comapanyData = {recipient: {id: recipientId},message: {text:companies[ele] } };
-          console.log(comapanyData);
-          callSendAPI(comapanyData);
-});
-      /*    for (var i = 0; i < 10; i++) {
+
+          for (var i = 0; i < 10; i++) {
 
             var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
             console.log(comapanyData);
             callSendAPI(comapanyData);
-          }*/
+          }
           var messageData = {
   "recipient":{
     "id":recipientId
