@@ -119,21 +119,31 @@ function sendTextMessage(recipientId, messageText) {
         },function(error,res){
           var today = JSON.parse(res.body);
           var walkins = [];
-          for (var i = 0; i < 5; i++) {
+          for (var i = 0; i < walkins.length; i++) {
+            var messageData = {
+              recipient: {
+                id: recipientId
+              },
+              message: {
+                  text: today[i].company
+                }
+            };
+            console.log(messageData);
+
           //  walkins.push({"company name ":today[i].company,"website ":"http://todaywalkins.com/"+today[i].website});
-            walkins.push({" "+today[i].company:"http://todaywalkins.com/"+today[i].website});
+            //walkins.push({" "+today[i].company:"http://todaywalkins.com/"+today[i].website});
           }
-          console.log(walkins);
-          var messageData = {
+          //console.log(walkins);
+          /*var messageData = {
             recipient: {
               id: recipientId
             },
             message: {
                 text: JSON.stringify(walkins)
               }
-          };
-          console.log(messageData);
-          callSendAPI(messageData);
+          };*/
+          //console.log(messageData);
+          //callSendAPI(messageData);
         });
 
 
