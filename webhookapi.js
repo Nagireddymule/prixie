@@ -119,13 +119,14 @@ function sendTextMessage(recipientId, messageText) {
         },function(error,res){
           var today = JSON.parse(res.body);
           var walkins = [];
+          console.log(today.length);
           for (var i = 0; i < today.length; i++) {
             var messageData = {
               recipient: {
                 id: recipientId
               },
               message: {
-                  text: today[i].company
+                  text: "hello"
                 }
             };
             console.log(messageData);
