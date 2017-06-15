@@ -137,10 +137,10 @@ for (var i = 0; i < today.length; i++) {
   "message":{
     "text":"want more click here",
     "quick_replies":[
-      
+
       {
         "content_type":"text",
-        "title":"Green",
+        "title":"more",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
     ]
