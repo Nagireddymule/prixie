@@ -105,7 +105,7 @@ function sendTextMessage(recipientId, messageText) {
             var listarr = [];
 for (var i = 0; i < tutlist.length; i++) {
   //tutlist[i]
-  listarr.push({"content_type":"test","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
+  listarr.push({"content_type":"text","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
 }
 var listarrdata = JSON.stringify(listarr);
 console.log(listarrdata);
@@ -114,16 +114,10 @@ console.log(listarrdata);
               id:recipientId
             },"message":{
             "text":"choose a Tutorial",
-            "quick_replies":'listarrdata'
+            "quick_replies":listarrdata
             }
             }
-
           });
-
-
-
-
-
 
       }
         callSendAPI(messageData);
