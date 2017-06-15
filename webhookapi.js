@@ -59,7 +59,7 @@ function sendTextMessage(recipientId, messageText) {
   });
 
   msg.on('response', function(response) {
-    console.log(response.result.parameters);
+    console.log(response.result);
     if (response.result.parameters.tutorials||response.result.parameters.subject) {
         console.log("got parameter");
         if (response.result.parameters.subject) {
