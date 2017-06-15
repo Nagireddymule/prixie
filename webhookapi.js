@@ -129,18 +129,12 @@ for (var i = 0; i < today.length; i++) {
           console.log(today.length);
 
           for (var i = 0; i < today.length; i++) {
-            var messageData = {
-              recipient: {
-                id: recipientId
-              },
-              message: {
-                  text:companies[i]
-                }
-            };
-            console.log(messageData);
-            //callSendAPI(messageData);
-          //  walkins.push({"company name ":today[i].company,"website ":"http://todaywalkins.com/"+today[i].website});
-            //walkins.push({" "+today[i].company:"http://todaywalkins.com/"+today[i].website});
+            var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
+            console.log(comapanyData);
+            callSendAPI(comapanyData);
+            var webData = {recipient: {id: recipientId},message: {text:websites[i] } };
+            console.log(webData);
+            callSendAPI(webData);
           }
           //console.log(walkins);
           /*var messageData = {
