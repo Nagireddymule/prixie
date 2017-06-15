@@ -112,16 +112,16 @@ function sendTextMessage(recipientId, messageText) {
       if(response.result.parameters.schedule) {
         console.log("parameter came as schedule");
         request({
-          url:"https://prixie-api.herokuapp.com/interview_schedules",
+          url:"https://prixie-api.herokuapp.com/interview_schedules/0/10",
           method:"Get"
         },function(error,res){
           var today = JSON.parse(res.body);
           //console.log(today);
           var companies = [];
-        //  var data1 = "";
+          var data1 = "";
 for (var i = 0; i < today.length; i++) {
-  //console.log(data1);
-  //data1 = data1+today[i].company.toString();
+  console.log(data1);
+  data1 = data1+today[i].company.toString();
   //data = data+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n");
   companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
