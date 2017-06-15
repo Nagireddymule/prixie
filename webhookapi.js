@@ -114,12 +114,10 @@ function sendTextMessage(recipientId, messageText) {
       if(response.result.parameters.schedule) {
         console.log("parameter came as schedule");
         request({
-          url:"https://prixie-api.herokuapp.com/interview_schedules/0/5",
+          url:"https://prixie-api.herokuapp.com/interview_schedules/0/100",
           method:"Get"
         },function(error,res){
           var today = JSON.parse(res.body);
-          //console.log(today);
-          var companies = [];
           var data1 = "";
 for (var i = 0; i < today.length; i++) {
   data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
