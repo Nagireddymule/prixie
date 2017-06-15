@@ -123,6 +123,15 @@ function sendTextMessage(recipientId, messageText) {
             walkins.push({"company name ":today[i].company,"website ":"http://todaywalkins.com/"+today[i].website});
           }
           console.log(walkins);
+          var messageData = {
+            recipient: {
+              id: recipientId
+            },
+            message: {
+                text: walkins
+              }
+          };
+          callSendAPI(messageData);
         });
 
 
