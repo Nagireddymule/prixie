@@ -127,7 +127,7 @@ function sendTextMessage(recipientId, messageText) {
                 id: recipientId
               },
               message: {
-                  text: JSON.stringify(today[])
+                  text: "as"
                 }
             };
             console.log(messageData);
