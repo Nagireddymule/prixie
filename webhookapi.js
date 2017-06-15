@@ -30,7 +30,8 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
-          console.log("logging event object"+event);
+          console.log("logging event object");
+          console.log(event);
         }
       });
     });
@@ -59,7 +60,8 @@ function sendTextMessage(recipientId, messageText) {
   });
 
   msg.on('response', function(response) {
-    console.log(response.result);
+    console.log("parameters object log");
+    console.log(response.result.parameters);
     if (response.result.parameters.tutorials||response.result.parameters.subject) {
         console.log("got parameter");
         if (response.result.parameters.subject) {
