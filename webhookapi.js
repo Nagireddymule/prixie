@@ -120,7 +120,7 @@ function sendTextMessage(recipientId, messageText) {
           var today = JSON.parse(res.body);
           var walkins = [];
           for (var i = 0; i < 5; i++) {
-            walkins.push({"company name ":today[i].company,"website ":"http://todaywalkins.com/"+today[i].website});
+          //  walkins.push({"company name ":today[i].company,"website ":"http://todaywalkins.com/"+today[i].website});
             walkins.push({today[i].company:"http://todaywalkins.com/"+today[i].website});
           }
           console.log(walkins);
