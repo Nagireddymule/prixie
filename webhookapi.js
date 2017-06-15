@@ -112,15 +112,21 @@ function sendTextMessage(recipientId, messageText) {
 
       }
       if(response.result.parameters.schedule) {
-        var url=
+        console.log("parameter came as schedule");
         request({
           url:"https://prixie-api.herokuapp.com/interview_schedules",
-          method:"Get"},function(error,res){
-            console.log(res.body);
-          })
+          method:"Get"
+        },function(error,res){
+          var today = JSON.parse(res.body);
+          var walkins = [];
+          for (var i = 0; i < today.length; i++) {
+            walkins.push({"company name ":today[i].company,"website ":"http://todaywalkins.com/"+today[i].website});
+          }
+          console.log(walkins);
+        });
 
 
-        console.log("parameter came as schedule");
+
       }
 
 
