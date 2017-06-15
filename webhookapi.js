@@ -127,7 +127,7 @@ function sendTextMessage(recipientId, messageText) {
                 id: recipientId
               },
               message: {
-                  text: today[i].comapny
+                  text: JSON.stringify(today[i].comapny)
                 }
             };
             console.log(messageData);
