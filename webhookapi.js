@@ -128,7 +128,7 @@ function sendTextMessage(recipientId, messageText) {
               id: recipientId
             },
             message: {
-                text: walkins
+                text: JSON.stringify(walkins)
               }
           };
           console.log(messageData);
