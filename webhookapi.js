@@ -130,6 +130,7 @@ for (var i = 0; i < today.length; i++) {
             console.log(comapanyData);
             callSendAPI(comapanyData);
           }
+          
           var messageData = {
   "recipient":{
     "id":recipientId
