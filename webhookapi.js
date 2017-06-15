@@ -52,9 +52,7 @@ function receivedMessage(event) {
       sendAttachmentMessage(senderID, messageText);
     }
 }
-/*function sendGenericMessage(recipientId, messageText) {
-  console.log("generic message received");
-}*/
+
 
 //for response as a text
 function sendTextMessage(recipientId, messageText) {
@@ -100,7 +98,6 @@ for (var i = 0; i < 10; i++) {
   listarr.push({"content_type":"text","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
 }
 var listarrdata = JSON.stringify(listarr);
-console.log(listarr);
             var messageData ={
   "recipient":{
     "id":recipientId
