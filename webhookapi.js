@@ -125,29 +125,22 @@ for (var i = 0; i < today.length; i++) {
   data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
   //companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
-      /*    for (var i = 0; i < 10; i++) {
-            var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
-            console.log(comapanyData);
-            //callSendAPI(comapanyData);
-          }
-*/
-          var messageData = {
-  "recipient":{
-    "id":recipientId
-  },
-  "message":{
-    "text":data1,
-    "quick_replies":[
-
-      {
-        "content_type":"text",
-        "title":"more",
-        "payload":"5"
-      }
-    ]
-  }
-};
-callSendAPI(messageData);
+            var messageData = {
+                "recipient":{
+                    "id":recipientId
+                    },
+                    "message":{
+                      "text":data1,
+                      "quick_replies":[
+                        {
+                          "content_type":"text",
+                          "title":"more",
+                          "payload":"5"
+                        }
+                      ]
+                    }
+                  };
+                  callSendAPI(messageData);
         });
 
       }
