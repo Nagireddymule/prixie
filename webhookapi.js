@@ -127,18 +127,18 @@ for (var i = 0; i < today.length; i++) {
 }
 
 
-          for (var i = 0; i < 10; i++) {
+      /*    for (var i = 0; i < 10; i++) {
             var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
             console.log(comapanyData);
             //callSendAPI(comapanyData);
           }
-
+*/
           var messageData = {
   "recipient":{
     "id":recipientId
   },
   "message":{
-    "text":".",
+    "text":data1,
     "quick_replies":[
 
       {
@@ -149,7 +149,7 @@ for (var i = 0; i < today.length; i++) {
     ]
   }
 };
-//callSendAPI(messageData);
+callSendAPI(messageData);
         });
 
       }
