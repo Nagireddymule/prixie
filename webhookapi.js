@@ -131,7 +131,7 @@ for (var i = 0; i < today.length; i++) {
           for (var i = 0; i < 10; i++) {
             var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
             console.log(comapanyData);
-            //callSendAPI(comapanyData);
+            callSendAPI(comapanyData);
             //var webData = {recipient: {id: recipientId},message: {text:websites[i] } };
             //console.log(webData);
             //callSendAPI(webData);
