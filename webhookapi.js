@@ -111,7 +111,7 @@ function sendTextMessage(recipientId, messageText) {
         }
 
       }
-      if (response.result.parameters.schedule) {
+      if(response.result.parameters.date) {
         console.log("parameter came as schedule");
       }
 
