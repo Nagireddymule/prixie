@@ -120,13 +120,12 @@ function sendTextMessage(recipientId, messageText) {
           var today = JSON.parse(res.body);
           //console.log(today);
           var companies = [];
-for (var i = 0; i < 10; i++) {
+for (var i = 0; i < today.length; i++) {
   companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
 
 
           for (var i = 0; i < 10; i++) {
-
             var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
             console.log(comapanyData);
             callSendAPI(comapanyData);
@@ -138,11 +137,7 @@ for (var i = 0; i < 10; i++) {
   "message":{
     "text":"want more click here",
     "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Red",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-      },
+      
       {
         "content_type":"text",
         "title":"Green",
