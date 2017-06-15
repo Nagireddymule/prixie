@@ -110,8 +110,8 @@ for (var i = 0; i < tutlist.length; i++) {
 var listarrdata = JSON.stringify(listarr);
 console.log(listarr);
             var messageData ={
-            recipient:{
-              id:recipientId
+            "recipient":{
+              "id":recipientId
             },"message":{
             "text":"choose a Tutorial",
             "quick_replies":[{"content_type":"text","title":"java","payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_JAVA"},
