@@ -30,8 +30,8 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
-          //console.log("logging event object");
-          //console.log(event);
+          console.log("logging event object");
+          console.log(event);
         }
       });
     });
@@ -45,14 +45,6 @@ function receivedMessage(event) {
   var message = event.message;
   var messageText = message.text;
   var messageAttachments = message.attachments;
-  console.log(message);
-  if (message.quick_replies) {
-console.log("quick_replies came");
-  }
-
-
-
-
   if (messageText) {
     console.log("text message came");
     console.log(messageText);
