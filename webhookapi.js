@@ -121,6 +121,8 @@ function sendTextMessage(recipientId, messageText) {
           //console.log(today);
           var companies = [];
 for (var i = 0; i < today.length; i++) {
+
+  var data = data+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+" ";
   companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
 
@@ -140,7 +142,7 @@ for (var i = 0; i < today.length; i++) {
     "quick_replies":[
 
       {
-        "content_type":"button",
+        "content_type":"text",
         "title":"more",
         "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
       }
