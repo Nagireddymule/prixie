@@ -123,8 +123,8 @@ function sendTextMessage(recipientId, messageText) {
           var data = "";
 for (var i = 0; i < today.length; i++) {
 
-  data = data+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+" ");
-  companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
+  data = data+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n");
+  //companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
 }
 
 console.log(data);
