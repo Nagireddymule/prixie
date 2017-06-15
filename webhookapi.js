@@ -124,6 +124,7 @@ console.log(listarr);
           });
 
       }
+      console.log(messageData);
         callSendAPI(messageData);
     }else {
       console.log("no parameters");
