@@ -120,21 +120,15 @@ function sendTextMessage(recipientId, messageText) {
           var today = JSON.parse(res.body);
           //console.log(today);
           var companies = [];
-          var websites = [];
 for (var i = 0; i < today.length; i++) {
   companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
-  //websites.push(" http://todaywalkins.com/"+today[i].website);
 }
-//console.log(companies);console.log(websites);
-          console.log(today.length);
 
-          for (var i = 0; i < 30; i++) {
+          console.log(today.length);
+          for (var i = 0; i < 10; i++) {
             var comapanyData = {recipient: {id: recipientId},message: {text:companies[i] } };
             console.log(comapanyData);
             callSendAPI(comapanyData);
-            //var webData = {recipient: {id: recipientId},message: {text:websites[i] } };
-            //console.log(webData);
-            //callSendAPI(webData);
           }
 
         });
