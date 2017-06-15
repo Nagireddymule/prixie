@@ -30,7 +30,7 @@ app.post('/webhook', function (req, res) {
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
-          //console.log(event);
+          console.log(event);
         }
       });
     });
@@ -120,7 +120,7 @@ function sendTextMessage(recipientId, messageText) {
           var companies = [];
           var data1 = "";
 for (var i = 0; i < today.length; i++) {
-  console.log(data1);
+  //console.log(data1);
   //data1 = data1+today[i].company.toString();
   data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n");
   companies.push(today[i].company+":\n http://todaywalkins.com/"+today[i].website);
@@ -144,7 +144,7 @@ for (var i = 0; i < today.length; i++) {
       {
         "content_type":"text",
         "title":"more",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+        "payload":"5"
       }
     ]
   }
