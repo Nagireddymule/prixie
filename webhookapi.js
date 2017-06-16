@@ -48,6 +48,45 @@ function receivedMessage(event) {
     console.log("in quick_reply");
     messageText = "";
     console.log(message.quick_reply);
+
+
+
+    request({
+      url:"https://prixie-api.herokuapp.com/interview_schedules/5/10",
+      method:"Get"
+    },function(error,res){
+      var today = JSON.parse(res.body);
+      var data1 = "";
+      for (var i = 0; i < today.length; i++) {
+        data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
+      }
+        var messageData = {
+            "recipient":{
+                "id":recipientId
+                },
+                "message":{
+                  "text":data1,
+                  "quick_replies":[
+                    {
+                      "content_type":"text",
+                      "title":"more",
+                      "payload":"5"
+                    }
+                  ]
+                }
+              };
+              callSendAPI(messageData);
+    });
+
+
+
+
+
+
+
+
+
+
   }
 
   var messageAttachments = message.attachments;
@@ -59,7 +98,7 @@ function receivedMessage(event) {
       console.log("attachment came");
       sendAttachmentMessage(senderID, messageText);
     }
-}
+}//closing of receivedMessage function
 //for response as a text
 function sendTextMessage(recipientId, messageText) {
   var msg = api.textRequest(messageText, {
