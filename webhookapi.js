@@ -31,7 +31,7 @@ app.post('/webhook', function (req, res) {
         if (event.message) {
           receivedMessage(event);
           console.log("logging event object");
-          console.log(event);
+        //  console.log(event);
         }
       });
     });
@@ -46,9 +46,9 @@ function receivedMessage(event) {
   var messageText = message.text;
 
   if (message.quick_reply) {
-    console.log("in quick_reply");
+    //console.log("in quick_reply");
     messageText = "";
-    console.log(message.quick_reply);
+  //  console.log(message.quick_reply);
   var data1 = "";
 
     request({
@@ -78,15 +78,15 @@ function receivedMessage(event) {
             }
           };
 
-          console.log(messageData);
+          //console.log(messageData);
           callSendAPI(messageData);
     });
   }
 
   var messageAttachments = message.attachments;
   if (messageText) {
-    console.log("text message came");
-    console.log(messageText);
+    //console.log("text message came");
+    //console.log(messageText);
         sendTextMessage(senderID, messageText);
     } else if (messageAttachments) {
       console.log("attachment came");
@@ -221,8 +221,9 @@ function sendAttachmentMessage(recipientId, messageText) {
 }
 
 function callSendAPI(messageData) {
+  console.log(messageData);
   request({
-    uri: 'https://graph.facebook.com/v2.6/me/messages',
+    uri: 'https://graph.facebook.com/v2.8/me/messages',
     qs: { access_token: token },
     method: 'POST',
     json: messageData
@@ -233,8 +234,8 @@ function callSendAPI(messageData) {
       console.log("Successfully sent generic message with id %s to recipient %s",
         messageId, recipientId);
     } else {
-      console.error("Unable to send message.");
-      console.log(body);
+      //console.error("Unable to send message.");
+      //console.log(body);
     }
   });
 }
