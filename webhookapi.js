@@ -61,7 +61,7 @@ function receivedMessage(event) {
         data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
       }
     });
-
+    console.log(data1);
     var messageData = {
         "recipient":{
             "id":recipientID
