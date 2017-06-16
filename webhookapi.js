@@ -60,14 +60,14 @@ function receivedMessage(event) {
       for (var i = 0; i < today.length; i++) {
         data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
       }
-    });
+
     console.log(data1);
     var messageData = {
         "recipient":{
             "id":recipientID
             },
             "message":{
-              "text":"hello",
+              "text":data1,
               "quick_replies":[
                 {
                   "content_type":"text",
@@ -78,9 +78,9 @@ function receivedMessage(event) {
             }
           };
 
-    console.log(messageData);
-    callSendAPI(messageData);
-
+          console.log(messageData);
+          callSendAPI(messageData);
+    });
   }
 
   var messageAttachments = message.attachments;
