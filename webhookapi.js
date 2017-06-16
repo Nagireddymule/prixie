@@ -64,7 +64,7 @@ function receivedMessage(event) {
     console.log(data1);
     var messageData = {
         "recipient":{
-            "id":recipientID
+            "id":senderID
             },
             "message":{
               "text":data1,
