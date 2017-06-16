@@ -59,7 +59,7 @@ function receivedMessage(event) {
       var data1 = "";
       for (var i = 0; i < today.length; i++) {
         data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
-      }
+      }console.log(data1);
         var messageData = {
             "recipient":{
                 "id":recipientID
