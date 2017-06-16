@@ -51,6 +51,7 @@ function receivedMessage(event) {
     var paystart = message.quick_reply.payload;
     console.log(paystart);
     var payend = paystart+5;
+    console.log(payend);
   var data1 = "";
 
     request({
