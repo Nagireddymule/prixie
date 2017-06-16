@@ -44,49 +44,42 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var message = event.message;
   var messageText = message.text;
-  if (message.quick_reply.payload == 5) {
+
+  if (message.quick_reply) {
     console.log("in quick_reply");
     messageText = "";
     console.log(message.quick_reply);
-
-
+  var data1 = "";
 
     request({
       url:"https://prixie-api.herokuapp.com/interview_schedules/5/10",
       method:"Get"
     },function(error,res){
       var today = JSON.parse(res.body);
-      var data1 = "";
+
       for (var i = 0; i < today.length; i++) {
         data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
       }
-        var messageData = {
-            "recipient":{
-                "id":recipientID
-                },
-                "message":{
-                  "text":data1,
-                  "quick_replies":[
-                    {
-                      "content_type":"text",
-                      "title":"more",
-                      "payload":"5"
-                    }
-                  ]
-                }
-              };
-              console.log(messageData);
-              callSendAPI(messageData);
     });
 
+    var messageData = {
+        "recipient":{
+            "id":recipientID
+            },
+            "message":{
+              "text":data1,
+              "quick_replies":[
+                {
+                  "content_type":"text",
+                  "title":"more",
+                  "payload":"5"
+                }
+              ]
+            }
+          };
 
-
-
-
-
-
-
-
+    console.log(messageData);
+    callSendAPI(messageData);
 
   }
 
