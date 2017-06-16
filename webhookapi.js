@@ -101,7 +101,7 @@ function sendTextMessage(recipientId, messageText) {
 
   msg.on('response', function(response) {
     console.log("parameters object log");
-    console.log(response.result.parameters);
+    //console.log(response.result.parameters);
     if (response.result.parameters.tutorials||response.result.parameters.subject) {
         console.log("got parameter");
         if (response.result.parameters.subject) {
@@ -112,7 +112,7 @@ function sendTextMessage(recipientId, messageText) {
         },function(error,res){
 
         var data = JSON.parse(res.body);
-        console.log(data);
+        //console.log(data);
         var textmsg = data.urls[0];
         var messageData = {
           recipient: {
@@ -234,8 +234,8 @@ function callSendAPI(messageData) {
       console.log("Successfully sent generic message with id %s to recipient %s",
         messageId, recipientId);
     } else {
-      //console.error("Unable to send message.");
-      //console.log(body);
+      console.error("Unable to send message.");
+      console.log(body);
     }
   });
 }
