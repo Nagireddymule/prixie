@@ -47,11 +47,12 @@ function receivedMessage(event) {
   if (message.quick_reply) {
     //console.log("in quick_reply");
     messageText = "";
-    console.log(message.quick_reply.payload);
+    var paystart = message.quick_reply.payload;
+    var payend = paystart+5;
   var data1 = "";
 
     request({
-      url:"https://prixie-api.herokuapp.com/interview_schedules/5/10",
+      url:"https://prixie-api.herokuapp.com/interview_schedules/"+paystart+"/"+payend,
       method:"Get"
     },function(error,res){
       var today = JSON.parse(res.body);
@@ -71,7 +72,7 @@ function receivedMessage(event) {
                 {
                   "content_type":"text",
                   "title":"more",
-                  "payload":"5"
+                  "payload":payend
                 }
               ]
             }
