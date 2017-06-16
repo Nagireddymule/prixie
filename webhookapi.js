@@ -44,7 +44,11 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var message = event.message;
   var messageText = message.text;
-  console.log(message.quick_reply);
+  if (message.quick_reply) {
+    console.log("in quick_reply");
+    console.log(message.quick_reply);
+  }
+
   var messageAttachments = message.attachments;
   if (messageText) {
     console.log("text message came");
