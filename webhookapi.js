@@ -45,7 +45,7 @@ function receivedMessage(event) {
   var message = event.message;
   var messageText = message.text;
   var messageAttachments = message.attachments;
-  if (messageText) {
+  if (messageText&&!message.quick_replies) {
     console.log("text message came");
     console.log(messageText);
         sendTextMessage(senderID, messageText);
