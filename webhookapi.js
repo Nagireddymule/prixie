@@ -44,7 +44,7 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var message = event.message;
   var messageText = message.text;
-  if (message.quick_reply) {
+  if (message.quick_reply && !isNaN(message.quick_reply.payload)) {
     //console.log("in quick_reply");
     messageText = "";
 
