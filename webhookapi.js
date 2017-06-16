@@ -46,6 +46,7 @@ function receivedMessage(event) {
   var messageText = message.text;
   if (message.quick_reply) {
     console.log("in quick_reply");
+    messageText = "";
     console.log(message.quick_reply);
   }
 
