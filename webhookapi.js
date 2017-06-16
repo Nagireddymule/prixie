@@ -67,7 +67,7 @@ function receivedMessage(event) {
             "id":recipientID
             },
             "message":{
-              "text":data1,
+              "text":"hello",
               "quick_replies":[
                 {
                   "content_type":"text",
