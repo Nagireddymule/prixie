@@ -44,7 +44,8 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var message = event.message;
   var messageText = message.text;
-
+  var pay = message.quick_reply.payload;
+  console.log(pay);
   if (message.quick_reply) {
     //console.log("in quick_reply");
     messageText = "";
