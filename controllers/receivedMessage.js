@@ -13,7 +13,6 @@ module.exports = function(event) {
   var message = event.message;
   var messageText = message.text;
   var messageAttachments = message.attachments;
-  console.log(message);
   if (message.quick_reply && !isNaN(message.quick_reply.payload)) {
     messageText = "";
     var paystart = message.quick_reply.payload;
