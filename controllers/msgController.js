@@ -27,16 +27,27 @@ module.exports = function(event){
             ]
           },
           {
-           "title":"welcome to interview_schedules",
-           "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",          
+           "title":"welcome to tutorials",
+           "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
            "buttons":[
              {
                "type":"postback",
-               "title":"Interviews",
-               "payload":"interview_schedules"
+               "title":"tutorials",
+               "payload":"tutorials"
              },
            ]
-         }
+         },
+         {
+          "title":"welcome to tutorials",
+          "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
+          "buttons":[
+            {
+              "type":"postback",
+              "title":"tutorials",
+              "payload":"tutorials"
+            },
+          ]
+        }
         ]
       }
     }
