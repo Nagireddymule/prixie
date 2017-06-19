@@ -2,17 +2,18 @@ var request = require("request");
 var receivedMessage = require("./receivedMessage");
 var callSendAPI = require("./callSendApi");
 module.exports = function(event){
+  var senderid = event.sender.id;
   console.log(event);
   if (event.postback) {
     console.log(event.postback);
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
-        getStartMenu(event);
+        getStartMenu(senderid);
     }
     if (event.postback.payload == "interview_schedules") {
-      getInterviewSchedules(event);
+      getInterviewSchedules(senderid);
     }
     if (event.postback.payload == "Tutorials") {
-       getTutorialList(event);
+       getTutorialList(senderid);
     }
   }
   else if (event.message) {
@@ -22,10 +23,10 @@ module.exports = function(event){
   }
 }
 
-module.exports.getStartMenu = function(event){
+module.exports = getStartMenu(senderid){
     var messageData ={
       "recipient":{
-        "id":event.sender.id
+        "id":senderid
       },
       "message":{
         "attachment":{
@@ -65,7 +66,7 @@ module.exports.getStartMenu = function(event){
     console.log("from getstart function");
     callSendAPI(messageData);
   }
-function getInterviewSchedules(event){
+function getInterviewSchedules(senderid){
   request({
     url:"https://prixie-api.herokuapp.com/interview_schedules/0/5",
     method:"Get"
@@ -77,7 +78,7 @@ function getInterviewSchedules(event){
     }
       var messageData = {
           "recipient":{
-              "id":event.sender.id
+              "id":senderid
               },
               "message":{
                 "text":data1,
@@ -94,7 +95,7 @@ function getInterviewSchedules(event){
   });
 
 }
-function getTutorialList(event){
+function getTutorialList(senderid){
       request({
         url:"https://prixie-api.herokuapp.com/tutorials_list",
         method:"get"
@@ -107,7 +108,7 @@ function getTutorialList(event){
         var listarrdata = JSON.stringify(listarr);
         var messageData ={
           "recipient":{
-            "id":event.sender.id
+            "id":senderid
           },
           "message":{
           "text":"Choose a tutorial:",
