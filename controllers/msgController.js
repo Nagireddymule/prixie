@@ -7,7 +7,7 @@ module.exports = function(event){
   if (event.postback) {
     console.log(event.postback);
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
-        this.getStartMenu(senderid);
+        self.getStartMenu(senderid);
     }
     if (event.postback.payload == "interview_schedules") {
       getInterviewSchedules(senderid);
@@ -23,7 +23,8 @@ module.exports = function(event){
   }
 }
 
-module.exports.getStartMenu = function(senderid){
+var self = module.exports = {
+  getStartMenu:function(senderid){
     var messageData ={
       "recipient":{
         "id":senderid
@@ -66,6 +67,7 @@ module.exports.getStartMenu = function(senderid){
     console.log("from getstart function");
     callSendAPI(messageData);
   }
+}
 function getInterviewSchedules(senderid){
   request({
     url:"https://prixie-api.herokuapp.com/interview_schedules/0/5",
