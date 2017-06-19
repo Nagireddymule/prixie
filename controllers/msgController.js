@@ -17,15 +17,7 @@ module.exports = function(event){
         "elements":[
            {
             "title":"welcome to interview_schedules",
-            "image_url":"https://image.ibb.co/hPbfqv/zimage.jpg",
-            "subtitle":"We\'ve got the right hat for everyone.",
-            "default_action": {
-              "type": "web_url",
-              "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
-              "messenger_extensions": "true",
-              "webview_height_ratio": "tall",
-              "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
-            },
+            "image_url":"https://image.ibb.co/hPbfqv/zimage.jpg",          
             "buttons":[
               {
                 "type":"postback",
