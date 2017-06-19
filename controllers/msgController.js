@@ -16,7 +16,7 @@ module.exports = function(event){
         "template_type":"generic",
         "elements":[
            {
-            "title":"welcome to interview schedules",
+            "title":"Welcome to Interview Schedules",
             "image_url":"https://preview.ibb.co/mSwUOQ/interview.png",
             "subtitle":"@Interviews",
             "buttons":[
@@ -28,9 +28,9 @@ module.exports = function(event){
             ]
           },
           {
-           "title":"welcome to tutorials",
+           "title":"Welcome to Tutorials",
            "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
-           "subtitle":"@tutorials",
+           "subtitle":"@Tutorials",
            "buttons":[
              {
                "type":"postback",
