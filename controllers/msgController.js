@@ -1,8 +1,8 @@
 var receivedMessage = require("./receivedMessage");
 module.exports = function(event){
   console.log(event);
-  if (event.postback.payload == "Get_Started_Payload") {
-    console.log("getstart");
+  if (event.postback.payload) {
+    console.log(event.postback.payload);
   }
   else if (event.message) {
     receivedMessage(event);
