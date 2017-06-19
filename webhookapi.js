@@ -32,7 +32,11 @@ app.post('/webhook', function (req, res) {
   if (data.object === 'page') {
     data.entry.forEach(function(entry) {
       entry.messaging.forEach(function(event) {
-        console.log(event.postback);
+
+        if (event.postback.payload == "GET_STARTED_PAYLOAD") {
+          console.log(event.postback);
+          receivedMessage(event);
+        }
         if (event.message) {
           receivedMessage(event);
           console.log("logging event object");
