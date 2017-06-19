@@ -29,7 +29,7 @@ module.exports = function(event){
           },
           {
            "title":"Welcome to Tutorials",
-           "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
+          // "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
            "subtitle":"@Tutorials",
            "buttons":[
              {
