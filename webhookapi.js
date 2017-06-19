@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var apiai = require("apiai");
 var callSendAPI = require("./controllers/callSendApi");
 var sendAttachmentMessage = require("./controllers/sendAttachmentMessage");
+var receivedMessage = require("./controllers/receivedMessage");
 
 var api = apiai("7433fe3c52d24fe18ab37483aadb517a");
 
@@ -40,16 +41,14 @@ app.post('/webhook', function (req, res) {
   }
 });
 
-function receivedMessage(event) {
+/*function receivedMessage(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
   var message = event.message;
   var messageText = message.text;
   var messageAttachments = message.attachments;
   if (message.quick_reply && !isNaN(message.quick_reply.payload)) {
-    //console.log("in quick_reply");
     messageText = "";
-
     var paystart = message.quick_reply.payload;
     console.log(paystart);
     var payend = parseInt(paystart)+5;
@@ -94,7 +93,7 @@ function receivedMessage(event) {
       console.log("attachment came");
       sendAttachmentMessage(senderID, messageText);
     }
-}//closing of receivedMessage function
+} */ //closing of receivedMessage function
 //for response as a text
 function sendTextMessage(recipientId, messageText) {
   var msg = api.textRequest(messageText, {
@@ -204,24 +203,6 @@ function sendTextMessage(recipientId, messageText) {
   });
   msg.end();
 }//closing sendTextMessage function
-//for response as an attachments
-/*function sendAttachmentMessage(recipientId, messageText) {
-  var messageData = {
-    recipient: {
-      id: recipientId
-    },
-    "message":{
-        "attachment":{
-          "type":"image",
-          "payload":{
-            "url":"https://image.ibb.co/hPbfqv/zimage.jpg"
-          }
-        }
-      }
-}
-    callSendAPI(messageData);
-}*/
-
 
 app.listen(app.get('port'),function(){
 console.log("webhook is running on port "+app.get('port'));
