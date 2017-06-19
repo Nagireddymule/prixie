@@ -7,7 +7,7 @@ module.exports = function(event){
   if (event.postback) {
     console.log(event.postback);
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
-        getStartMenu(senderid);
+        this.getStartMenu(senderid);
     }
     if (event.postback.payload == "interview_schedules") {
       getInterviewSchedules(senderid);
@@ -23,7 +23,7 @@ module.exports = function(event){
   }
 }
 
-module.exports = getStartMenu(senderid){
+module.exports.getStartMenu = function(senderid){
     var messageData ={
       "recipient":{
         "id":senderid
