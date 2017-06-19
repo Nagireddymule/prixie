@@ -28,14 +28,10 @@ module.exports = function(event){
             },
             "buttons":[
               {
-                "type":"web_url",
-                "url":"https://image.ibb.co/hPbfqv/zimage.jpg",
-                "title":"View Website"
-              },{
                 "type":"postback",
-                "title":"Start Chatting",
-                "payload":"DEVELOPER_DEFINED_PAYLOAD"
-              }
+                "title":"click Here",
+                "payload":"interview_schedules"
+              },
             ]
           }
         ]
