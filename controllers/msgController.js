@@ -22,7 +22,7 @@ module.exports = function(event){
             "default_action": {
               "type": "web_url",
               "url": "https://image.ibb.co/hPbfqv/zimage.jpg",
-              "messenger_extensions": "true",
+              "messenger_extensions": true,
               "webview_height_ratio": "tall",
               "fallback_url": "https://image.ibb.co/hPbfqv/zimage.jpg"
             },
