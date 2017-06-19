@@ -17,7 +17,7 @@ module.exports = function(event){
         "elements":[
            {
             "title":"welcome to interview_schedules",
-            "image_url":"https://preview.ibb.co/mSwUOQ/interview.png",
+            "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
             "subtitle":"We\'ve got the right hat for everyone.",
             "default_action": {
               "type": "web_url",
