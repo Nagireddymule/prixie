@@ -2,6 +2,7 @@ var express = require("express");
 var request = require("request");
 var bodyParser = require('body-parser');
 var apiai = require("apiai");
+var callSendAPI = require("./callSendApi");
 
 var api = apiai("7433fe3c52d24fe18ab37483aadb517a");
 
@@ -222,7 +223,7 @@ function sendAttachmentMessage(recipientId, messageText) {
     callSendAPI(messageData);
 }
 
-function callSendAPI(messageData) {
+/*function callSendAPI(messageData) {
   console.log(messageData);
   request({
     uri: 'https://graph.facebook.com/v2.8/me/messages',
@@ -240,7 +241,7 @@ function callSendAPI(messageData) {
       console.log(body);
     }
   });
-}
+}*/
 app.listen(app.get('port'),function(){
 console.log("webhook is running on port "+app.get('port'));
 })
