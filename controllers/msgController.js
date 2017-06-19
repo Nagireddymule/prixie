@@ -13,7 +13,6 @@ module.exports = function(event){
     }
     if (event.postback.payload == "Tutorials") {
        getTutorialList(event);
-
     }
   }
   else if (event.message) {
@@ -23,7 +22,7 @@ module.exports = function(event){
   }
 }
 
-function getStartMenu(event){
+module.exports.getStartMenu = function(event){
     var messageData ={
       "recipient":{
         "id":event.sender.id
