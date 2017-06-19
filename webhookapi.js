@@ -36,7 +36,7 @@ app.post('/webhook', function (req, res) {
         if (event.postback.payload == "GET_STARTED_PAYLOAD") {
           console.log(event.postback);
         }
-        if (event.message) {
+        else if (event.message) {
           receivedMessage(event);
           console.log("logging event object");
           console.log(event);
