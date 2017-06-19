@@ -7,6 +7,9 @@ module.exports = function(event){
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
 getstart(event);
     }
+    if (event.postback.payload == "interview_schedules") {
+      console.log("hey from payload interview_schedules");
+    }
   }
   else if (event.message) {
     receivedMessage(event);
