@@ -3,6 +3,7 @@ var request = require("request");
 var bodyParser = require('body-parser');
 var apiai = require("apiai");
 var callSendAPI = require("./controllers/callSendApi");
+var sendAttachmentMessage = require("./controllers/sendAttachmentMessage");
 
 var api = apiai("7433fe3c52d24fe18ab37483aadb517a");
 
@@ -44,6 +45,7 @@ function receivedMessage(event) {
   var recipientID = event.recipient.id;
   var message = event.message;
   var messageText = message.text;
+  var messageAttachments = message.attachments;
   if (message.quick_reply && !isNaN(message.quick_reply.payload)) {
     //console.log("in quick_reply");
     messageText = "";
@@ -85,10 +87,8 @@ function receivedMessage(event) {
     });
   }
 
-  var messageAttachments = message.attachments;
+
   if (messageText) {
-    //console.log("text message came");
-    //console.log(messageText);
         sendTextMessage(senderID, messageText);
     } else if (messageAttachments) {
       console.log("attachment came");
@@ -205,7 +205,7 @@ function sendTextMessage(recipientId, messageText) {
   msg.end();
 }//closing sendTextMessage function
 //for response as an attachments
-function sendAttachmentMessage(recipientId, messageText) {
+/*function sendAttachmentMessage(recipientId, messageText) {
   var messageData = {
     recipient: {
       id: recipientId
@@ -220,7 +220,7 @@ function sendAttachmentMessage(recipientId, messageText) {
       }
 }
     callSendAPI(messageData);
-}
+}*/
 
 
 app.listen(app.get('port'),function(){
