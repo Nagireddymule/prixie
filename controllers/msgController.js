@@ -16,7 +16,7 @@ getstart(event);
 }
 
 
-function getstart(){
+function getstart(event){
     var messageData ={
       "recipient":{
         "id":event.sender.id
