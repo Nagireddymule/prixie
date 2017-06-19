@@ -17,7 +17,7 @@ module.exports = function(event){
         "elements":[
            {
             "title":"welcome to interview_schedules",
-            "image_url":"https://preview.ibb.co/mSwUOQ/interview.png",          
+            "image_url":"https://preview.ibb.co/mSwUOQ/interview.png",
             "buttons":[
               {
                 "type":"postback",
@@ -25,7 +25,18 @@ module.exports = function(event){
                 "payload":"interview_schedules"
               },
             ]
-          }
+          },
+          {
+           "title":"welcome to interview_schedules",
+           "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",          
+           "buttons":[
+             {
+               "type":"postback",
+               "title":"Interviews",
+               "payload":"interview_schedules"
+             },
+           ]
+         }
         ]
       }
     }
