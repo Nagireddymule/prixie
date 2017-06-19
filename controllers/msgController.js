@@ -5,7 +5,7 @@ module.exports = function(event){
   if (event.postback) {
     console.log(event.postback);
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
-getstart();
+getstart(event);
     }
   }
   else if (event.message) {
