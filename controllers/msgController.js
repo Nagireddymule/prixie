@@ -1,8 +1,8 @@
 var receivedMessage = require("./receivedMessage");
 module.exports = function(event){
   console.log(event);
-  if (event.postback.payload) {
-    console.log(event.postback.payload);
+  if (event.postback) {
+    console.log(event.postback);
   }
   else if (event.message) {
     receivedMessage(event);
