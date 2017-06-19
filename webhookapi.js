@@ -27,18 +27,13 @@ app.get('/webhook/', function (req, res) {
       res.send('Error, wrong validation token');
     }
   });
- 
+
 app.post('/webhook', function (req, res) {
   var data = req.body;
   if (data.object === 'page') {
     data.entry.forEach(function(entry) {
       entry.messaging.forEach(function(event) {
         msgController(event);
-        /*else if (event.message) {
-          receivedMessage(event);
-          console.log("logging event object");
-          console.log(event);
-        }*/
       });
     });
     res.sendStatus(200);
