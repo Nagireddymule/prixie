@@ -11,6 +11,10 @@ module.exports = function(event){
     if (event.postback.payload == "interview_schedules") {
       getInterviewSchedules(event);
     }
+    if (event.postback.payload == "Tutorials") {
+       getTutorialList(event);
+
+    }
   }
   else if (event.message) {
     receivedMessage(event);
@@ -19,8 +23,7 @@ module.exports = function(event){
   }
 }
 
-
- function getStartMenu(event){
+function getStartMenu(event){
     var messageData ={
       "recipient":{
         "id":event.sender.id
@@ -89,6 +92,30 @@ function getInterviewSchedules(event){
               }
             };
             callSendAPI(messageData);
+  });
+
+}
+function getTutorialList(event){
+      request({
+        url:"https://prixie-api.herokuapp.com/tutorials_list",
+        method:"get"
+      },function(error,res){
+        var tutlist = JSON.parse(res.body);
+        var listarr = [];
+        for (var i = 0; i < 10; i++) {
+          listarr.push({"content_type":"text","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
+        }
+        var listarrdata = JSON.stringify(listarr);
+        var messageData ={
+          "recipient":{
+            "id":event.sender.id
+          },
+          "message":{
+          "text":"Choose a tutorial:",
+          "quick_replies":listarrdata
+        }
+      }
+      callSendAPI(messageData);
   });
 
 }
