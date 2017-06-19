@@ -16,7 +16,7 @@ module.exports = function(event){
         "template_type":"generic",
         "elements":[
            {
-            "title":"welcome to interview_schedules",
+            "title":"welcome to interview schedules",
             "image_url":"https://preview.ibb.co/mSwUOQ/interview.png",
             "buttons":[
               {
@@ -32,22 +32,11 @@ module.exports = function(event){
            "buttons":[
              {
                "type":"postback",
-               "title":"tutorials",
-               "payload":"tutorials"
+               "title":"Tutorials",
+               "payload":"Tutorials"
              },
            ]
-         },
-         {
-          "title":"welcome to tutorials",
-          "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
-          "buttons":[
-            {
-              "type":"postback",
-              "title":"tutorials",
-              "payload":"tutorials"
-            },
-          ]
-        }
+         }
         ]
       }
     }
