@@ -5,10 +5,10 @@ module.exports = function(event){
   if (event.postback) {
     console.log(event.postback);
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
-getstart(event);
+        getStartMenu(event);
     }
     if (event.postback.payload == "interview_schedules") {
-      console.log("hey from payload interview_schedules");
+      getInterviewSchedules(event);
     }
   }
   else if (event.message) {
@@ -19,7 +19,7 @@ getstart(event);
 }
 
 
-function getstart(event){
+ function getStartMenu(event){
     var messageData ={
       "recipient":{
         "id":event.sender.id
@@ -62,3 +62,32 @@ function getstart(event){
     console.log("from getstart function");
     callSendAPI(messageData);
   }
+function getInterviewSchedules(event){
+  request({
+    url:"https://prixie-api.herokuapp.com/interview_schedules/0/5",
+    method:"Get"
+  },function(error,res){
+    var today = JSON.parse(res.body);
+    var data1 = "";
+    for (var i = 0; i < today.length; i++) {
+      data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
+    }
+      var messageData = {
+          "recipient":{
+              "id":event.sender.id
+              },
+              "message":{
+                "text":data1,
+                "quick_replies":[
+                  {
+                    "content_type":"text",
+                    "title":"more",
+                    "payload":"5"
+                  }
+                ]
+              }
+            };
+            callSendAPI(messageData);
+  });
+
+}
