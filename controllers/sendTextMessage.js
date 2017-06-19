@@ -1,3 +1,6 @@
+var request =  require("request");
+var apiai = require("apiai");
+var api = apiai("7433fe3c52d24fe18ab37483aadb517a");
 module.exports = function(recipientId, messageText) {
   var msg = api.textRequest(messageText, {
       sessionId: 'recipientId'

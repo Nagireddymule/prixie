@@ -1,12 +1,12 @@
 var express = require("express");
 var request = require("request");
 var bodyParser = require('body-parser');
-var apiai = require("apiai");
-var callSendAPI = require("./controllers/callSendApi");
-var sendAttachmentMessage = require("./controllers/sendAttachmentMessage");
-var receivedMessage = require("./controllers/receivedMessage");
 
-var api = apiai("7433fe3c52d24fe18ab37483aadb517a");
+var callSendAPI = require("./controllers/callSendApi");
+//var sendAttachmentMessage = require("./controllers/sendAttachmentMessage");
+//var receivedMessage = require("./controllers/receivedMessage");
+
+
 
 var app = express();
 app.set('port',(process.env.PORT||5000));
@@ -95,7 +95,7 @@ app.post('/webhook', function (req, res) {
     }
 } */ //closing of receivedMessage function
 //for response as a text
-function sendTextMessage(recipientId, messageText) {
+/*function sendTextMessage(recipientId, messageText) {
   var msg = api.textRequest(messageText, {
       sessionId: 'recipientId'
   });
@@ -202,7 +202,7 @@ function sendTextMessage(recipientId, messageText) {
     console.log(error);
   });
   msg.end();
-}//closing sendTextMessage function
+}*/ //closing sendTextMessage function
 
 app.listen(app.get('port'),function(){
 console.log("webhook is running on port "+app.get('port'));
