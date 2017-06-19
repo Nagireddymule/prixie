@@ -1,7 +1,12 @@
 var request =  require("request");
+
+
 var sendTextMessage = require("./sendTextMessage");
 var sendAttachmentMessage = require("./sendAttachmentMessage");
 var callSendAPI = require("./callSendApi");
+
+
+
 module.exports = function(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
@@ -44,9 +49,10 @@ module.exports = function(event) {
           callSendAPI(messageData);
     });
   }
-  if (messageText) {
+  else if (messageText) {
         sendTextMessage(senderID, messageText);
-    } else if (messageAttachments) {
+    }
+  else if (messageAttachments) {
       console.log("attachment came");
       sendAttachmentMessage(senderID, messageText);
     }
