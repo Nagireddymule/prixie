@@ -2,6 +2,9 @@ var express = require("express");
 var request = require("request");
 var bodyParser = require('body-parser');
 
+
+
+var receivedMessage = require("./controllers/receivedMessage");
 var callSendAPI = require("./controllers/callSendApi");
 //var sendAttachmentMessage = require("./controllers/sendAttachmentMessage");
 //var receivedMessage = require("./controllers/receivedMessage");
