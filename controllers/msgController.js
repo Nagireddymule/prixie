@@ -29,7 +29,7 @@ module.exports = function(event){
             "buttons":[
               {
                 "type":"postback",
-                "title":"For interview_schedules\n Click Here",
+                "title":"Interviews",
                 "payload":"interview_schedules"
               },
             ]
