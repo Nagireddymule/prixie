@@ -117,7 +117,7 @@ module.exports.getTutorialList = function(senderid){
       },
       "message":{
       "text":"Choose a tutorial:",
-      "quick_replies":listarrdata
+      "quick_replies":callback
     }
   }
   callSendAPI(messageData);
