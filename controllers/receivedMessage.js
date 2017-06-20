@@ -7,7 +7,7 @@ var callSendAPI = require("./callSendApi");
 
 
 
-module.exports = function(event) {
+exports = function(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
   var message = event.message;
