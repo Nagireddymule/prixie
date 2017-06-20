@@ -11,10 +11,10 @@ msgController: function(event){
         this.getStartMenu(senderid);
     }
     if (event.postback.payload == "interview_schedules") {
-      getInterviewSchedules(senderid);
+      this.getInterviewSchedules(senderid);
     }
     if (event.postback.payload == "Tutorials") {
-       getTutorialList(senderid);
+       this.getTutorialList(senderid);
     }
   }
   else if (event.message) {
