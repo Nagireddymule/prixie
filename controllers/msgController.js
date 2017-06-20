@@ -175,6 +175,39 @@ module.exports.getNextCompany = function(event){
   console.log(indexstart);
   var indexend = parseInt(indexstart)+5;
   console.log(indexend);
+  adaptInterviews.adaptSchedule(+indexstart+"/"+indexend,fucntion(callback){
+    var messageData = {
+      "recipient":{
+        "id":senderid
+      },
+      "message":{
+        "attachment":{
+          "type":"template",
+          "payload":{
+            "template_type":"button",
+            "text":callback,
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Click here for more",
+                "payload":indexend
+              },
+              {
+                "type":"postback",
+                "title":"Home",
+                "payload":"GET_STARTED_PAYLOAD"
+              },
+            ]
+          }
+        }
+      }
+    };
+    callSendAPI(messageData);
+  });
+
+
+
+/*
   var data1 = "";
   request({
     url:"https://prixie-api.herokuapp.com/interview_schedules/"+indexstart+"/"+indexend,
@@ -212,5 +245,5 @@ module.exports.getNextCompany = function(event){
             }
           };
           callSendAPI(messageData);
-        });
+        });*/
 }
