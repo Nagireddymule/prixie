@@ -109,40 +109,18 @@ module.exports.getInterviewSchedules = function(senderid){
 
 }
 module.exports.getTutorialList = function(senderid){
-
-  adaptTutorials.adaptTutorial("tutorials_list",function(callback){
-    var messageData ={
-      "recipient":{
-        "id":senderid
-      },
-      "message":{
-      "text":"Choose a tutorial:",
-      "quick_replies":callback
-    }
-  }
-  callSendAPI(messageData);
-});
-    /*  request({
-        url:"https://prixie-api.herokuapp.com/tutorials_list",
-        method:"get"
-      },function(error,res){
-        var tutlist = JSON.parse(res.body);
-        var listarr = [];
-        for (var i = 0; i < 10; i++) {
-          listarr.push({"content_type":"text","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
-        }
-        var listarrdata = JSON.stringify(listarr);
+      adaptTutorials.adaptTutorialsList("tutorials_list",function(callback){
         var messageData ={
           "recipient":{
             "id":senderid
           },
           "message":{
-          "text":"Choose a tutorial:",
-          "quick_replies":listarrdata
+            "text":"Choose a tutorial:",
+            "quick_replies":callback
+          }
         }
-      }
-      callSendAPI(messageData);
-  });*/
+        callSendAPI(messageData);
+      });
 }
 module.exports.getNextCompany = function(event){
   var senderid = event.sender.id;

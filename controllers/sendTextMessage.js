@@ -1,10 +1,9 @@
 var request =  require("request");
 var apiai = require("apiai");
-var msgControllermodule = require("./msgController")
 
 var api = apiai("7433fe3c52d24fe18ab37483aadb517a");
 var callSendAPI = require("./callSendApi");
-
+var msgControllermodule = require("./msgController")
 
 module.exports = function(recipientId, messageText) {
   var msg = api.textRequest(messageText, {
@@ -15,7 +14,7 @@ module.exports = function(recipientId, messageText) {
     console.log("parameters object log");
     //console.log(response.result.parameters);
     if (response.result.parameters.tutorials||response.result.parameters.subject) {
-        console.log("got parameter");
+                  console.log("got parameter");
         if (response.result.parameters.subject) {
         var url =response.result.parameters.subject;
         request({
@@ -35,7 +34,7 @@ module.exports = function(recipientId, messageText) {
         };
         callSendAPI(messageData);
         });
-        }else
+      }else if(response.result.parameters.tutorials)
         {
           msgControllermodule.getTutorialList(recipientId);
         }
