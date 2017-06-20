@@ -174,7 +174,7 @@ module.exports.getNextCompany = function(event){
   console.log(indexstart);
   var indexend = parseInt(indexstart)+5;
   console.log(indexend);
-  adaptInterviews.adaptSchedule(+indexstart+"/"+indexend,fucntion(callback){
+  adaptInterviews.adaptSchedule(indexstart+"/"+indexend,fucntion(callback){
     var messageData = {
       "recipient":{
         "id":senderid
