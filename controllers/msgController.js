@@ -2,7 +2,7 @@ var request = require("request");
 var receivedMessage = require("./receivedMessage");
 var callSendAPI = require("./callSendApi");
 module.exports ={
-  
+
 msgController: function(event){
   var senderid = event.sender.id;
   console.log(event);
@@ -19,7 +19,7 @@ msgController: function(event){
     }
   }
   else if (event.message) {
-    receivedMessage(event);
+    this.receivedMessage(event);
     console.log("logging event object");
     console.log(event);
   }
