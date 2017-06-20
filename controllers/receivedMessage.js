@@ -46,7 +46,7 @@ module.exports.receivedMessage = function(event) {
           callSendAPI(messageData);
     });
   }*/
-  else if (messageText) {
+  if (messageText) {
         sendTextMessage(senderID, messageText);
     }
   else if (messageAttachments) {
