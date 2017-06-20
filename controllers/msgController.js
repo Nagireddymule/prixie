@@ -2,7 +2,6 @@ var request = require("request");
 var receivedMessage = require("./receivedMessage");
 var callSendAPI = require("./callSendApi");
 module.exports ={
-
 msgController: function(event){
   var senderid = event.sender.id;
   console.log(event);
@@ -23,7 +22,7 @@ msgController: function(event){
     console.log("logging event object");
     console.log(event);
   }
-}
+},
 getStartMenu:function(senderid){
     var messageData ={
       "recipient":{
@@ -66,7 +65,7 @@ getStartMenu:function(senderid){
     }
     console.log("from getstart function");
     callSendAPI(messageData);
-  }
+  },
 getInterviewSchedules:function(senderid){
   request({
     url:"https://prixie-api.herokuapp.com/interview_schedules/0/5",
@@ -95,7 +94,7 @@ getInterviewSchedules:function(senderid){
             callSendAPI(messageData);
   });
 
-}
+},
 getTutorialList:function(senderid){
       request({
         url:"https://prixie-api.herokuapp.com/tutorials_list",
@@ -118,6 +117,6 @@ getTutorialList:function(senderid){
       }
       callSendAPI(messageData);
   });
-}
+},
 
 }
