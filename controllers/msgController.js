@@ -83,6 +83,7 @@ module.exports.getInterviewSchedules = function(senderid){
     for (var i = 0; i < today.length; i++) {
       data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
     }
+    
       var messageData = {
   "recipient":{
     "id":senderid
