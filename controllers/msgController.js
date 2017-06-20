@@ -19,7 +19,7 @@ module.exports.msgController= function(event){
     }
   }
   else if (event.message) {
-    receivedMessage(event);
+    messageReceived.receivedMessage(event);
     console.log("logging event object");
     console.log(event);
   }
