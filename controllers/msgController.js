@@ -1,6 +1,7 @@
 var request = require("request");
 var messageReceived = require("./receivedMessage");
 var callSendAPI = require("./callSendApi");
+var adaptInterviews = require("../adapters/adaptInterviews");
 
 
 module.exports.msgController= function(event){
@@ -75,7 +76,38 @@ module.exports.getStartMenu = function(senderid){
     callSendAPI(messageData);
   }
 module.exports.getInterviewSchedules = function(senderid){
-  request({
+
+      adaptInterviews.adaptSchedule("0/5",function(callback){
+        var messageData = {
+          "recipient":{
+            "id":senderid
+          },
+          "message":{
+            "attachment":{
+              "type":"template",
+              "payload":{
+                "template_type":"button",
+                "text":callback,
+                "buttons":[
+                  {
+                    "type":"postback",
+                    "title":"Click here for more",
+                    "payload":"5"
+                  },
+                  {
+                    "type":"postback",
+                    "title":"Home",
+                    "payload":"GET_STARTED_PAYLOAD"
+                  },
+                ]
+              }
+            }
+          }
+        };
+        callSendAPI(messageData);
+      });
+
+  /*request({
     url:"https://prixie-api.herokuapp.com/interview_schedules/0/5",
     method:"Get"
   },function(error,res){
@@ -97,7 +129,7 @@ module.exports.getInterviewSchedules = function(senderid){
                   "buttons":[
                     {
                       "type":"postback",
-                      "title":"click here for more",
+                      "title":"Click here for more",
                       "payload":"5"
                     },
                     {
@@ -110,23 +142,8 @@ module.exports.getInterviewSchedules = function(senderid){
               }
             }
           };
-      /*{
-          "recipient":{
-              "id":senderid
-              },
-              "message":{
-                "text":data1,
-                "quick_replies":[
-                  {
-                    "content_type":"text",
-                    "title":"more",
-                    "payload":"5"
-                  }
-                ]
-              }
-            };*/
             callSendAPI(messageData);
-  });
+  });*/
 
 }
 module.exports.getTutorialList = function(senderid){
@@ -181,7 +198,7 @@ module.exports.getNextCompany = function(event){
                   "buttons":[
                     {
                       "type":"postback",
-                      "title":"click here for more",
+                      "title":"Click here for more",
                       "payload":indexend
                     },
                     {
