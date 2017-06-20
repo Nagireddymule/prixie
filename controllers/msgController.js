@@ -78,6 +78,33 @@ module.exports.getInterviewSchedules = function(senderid){
       data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
     }
       var messageData = {
+  "recipient":{
+    "id":senderid
+  },
+  "message":{
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"button",
+        "text":data1,
+        "buttons":[
+          {
+            "type":"postback",
+            "title":"click here for more",
+            "payload":"USER_DEFINED_PAYLOAD"
+          },
+        ]
+      }
+    }
+  }
+};
+
+
+
+
+
+
+      /*{
           "recipient":{
               "id":senderid
               },
@@ -91,7 +118,7 @@ module.exports.getInterviewSchedules = function(senderid){
                   }
                 ]
               }
-            };
+            };*/
             callSendAPI(messageData);
   });
 

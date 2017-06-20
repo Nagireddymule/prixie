@@ -1,11 +1,8 @@
 var request =  require("request");
 
-
 var sendTextMessage = require("./sendTextMessage");
 var sendAttachmentMessage = require("./sendAttachmentMessage");
 var callSendAPI = require("./callSendApi");
-
-
 
 module.exports.receivedMessage = function(event) {
   var senderID = event.sender.id;

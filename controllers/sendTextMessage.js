@@ -24,7 +24,6 @@ module.exports = function(recipientId, messageText) {
         },function(error,res){
 
         var data = JSON.parse(res.body);
-        //console.log(data);
         var textmsg = data.urls[0];
         var messageData = {
           recipient: {
@@ -39,65 +38,14 @@ module.exports = function(recipientId, messageText) {
         }else
         {
           msgControllermodule.getTutorialList(recipientId);
-          /*request({
-              url:"https://prixie-api.herokuapp.com/tutorials_list",
-              method:"get"
-          },function(error,res){
-            var tutlist = JSON.parse(res.body);
-            var listarr = [];
-            for (var i = 0; i < 10; i++) {
-          listarr.push({"content_type":"text","title":tutlist[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
-          }
-            var listarrdata = JSON.stringify(listarr);
-            var messageData ={
-              "recipient":{
-                "id":recipientId
-              },
-                "message":{
-                  "text":"Choose a tutorial:",
-                  "quick_replies":listarrdata
-                }
-              }
-              callSendAPI(messageData);
-          });*/
-
         }
 
       }
       if(response.result.parameters.schedule) {
-        console.log("parameter came as schedule");
         msgControllermodule.getInterviewSchedules(recipientId);
-        /*request({
-          url:"https://prixie-api.herokuapp.com/interview_schedules/0/5",
-          method:"Get"
-        },function(error,res){
-          var today = JSON.parse(res.body);
-          var data1 = "";
-          for (var i = 0; i < today.length; i++) {
-            data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
-          }
-            var messageData = {
-                "recipient":{
-                    "id":recipientId
-                    },
-                    "message":{
-                      "text":data1,
-                      "quick_replies":[
-                        {
-                          "content_type":"text",
-                          "title":"more",
-                          "payload":"5"
-                        }
-                      ]
-                    }
-                  };
-                  callSendAPI(messageData);
-        });*/
-
       }
 
     else {
-      console.log("no parameters");
           var textmsg = response.result.fulfillment.speech;
           var messageData = {
             recipient: {
