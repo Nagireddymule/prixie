@@ -1,5 +1,5 @@
 var request = require("request");
-var receivedMessage = require("./receivedMessage");
+var receivedmessage = require("./receivedMessage");
 var callSendAPI = require("./callSendApi");
 module.exports ={
 
@@ -19,7 +19,7 @@ msgController: function(event){
     }
   }
   else if (event.message) {
-    receivedMessage(event);
+    receivedmessage.receivedMessage(event);
     console.log("logging event object");
     console.log(event);
   }
