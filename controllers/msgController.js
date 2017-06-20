@@ -76,7 +76,6 @@ module.exports.getStartMenu = function(senderid){
     callSendAPI(messageData);
   }
 module.exports.getInterviewSchedules = function(senderid){
-
       adaptInterviews.adaptSchedule("0/5",function(callback){
         var messageData = {
           "recipient":{
