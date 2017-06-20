@@ -16,12 +16,13 @@ module.exports.adaptTutorialsList = function(suburl,callback){
 }
 
 module.exports.adaptTutorial = function(suburl,callback){
-
   request({
-
+    url:"https://prixie-api.herokuapp.com/tutorial_urls/"+suburl,
+    method:"Get"
   },function(error,response){
     if(error) throw error;
-    
+    var data = JSON.parse(response.body);
+    var textmsg = data.urls[0];
+    return callback(textmsg);
   });
-
 }

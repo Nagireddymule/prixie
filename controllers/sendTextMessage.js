@@ -4,6 +4,7 @@ var apiai = require("apiai");
 var api = apiai("7433fe3c52d24fe18ab37483aadb517a");
 var callSendAPI = require("./callSendApi");
 var msgControllermodule = require("./msgController")
+var adaptTutorials = require("../adapters/adaptTutorials");
 
 module.exports = function(recipientId, messageText) {
   var msg = api.textRequest(messageText, {
@@ -11,13 +12,27 @@ module.exports = function(recipientId, messageText) {
   });
 
   msg.on('response', function(response) {
-    console.log("parameters object log");
-    //console.log(response.result.parameters);
+            console.log("parameters object log");
+            //console.log(response.result.parameters);
     if (response.result.parameters.tutorials||response.result.parameters.subject) {
                   console.log("got parameter");
         if (response.result.parameters.subject) {
-        var url =response.result.parameters.subject;
-        request({
+            var url =response.result.parameters.subject;
+            adaptTutorials.adaptTutorial(url,function(callback){
+              var messageData = {
+                recipient: {
+                  id: recipientId
+                },
+                message: {
+                    text: callback
+                  }
+              };
+              callSendAPI(messageData);
+            });
+
+
+
+      /*  request({
           url:"https://prixie-api.herokuapp.com/tutorial_urls/"+url,
           method:'Get',
         },function(error,res){
@@ -33,8 +48,8 @@ module.exports = function(recipientId, messageText) {
             }
         };
         callSendAPI(messageData);
-        });
-      }else if(response.result.parameters.tutorials)
+      });*/
+      } else if(response.result.parameters.tutorials)
         {
           msgControllermodule.getTutorialList(recipientId);
         }
