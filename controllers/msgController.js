@@ -1,9 +1,9 @@
 var request = require("request");
-var receivedMessage = require("./controllers/receivedMessage");
+var receivedMessage = require("./receivedMessage");
 var callSendAPI = require("./callSendApi");
-module.exports ={
 
-msgController: function(event){
+
+module.exports.msgController= function(event){
   var senderid = event.sender.id;
   console.log(event);
   if (event.postback) {
@@ -23,8 +23,8 @@ msgController: function(event){
     console.log("logging event object");
     console.log(event);
   }
-},
-getStartMenu:function(senderid){
+}
+module.exports.getStartMenu = function(senderid){
     var messageData ={
       "recipient":{
         "id":senderid
@@ -66,8 +66,8 @@ getStartMenu:function(senderid){
     }
     console.log("from getstart function");
     callSendAPI(messageData);
-  },
-getInterviewSchedules:function(senderid){
+  }
+module.exports.getInterviewSchedules = function(senderid){
   request({
     url:"https://prixie-api.herokuapp.com/interview_schedules/0/5",
     method:"Get"
@@ -95,8 +95,8 @@ getInterviewSchedules:function(senderid){
             callSendAPI(messageData);
   });
 
-},
-getTutorialList:function(senderid){
+}
+module.exports.getTutorialList = function(senderid){
       request({
         url:"https://prixie-api.herokuapp.com/tutorials_list",
         method:"get"
@@ -118,6 +118,4 @@ getTutorialList:function(senderid){
       }
       callSendAPI(messageData);
   });
-},
-
 }
