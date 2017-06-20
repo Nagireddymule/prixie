@@ -1,6 +1,6 @@
 var request =  require("request");
 var apiai = require("apiai");
-
+var msgControllermodule = require("./msgController")
 
 var api = apiai("7433fe3c52d24fe18ab37483aadb517a");
 var callSendAPI = require("./callSendApi");
@@ -65,7 +65,8 @@ module.exports = function(recipientId, messageText) {
       }
       if(response.result.parameters.schedule) {
         console.log("parameter came as schedule");
-        request({
+        msgControllermodule.getInterviewSchedules(recipientId);
+        /*request({
           url:"https://prixie-api.herokuapp.com/interview_schedules/0/5",
           method:"Get"
         },function(error,res){
@@ -90,7 +91,7 @@ module.exports = function(recipientId, messageText) {
                     }
                   };
                   callSendAPI(messageData);
-        });
+        });*/
 
       }
 

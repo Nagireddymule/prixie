@@ -2,6 +2,7 @@ var request = require("request");
 var receivedMessage = require("./receivedMessage");
 var callSendAPI = require("./callSendApi");
 module.exports ={
+  
 msgController: function(event){
   var senderid = event.sender.id;
   console.log(event);
