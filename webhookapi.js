@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 
 var receivedMessage = require("./controllers/receivedMessage");
 var callSendAPI = require("./controllers/callSendApi");
-var msgController = require("./controllers/msgController");
+var msgControllermodule = require("./controllers/msgController");
 
 var app = express();
 
@@ -33,7 +33,7 @@ app.post('/webhook', function (req, res) {
   if (data.object === 'page') {
     data.entry.forEach(function(entry) {
       entry.messaging.forEach(function(event) {
-        msgController(event);
+      msgControllermodule.msgController(event);
       });
     });
     res.sendStatus(200);
