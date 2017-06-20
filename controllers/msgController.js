@@ -19,6 +19,10 @@ module.exports.msgController= function(event){
     if (event.postback.payload == "Tutorials") {
        this.getTutorialList(senderid);
     }
+    if (!isNaN(event.postback.payload)) {
+      console.log("payload came as number");
+    }
+
   }
   else if (event.message) {
     messageReceived.receivedMessage(event);
@@ -93,7 +97,7 @@ module.exports.getInterviewSchedules = function(senderid){
           {
             "type":"postback",
             "title":"click here for more",
-            "payload":"NEXT_COMPANY_PAYLOAD"
+            "payload":"5"
           },
           {
             "type":"postback",
