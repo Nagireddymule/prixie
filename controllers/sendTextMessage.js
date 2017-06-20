@@ -30,29 +30,10 @@ module.exports = function(recipientId, messageText) {
               callSendAPI(messageData);
             });
 
-
-
-      /*  request({
-          url:"https://prixie-api.herokuapp.com/tutorial_urls/"+url,
-          method:'Get',
-        },function(error,res){
-
-        var data = JSON.parse(res.body);
-        var textmsg = data.urls[0];
-        var messageData = {
-          recipient: {
-            id: recipientId
-          },
-          message: {
-              text: textmsg
-            }
-        };
-        callSendAPI(messageData);
-      });*/
-      } else if(response.result.parameters.tutorials)
-        {
+        } else if(response.result.parameters.tutorials)
+          {
           msgControllermodule.getTutorialList(recipientId);
-        }
+          }
 
       }
       if(response.result.parameters.schedule) {
