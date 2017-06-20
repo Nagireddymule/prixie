@@ -1,5 +1,5 @@
 var request = require("request");
-var receivedMessage = require("./receivedMessage");
+var messageReceived = require("./receivedMessage");
 var callSendAPI = require("./callSendApi");
 
 
