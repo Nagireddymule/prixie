@@ -10,7 +10,7 @@ module.exports.receivedMessage = function(event) {
   var message = event.message;
   var messageText = message.text;
   var messageAttachments = message.attachments;
-  if (message.quick_reply && !isNaN(message.quick_reply.payload)) {
+  /*if (message.quick_reply && !isNaN(message.quick_reply.payload)) {
     messageText = "";
     var paystart = message.quick_reply.payload;
     console.log(paystart);
@@ -45,7 +45,7 @@ module.exports.receivedMessage = function(event) {
           };
           callSendAPI(messageData);
     });
-  }
+  }*/
   else if (messageText) {
         sendTextMessage(senderID, messageText);
     }
