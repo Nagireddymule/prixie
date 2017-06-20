@@ -5,7 +5,9 @@ var callSendAPI = require("./callSendApi");
 
 module.exports.msgController= function(event){
   var senderid = event.sender.id;
+  console.log("event log starts here");
   console.log(event);
+  console.log("event log ends here");
   if (event.postback) {
     console.log(event.postback);
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
