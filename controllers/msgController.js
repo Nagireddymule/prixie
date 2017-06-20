@@ -21,6 +21,7 @@ module.exports.msgController= function(event){
     }
     if (!isNaN(event.postback.payload)) {
       console.log("payload came as number");
+      this.getNextCompany(event);
     }
 
   }
@@ -83,39 +84,32 @@ module.exports.getInterviewSchedules = function(senderid){
     for (var i = 0; i < today.length; i++) {
       data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
     }
-    
-      var messageData = {
-  "recipient":{
-    "id":senderid
-  },
-  "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"button",
-        "text":data1,
-        "buttons":[
-          {
-            "type":"postback",
-            "title":"click here for more",
-            "payload":"5"
-          },
-          {
-            "type":"postback",
-            "title":"Home",
-            "payload":"GET_STARTED_PAYLOAD"
-          },
-        ]
-      }
-    }
-  }
-};
-
-
-
-
-
-
+          var messageData = {
+            "recipient":{
+              "id":senderid
+            },
+            "message":{
+              "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"button",
+                  "text":data1,
+                  "buttons":[
+                    {
+                      "type":"postback",
+                      "title":"click here for more",
+                      "payload":"5"
+                    },
+                    {
+                      "type":"postback",
+                      "title":"Home",
+                      "payload":"GET_STARTED_PAYLOAD"
+                    },
+                  ]
+                }
+              }
+            }
+          };
       /*{
           "recipient":{
               "id":senderid
@@ -157,4 +151,49 @@ module.exports.getTutorialList = function(senderid){
       }
       callSendAPI(messageData);
   });
+}
+module.exports.getNextCompany = function(event){
+
+  var indexstart = event.postback.payload;
+  console.log(indexstart);
+  var indexend = parseInt(indexstart)+5;
+  console.log(indexend);
+  var data1 = "";
+  request({
+    url:"https://prixie-api.herokuapp.com/interview_schedules/"+indexstart+"/"+indexend,
+    method:"Get"
+  },function(error,response){
+    var today = JSON.parse(response.body);
+    for (var i = 0; i < today.length; i++) {
+      data1 = data1+(today[i].company+":\n http://todaywalkins.com/"+today[i].website+"\n\n");
+    }
+    console.log(data1);
+          var messageData = {
+            "recipient":{
+              "id":senderid
+            },
+            "message":{
+              "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"button",
+                  "text":data1,
+                  "buttons":[
+                    {
+                      "type":"postback",
+                      "title":"click here for more",
+                      "payload":indexend
+                    },
+                    {
+                      "type":"postback",
+                      "title":"Home",
+                      "payload":"GET_STARTED_PAYLOAD"
+                    },
+                  ]
+                }
+              }
+            }
+          };
+          callSendAPI(messageData);
+        });
 }
