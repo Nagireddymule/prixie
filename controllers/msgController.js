@@ -153,7 +153,7 @@ module.exports.getTutorialList = function(senderid){
   });
 }
 module.exports.getNextCompany = function(event){
-
+  var senderid = event.sender.id;
   var indexstart = event.postback.payload;
   console.log(indexstart);
   var indexend = parseInt(indexstart)+5;
