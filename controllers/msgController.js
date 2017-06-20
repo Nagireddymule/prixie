@@ -91,7 +91,12 @@ module.exports.getInterviewSchedules = function(senderid){
           {
             "type":"postback",
             "title":"click here for more",
-            "payload":"USER_DEFINED_PAYLOAD"
+            "payload":"NEXT_COMPANY_PAYLOAD"
+          },
+          {
+            "type":"postback",
+            "title":"Home",
+            "payload":"GET_STARTED_PAYLOAD"
           },
         ]
       }
