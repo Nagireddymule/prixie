@@ -38,7 +38,8 @@ module.exports = function(recipientId, messageText) {
         });
         }else
         {
-          request({
+          msgControllermodule.getTutorialList(recipientId);
+          /*request({
               url:"https://prixie-api.herokuapp.com/tutorials_list",
               method:"get"
           },function(error,res){
@@ -58,7 +59,7 @@ module.exports = function(recipientId, messageText) {
                 }
               }
               callSendAPI(messageData);
-          });
+          });*/
 
         }
 
