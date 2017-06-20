@@ -2,6 +2,7 @@ var request = require("request");
 var messageReceived = require("./receivedMessage");
 var callSendAPI = require("./callSendApi");
 var adaptInterviews = require("../adapters/adaptInterviews");
+var adaptTutorials = require("../adapters/adaptTutorials");
 
 
 module.exports.msgController= function(event){
@@ -108,7 +109,20 @@ module.exports.getInterviewSchedules = function(senderid){
 
 }
 module.exports.getTutorialList = function(senderid){
-      request({
+
+  adaptTutorials.adaptTutorial("tutorials_list",function(callback){
+    var messageData ={
+      "recipient":{
+        "id":senderid
+      },
+      "message":{
+      "text":"Choose a tutorial:",
+      "quick_replies":listarrdata
+    }
+  }
+  callSendAPI(messageData);
+});
+    /*  request({
         url:"https://prixie-api.herokuapp.com/tutorials_list",
         method:"get"
       },function(error,res){
@@ -128,7 +142,7 @@ module.exports.getTutorialList = function(senderid){
         }
       }
       callSendAPI(messageData);
-  });
+  });*/
 }
 module.exports.getNextCompany = function(event){
   var senderid = event.sender.id;
