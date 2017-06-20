@@ -7,8 +7,7 @@ var callSendAPI = require("./callSendApi");
 
 
 
-module.exports = {
-  receivedMessage:function(event) {
+module.exports = function(event) {
   var senderID = event.sender.id;
   var recipientID = event.recipient.id;
   var message = event.message;
@@ -57,5 +56,4 @@ module.exports = {
       console.log("attachment came");
       sendAttachmentMessage(senderID, messageText);
     }
-}
 }
