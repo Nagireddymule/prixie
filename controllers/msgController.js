@@ -46,7 +46,7 @@ module.exports.getStartMenu = function(senderid){
             "elements":[
               {
                 "title":"Welcome to Interview Schedules",
-                "image_url":"https://preview.ibb.co/mSwUOQ/interview.png",
+                "image_url":"https://preview.ibb.co/e8Mdk5/interview.jpg",
                 "subtitle":"@Interviews",
                 "buttons":[
                   {
