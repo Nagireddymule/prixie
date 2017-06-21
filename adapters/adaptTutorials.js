@@ -41,7 +41,7 @@ module.exports.adaptTutorial = function(suburl,callback){
   },function(error,response){
     if(error) throw error;
     var data = JSON.parse(response.body);
-    var textmsg = data.urls[0];
+    var textmsg = data.urls[1].weburl;
     return callback(textmsg);
   });
 }
