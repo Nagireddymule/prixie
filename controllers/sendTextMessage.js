@@ -19,14 +19,30 @@ module.exports = function(recipientId, messageText) {
         if (response.result.parameters.subject) {
             var url =response.result.parameters.subject;
             adaptTutorials.adaptTutorial(url,function(callback){
-              var messageData = {
+              var messageData ={
+  "recipient":{
+    "id":"USER_ID"
+  },
+  "message":{
+    "attachment":{
+      "type":"video",
+      "payload":{
+        "url":callback
+      }
+    }
+  }
+};
+
+
+
+            /*  var messageData = {
                 recipient: {
                   id: recipientId
                 },
                 message: {
                     text: callback
                   }
-              };
+              };*/
               callSendAPI(messageData);
             });
 
