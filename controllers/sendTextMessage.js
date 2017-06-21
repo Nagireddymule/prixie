@@ -27,7 +27,7 @@ module.exports = function(recipientId, messageText) {
     "attachment":{
       "type":"video",
       "payload":{
-        "url":"https://youtu.be/U8wrZRYAnmI"
+        "url":"http://techslides.com/demos/sample-videos/small.mp4"
       }
     }
   }
