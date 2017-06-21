@@ -19,6 +19,11 @@ module.exports.adaptTutorialsList = function(suburl,callback){
                                 },
                                 {
                                   "type":"element_share"
+                                },
+                                {
+                                  "type":"postback",
+                                  "title":"Home",
+                                  "payload":"GET_STARTED_PAYLOAD"
                                 }
                               ]
                             });

@@ -119,23 +119,7 @@ module.exports.getTutorialList = function(senderid){
       "type":"template",
       "payload":{
         "template_type":"generic",
-        "elements":[
-          {
-            "title":"Breaking News: Record Thunderstorms",
-            "subtitle":"The local area is due for record thunderstorms over the weekend.",
-            "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
-            "buttons":[
-                    {
-                      "type": "web_url",
-                      "url": "https://preview.ibb.co/doe5xk/tutorials.jpg",
-                      "title": "Read"
-                    },
-                    {
-                      "type":"element_share"
-                    }
-            ]
-          }
-        ]
+        "elements":callback
       }
     }
   }
