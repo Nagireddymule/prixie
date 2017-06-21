@@ -21,7 +21,7 @@ module.exports = function(recipientId, messageText) {
             adaptTutorials.adaptTutorial(url,function(callback){
               var messageData ={
   "recipient":{
-    "id":"USER_ID"
+    "id":recipientId
   },
   "message":{
     "attachment":{
