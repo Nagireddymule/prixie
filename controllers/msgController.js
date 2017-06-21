@@ -58,7 +58,7 @@ module.exports.getStartMenu = function(senderid){
               },
               {
                 "title":"Welcome to Tutorials",
-                "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
+                "image_url":"https://preview.ibb.co/dyONdQ/tutorial.jpg",
                 "subtitle":"@Tutorials",
                 "buttons":[
                   {
