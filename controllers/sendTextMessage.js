@@ -27,7 +27,7 @@ module.exports = function(recipientId, messageText) {
     "attachment":{
       "type":"video",
       "payload":{
-        "url":"https://www.youtube.com/watch?v=Cfd9DOnuF9w"
+        "url":"https://youtu.be/Cfd9DOnuF9w"
       }
     }
   }
