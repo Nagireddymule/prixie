@@ -10,7 +10,7 @@ module.exports.adaptTutorialsList = function(suburl,callback){
         for (var i = 0; i < 10; i++) {
           tutListArray.push({"title":tutList[i].title,
                               "subtitle":"Click Read to open Tutorial.",
-                              "image_url":tutList[i].urls[1].imageurl,
+                              "image_url":tutList[i].urls[0].imageurl,
                               "buttons":[
                                 {
                                   "type": "web_url",
