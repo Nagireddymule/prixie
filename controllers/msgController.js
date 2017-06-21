@@ -124,33 +124,16 @@ module.exports.getTutorialList = function(senderid){
             "title":"Breaking News: Record Thunderstorms",
             "subtitle":"The local area is due for record thunderstorms over the weekend.",
             "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
-            "buttons": [
-      {
-        "type": "element_share",
-        "share_contents": {
-          "attachment": {
-            "type": "template",
-            "payload": {
-              "template_type": "generic",
-              "elements": [
-                {
-                  "title": "I took Peter's 'Which Hat Are You?' Quiz",
-                  "subtitle": "My result: Fez",
-                  "image_url": "https://preview.ibb.co/doe5xk/tutorials.jpg",
-                  "buttons": [
+            "buttons":[
                     {
                       "type": "web_url",
                       "url": "https://preview.ibb.co/doe5xk/tutorials.jpg",
                       "title": "Take Quiz"
+                    },
+                    {
+                      "type":"element_share"
                     }
-                  ]
-                }
-              ]
-            }
-          }
-        }
-      }
-    ]
+            ]
           }
         ]
       }
