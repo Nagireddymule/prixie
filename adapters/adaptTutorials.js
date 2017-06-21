@@ -14,7 +14,7 @@ module.exports.adaptTutorialsList = function(suburl,callback){
                               "buttons":[
                                 {
                                   "type": "web_url",
-                                  "url": tutList[i].urls[2].weburl,
+                                  "url": tutList[i].urls[1].weburl,
                                   "title": "Read"
                                 },
                                 {
