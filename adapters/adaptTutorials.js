@@ -8,7 +8,21 @@ module.exports.adaptTutorialsList = function(suburl,callback){
         var tutList = JSON.parse(response.body);
         var tutListArray = [];
         for (var i = 0; i < 10; i++) {
-          tutListArray.push({"content_type":"text","title":tutList[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"})
+          tutListArray.push({"title":tutList[i].title,
+                              "subtitle":"Click Read to open Tutorial.",
+                              "image_url":tutList[i].urls[1].imageurl,
+                              "buttons":[
+                                {
+                                  "type": "web_url",
+                                  "url": tutList[i].urls[2].weburl,
+                                  "title": "Read"
+                                },
+                                {
+                                  "type":"element_share"
+                                }
+                              ]
+                            });
+        //  tutListArray.push({"content_type":"text","title":tutList[i].title,"payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"});
         }
         var tutListArrayData = JSON.stringify(tutListArray);
         return callback(tutListArrayData);

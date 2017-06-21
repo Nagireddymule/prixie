@@ -128,7 +128,7 @@ module.exports.getTutorialList = function(senderid){
                     {
                       "type": "web_url",
                       "url": "https://preview.ibb.co/doe5xk/tutorials.jpg",
-                      "title": "Take Quiz"
+                      "title": "Read"
                     },
                     {
                       "type":"element_share"
