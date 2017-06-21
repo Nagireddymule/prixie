@@ -110,7 +110,36 @@ module.exports.getInterviewSchedules = function(senderid){
 }
 module.exports.getTutorialList = function(senderid){
       adaptTutorials.adaptTutorialsList("tutorials_list",function(callback){
-        var messageData ={
+        var messageData = {
+  "recipient":{
+    "id":senderid
+  },
+  "message":{
+    "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"generic",
+        "elements":[
+          {
+            "title":"Breaking News: Record Thunderstorms",
+            "subtitle":"The local area is due for record thunderstorms over the weekend.",
+            "image_url":"https://preview.ibb.co/doe5xk/tutorials.jpg",
+            "buttons":[
+              {
+                "type":"element_share"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
+
+
+
+
+        /*var messageData ={
           "recipient":{
             "id":senderid
           },
@@ -118,7 +147,7 @@ module.exports.getTutorialList = function(senderid){
             "text":"Choose a tutorial:",
             "quick_replies":callback
           }
-        }
+        }*/
         callSendAPI(messageData);
       });
 }
