@@ -25,13 +25,39 @@ module.exports = function(recipientId, messageText) {
   },
   "message":{
     "attachment":{
+      "type":"template",
+      "payload":{
+        "template_type":"open_graph",
+        "elements":[
+           {
+            "url":"https://www.youtube.com/watch?v=U8wrZRYAnmI",
+            
+          }
+        ]
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+              /*{
+  "recipient":{
+    "id":recipientId
+  },
+  "message":{
+    "attachment":{
       "type":"video",
       "payload":{
         "url":"https://www.youtube.com/watch?v=U8wrZRYAnmI"
       }
     }
   }
-};
+};*/
 
 
 
