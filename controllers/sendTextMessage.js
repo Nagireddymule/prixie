@@ -30,8 +30,8 @@ module.exports = function(recipientId, messageText) {
         "template_type":"open_graph",
         "elements":[
            {
-            "url":"https://www.youtube.com/watch?v=U8wrZRYAnmI",
-            
+            "url":callback,
+
           }
         ]
       }
