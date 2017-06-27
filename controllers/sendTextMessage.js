@@ -39,12 +39,6 @@ module.exports = function(recipientId, messageText) {
   }
 }
 
-
-
-
-
-
-
               /*{
   "recipient":{
     "id":recipientId
