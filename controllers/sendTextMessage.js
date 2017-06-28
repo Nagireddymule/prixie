@@ -50,7 +50,7 @@ module.exports = function(recipientId, messageText) {
                  var company = response.result.parameters.company;
                  var date = response.result.parameters.date;
                  var experience = response.result.parameters.experience;
-                 console.log(experience.toString());
+                 console.log(JSON.stringify(experience));
                 // if (response.result.parameters) {
                 //   console.log("parameters arrived");
                 // }else {
