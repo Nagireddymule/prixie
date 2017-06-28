@@ -47,11 +47,14 @@ module.exports = function(recipientId, messageText) {
               }
               else if (response.result.action == "InterviewSchedule") {
                 console.log("action catched in InterviewSchedule");
-                if (response.result.parameters) {
-                  console.log("parameters arrived");
-                }else {
-                  msgControllermodule.getInterviewSchedules(recipientId);
-                }
+
+                var sub = response.result.parameters.company;
+                console.log(sub);
+                // if (response.result.parameters) {
+                //   console.log("parameters arrived");
+                // }else {
+                //   msgControllermodule.getInterviewSchedules(recipientId);
+                // }
 
 
 
