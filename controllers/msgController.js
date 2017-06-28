@@ -7,9 +7,9 @@ var adaptTutorials = require("../adapters/adaptTutorials");
 
 module.exports.msgController= function(event){
   var senderid = event.sender.id;
-  console.log("event log starts here");
-  console.log(event);
-  console.log("event log ends here");
+  //console.log("event log starts here");
+  //console.log(event);
+  //console.log("event log ends here");
   if (event.postback) {
     console.log(event.postback);
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
@@ -29,8 +29,8 @@ module.exports.msgController= function(event){
   }
   else if (event.message) {
     messageReceived.receivedMessage(event);
-    console.log("logging event object");
-    console.log(event);
+  //  console.log("logging event object");
+  //  console.log(event);
   }
 }
 module.exports.getStartMenu = function(senderid){
