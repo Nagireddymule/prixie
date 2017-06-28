@@ -47,65 +47,16 @@ module.exports = function(recipientId, messageText) {
               }
               else if (response.result.action == "InterviewSchedule") {
                 console.log("action catched in InterviewSchedule");
-                msgControllermodule.getInterviewSchedules(recipientId);
+                if (response.result.parameters) {
+                  console.log("parameters arrived");
+                }else {
+                  msgControllermodule.getInterviewSchedules(recipientId);
+                }
+
+
+
               }
 
-
-
-
-
-
-
-
-
-    // if (response.result.parameters.tutorials||response.result.parameters.Subject) {
-    //               console.log("got parameter");
-    //     if (response.result.parameters.Subject) {
-    //         var url = response.result.parameters.Subject;
-    //         // adaptTutorials.adaptTutorial(url,function(callback){
-    //         //   var messageData ={
-    //         //     "recipient":{
-    //         //       "id":recipientId
-    //         //     },
-    //         //     "message":{
-    //         //       "attachment":{
-    //         //         "type":"template",
-    //         //         "payload":{
-    //         //           "template_type":"open_graph",
-    //         //           "elements":[
-    //         //             {
-    //         //               "url":callback,
-    //         //
-    //         //             }
-    //         //           ]
-    //         //         }
-    //         //       }
-    //         //     }
-    //         //   }
-    //         //   callSendAPI(messageData);
-    //         // });
-    //
-    //     } else if(response.result.parameters.tutorials)
-    //       {
-    //       msgControllermodule.getTutorialList(recipientId);
-    //       }
-    //
-    //   }
-    //   if(response.result.parameters.schedule) {
-    //     msgControllermodule.getInterviewSchedules(recipientId);
-    //   }
-
-
-
-
-
-
-
-
-
-
-
-  //  else {
           var textmsg = response.result.fulfillment.speech;
           var messageData = {
             recipient: {
@@ -116,7 +67,7 @@ module.exports = function(recipientId, messageText) {
               }
           };
           callSendAPI(messageData);
-    //}
+
   }
 
 });//closing of apiai msg.on(response) function
