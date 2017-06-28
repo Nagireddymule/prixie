@@ -17,6 +17,7 @@ module.exports = function(recipientId, messageText) {
             if (response.result.action) {
               if (response.result.action == "Tutorials") {
                 console.log("action catched");
+                msgControllermodule.getTutorialList(recipientId);
               }
               else {
                 console.log("action not catched");
