@@ -49,7 +49,7 @@ module.exports = function(recipientId, messageText) {
                 console.log("action catched in InterviewSchedule");
                 msgControllermodule.getInterviewSchedules(recipientId);
               }
-              
+
 
 
 
@@ -105,7 +105,7 @@ module.exports = function(recipientId, messageText) {
 
 
 
-    else {
+  //  else {
           var textmsg = response.result.fulfillment.speech;
           var messageData = {
             recipient: {
@@ -116,7 +116,7 @@ module.exports = function(recipientId, messageText) {
               }
           };
           callSendAPI(messageData);
-    }
+    //}
   }
 
 });//closing of apiai msg.on(response) function
