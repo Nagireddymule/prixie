@@ -16,7 +16,7 @@ module.exports = function(recipientId, messageText) {
             console.log(response.result.parameters);
     if (response.result.parameters.tutorials||response.result.parameters.Subject) {
                   console.log("got parameter");
-        if (response.result.parameters.subject) {
+        if (response.result.parameters.Subject) {
             var url =response.result.parameters.subject;
             adaptTutorials.adaptTutorial(url,function(callback){
               var messageData ={
