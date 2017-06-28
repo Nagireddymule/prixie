@@ -13,7 +13,6 @@ module.exports = function(recipientId, messageText) {
 
   msg.on('response', function(response) {
             console.log(response);
-            //console.log("parameters object log"); console.log(response.result.parameters);
             if (response.result.action) {
               if (response.result.action == "Tutorials") {
                 console.log("action catched in Tutorials");
@@ -62,42 +61,52 @@ module.exports = function(recipientId, messageText) {
 
 
 
-    if (response.result.parameters.tutorials||response.result.parameters.Subject) {
-                  console.log("got parameter");
-        if (response.result.parameters.Subject) {
-            var url = response.result.parameters.Subject;
-            adaptTutorials.adaptTutorial(url,function(callback){
-              var messageData ={
-                "recipient":{
-                  "id":recipientId
-                },
-                "message":{
-                  "attachment":{
-                    "type":"template",
-                    "payload":{
-                      "template_type":"open_graph",
-                      "elements":[
-                        {
-                          "url":callback,
+    // if (response.result.parameters.tutorials||response.result.parameters.Subject) {
+    //               console.log("got parameter");
+    //     if (response.result.parameters.Subject) {
+    //         var url = response.result.parameters.Subject;
+    //         // adaptTutorials.adaptTutorial(url,function(callback){
+    //         //   var messageData ={
+    //         //     "recipient":{
+    //         //       "id":recipientId
+    //         //     },
+    //         //     "message":{
+    //         //       "attachment":{
+    //         //         "type":"template",
+    //         //         "payload":{
+    //         //           "template_type":"open_graph",
+    //         //           "elements":[
+    //         //             {
+    //         //               "url":callback,
+    //         //
+    //         //             }
+    //         //           ]
+    //         //         }
+    //         //       }
+    //         //     }
+    //         //   }
+    //         //   callSendAPI(messageData);
+    //         // });
+    //
+    //     } else if(response.result.parameters.tutorials)
+    //       {
+    //       msgControllermodule.getTutorialList(recipientId);
+    //       }
+    //
+    //   }
+    //   if(response.result.parameters.schedule) {
+    //     msgControllermodule.getInterviewSchedules(recipientId);
+    //   }
 
-                        }
-                      ]
-                    }
-                  }
-                }
-              }
-              callSendAPI(messageData);
-            });
 
-        } else if(response.result.parameters.tutorials)
-          {
-          msgControllermodule.getTutorialList(recipientId);
-          }
 
-      }
-      if(response.result.parameters.schedule) {
-        msgControllermodule.getInterviewSchedules(recipientId);
-      }
+
+
+
+
+
+
+
 
     else {
           var textmsg = response.result.fulfillment.speech;
