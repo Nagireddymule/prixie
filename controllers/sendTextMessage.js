@@ -48,6 +48,7 @@ module.exports = function(recipientId, messageText) {
               else if (response.result.action == "InterviewSchedule") {
                 console.log("action catched in InterviewSchedule");
 
+
                 // var company = response.result.parameters.company;
                 // var date = response.result.parameters.date;
                 // console.log(sub);
