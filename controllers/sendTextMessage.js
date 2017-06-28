@@ -13,56 +13,31 @@ module.exports = function(recipientId, messageText) {
 
   msg.on('response', function(response) {
             console.log("parameters object log");
-            //console.log(response.result.parameters);
+            console.log(response.result.parameters);
     if (response.result.parameters.tutorials||response.result.parameters.subject) {
                   console.log("got parameter");
         if (response.result.parameters.subject) {
             var url =response.result.parameters.subject;
             adaptTutorials.adaptTutorial(url,function(callback){
               var messageData ={
-  "recipient":{
-    "id":recipientId
-  },
-  "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"open_graph",
-        "elements":[
-           {
-            "url":callback,
-
-          }
-        ]
-      }
-    }
-  }
-}
-
-              /*{
-  "recipient":{
-    "id":recipientId
-  },
-  "message":{
-    "attachment":{
-      "type":"video",
-      "payload":{
-        "url":"https://www.youtube.com/watch?v=U8wrZRYAnmI"
-      }
-    }
-  }
-};*/
-
-
-
-            /*  var messageData = {
-                recipient: {
-                  id: recipientId
+                "recipient":{
+                  "id":recipientId
                 },
-                message: {
-                    text: callback
+                "message":{
+                  "attachment":{
+                    "type":"template",
+                    "payload":{
+                      "template_type":"open_graph",
+                      "elements":[
+                        {
+                          "url":callback,
+
+                        }
+                      ]
+                    }
                   }
-              };*/
+                }
+              }
               callSendAPI(messageData);
             });
 
