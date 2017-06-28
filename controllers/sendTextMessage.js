@@ -16,8 +16,35 @@ module.exports = function(recipientId, messageText) {
             //console.log("parameters object log"); console.log(response.result.parameters);
             if (response.result.action) {
               if (response.result.action == "Tutorials") {
-                console.log("action catched");
-                msgControllermodule.getTutorialList(recipientId);
+                console.log("action catched in Tutorials");
+                if (response.result.parameters.Subject) {
+                  console.log("action catched in Tutorials as subject");
+                  var url = response.result.parameters.Subject;
+                  adaptTutorials.adaptTutorial(url,function(callback){
+                    var messageData ={
+                      "recipient":{
+                        "id":recipientId
+                      },
+                      "message":{
+                        "attachment":{
+                          "type":"template",
+                          "payload":{
+                            "template_type":"open_graph",
+                            "elements":[
+                              {
+                                "url":callback,
+
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                    callSendAPI(messageData);
+                  });
+                }else {
+                  msgControllermodule.getTutorialList(recipientId);
+                }
               }
               else if (response.result.action == "InterviewSchedule") {
                 console.log("action catched in InterviewSchedule");
@@ -28,10 +55,17 @@ module.exports = function(recipientId, messageText) {
               }
 
             }
+
+
+
+
+
+
+
     if (response.result.parameters.tutorials||response.result.parameters.Subject) {
                   console.log("got parameter");
         if (response.result.parameters.Subject) {
-            var url =response.result.parameters.Subject;
+            var url = response.result.parameters.Subject;
             adaptTutorials.adaptTutorial(url,function(callback){
               var messageData ={
                 "recipient":{
