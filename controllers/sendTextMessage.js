@@ -14,8 +14,13 @@ module.exports = function(recipientId, messageText) {
   msg.on('response', function(response) {
             console.log(response);
             //console.log("parameters object log"); console.log(response.result.parameters);
-            if (response.result.action == tutorials) {
-              console.log("action catched");
+            if (response.result.action) {
+              if (response.result.action == "Tutorials") {
+                console.log("action catched");
+              }
+              else {
+                console.log("action not catched");
+              }
 
             }
     if (response.result.parameters.tutorials||response.result.parameters.Subject) {
