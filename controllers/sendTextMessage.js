@@ -49,11 +49,8 @@ module.exports = function(recipientId, messageText) {
                 console.log("action catched in InterviewSchedule");
                 msgControllermodule.getInterviewSchedules(recipientId);
               }
-              else {
-                console.log("action not catched");
-              }
+              
 
-            }
 
 
 
@@ -120,8 +117,9 @@ module.exports = function(recipientId, messageText) {
           };
           callSendAPI(messageData);
     }
+  }
 
-  });//closing of apiai msg.on(response) function
+});//closing of apiai msg.on(response) function
   msg.on('error', function(error) {
     console.log(error);
   });
