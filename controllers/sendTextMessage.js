@@ -48,15 +48,16 @@ module.exports = function(recipientId, messageText) {
               else if (response.result.action == "InterviewSchedule") {
                 console.log("action catched in InterviewSchedule");
 
-                var sub = response.result.parameters.company;
-                console.log(sub);
+                // var company = response.result.parameters.company;
+                // var date = response.result.parameters.date;
+                // console.log(sub);
                 // if (response.result.parameters) {
                 //   console.log("parameters arrived");
                 // }else {
                 //   msgControllermodule.getInterviewSchedules(recipientId);
                 // }
 
-
+                msgControllermodule.getInterviewSchedules(recipientId);
 
               }
 
