@@ -49,8 +49,8 @@ module.exports = function(recipientId, messageText) {
                 console.log("action catched in InterviewSchedule");
                  var company = response.result.parameters.company;
                  var date = response.result.parameters.date;
-                 var experience = response.result.parameters.experience;
-                 console.log(experience[0]);
+                 var experience = response.result.parameters.Experience;
+                 console.log(experience);
                 // if (response.result.parameters) {
                 //   console.log("parameters arrived");
                 // }else {
