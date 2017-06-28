@@ -50,7 +50,8 @@ module.exports = function(recipientId, messageText) {
                  var company = response.result.parameters.company;
                  var date = response.result.parameters.date;
                  var experience = response.result.parameters.Experience;
-                 console.log(experience);
+                 var Job_Role =  response.result.parameters.Job_Role;
+                 console.log(experience+company+date+Job_Role);
                 // if (response.result.parameters) {
                 //   console.log("parameters arrived");
                 // }else {
