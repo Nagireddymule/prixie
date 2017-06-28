@@ -19,9 +19,12 @@ module.exports = function(recipientId, messageText) {
                 console.log("action catched");
                 msgControllermodule.getTutorialList(recipientId);
               }
-              else if (response.result.aciton == "InterviewSchedule") {
+              else if (response.result.action == "InterviewSchedule") {
                 console.log("action catched in InterviewSchedule");
                 msgControllermodule.getInterviewSchedules(recipientId);
+              }
+              else {
+                console.log("action not catched");
               }
 
             }
