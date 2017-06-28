@@ -13,8 +13,11 @@ module.exports = function(recipientId, messageText) {
 
   msg.on('response', function(response) {
             console.log(response);
-            console.log("parameters object log");
-            console.log(response.result.parameters);
+            //console.log("parameters object log"); console.log(response.result.parameters);
+            if (response.result.action) {
+              console.log("action catched");
+
+            }
     if (response.result.parameters.tutorials||response.result.parameters.Subject) {
                   console.log("got parameter");
         if (response.result.parameters.Subject) {
