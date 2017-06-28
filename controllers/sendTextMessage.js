@@ -1,7 +1,7 @@
 var request =  require("request");
 var apiai = require("apiai");
 
-var api = apiai("7433fe3c52d24fe18ab37483aadb517a");
+var api = apiai("34959a387b7540929f81521d84577970");
 var callSendAPI = require("./callSendApi");
 var msgControllermodule = require("./msgController")
 var adaptTutorials = require("../adapters/adaptTutorials");
