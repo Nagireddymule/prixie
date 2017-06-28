@@ -51,7 +51,7 @@ module.exports = function(recipientId, messageText) {
 
                  var company = response.result.parameters.company;
                  var date = response.result.parameters.date;
-                 console.log(sub+" "+date);
+                 console.log(company+" "+date);
                 // if (response.result.parameters) {
                 //   console.log("parameters arrived");
                 // }else {
