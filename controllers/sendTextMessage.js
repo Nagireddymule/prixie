@@ -20,6 +20,7 @@ module.exports = function(recipientId, messageText) {
                 msgControllermodule.getTutorialList(recipientId);
               }
               else if (response.result.aciton == "InterviewSchedule") {
+                console.log("action catched in InterviewSchedule");
                 msgControllermodule.getInterviewSchedules(recipientId);
               }
 
