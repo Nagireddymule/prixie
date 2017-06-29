@@ -110,33 +110,21 @@ module.exports.getInterviewSchedules = function(senderid){
 }
 module.exports.getTutorialList = function(senderid){
       adaptTutorials.adaptTutorialsList("tutorials_list",function(callback){
-        var messageData = {
-  "recipient":{
-    "id":senderid
-  },
-  "message":{
-    "attachment":{
-      "type":"template",
-      "payload":{
-        "template_type":"generic",
-        "elements":callback
-      }
-    }
-  }
-}
-
-
-
-
-        /*var messageData ={
-          "recipient":{
-            "id":senderid
-          },
-          "message":{
-            "text":"Choose a tutorial:",
-            "quick_replies":callback
+          var messageData = {
+            "recipient":{
+              "id":senderid
+            },
+            "message":{
+              "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"generic",
+                  "elements":callback
+                }
+              }
+            }
           }
-        }*/
+
         callSendAPI(messageData);
       });
 }
@@ -177,4 +165,35 @@ module.exports.getNextCompany = function(event){
     callSendAPI(messageData);
   });
 
+}
+module.exports.getFilterInterviewSchedules = function(myurl,senderid ){
+        adaptInterviews.adaptFilterSchedule(myurl,function(callback){
+          var messageData = {
+            "recipient":{
+              "id":senderid
+            },
+            "message":{
+              "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"button",
+                  "text":callback,
+                  "buttons":[
+                    {
+                      "type":"postback",
+                      "title":"Click here for more",
+                      "payload":"5"
+                    },
+                    {
+                      "type":"postback",
+                      "title":"Home",
+                      "payload":"GET_STARTED_PAYLOAD"
+                    },
+                  ]
+                }
+              }
+            }
+          };
+          callSendAPI(messageData);
+        });
 }
