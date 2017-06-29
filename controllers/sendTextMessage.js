@@ -55,7 +55,7 @@ module.exports = function(recipientId, messageText) {
                  var experience = params.Experience;
                  var expmin = params.Experience.min;
                  var expmax = params.Experience.max;
-                 console.log(expmax);
+                 console.log(expmin);
                 // if (response.result.parameters) {
                 //   console.log("parameters arrived");
                 // }else {
