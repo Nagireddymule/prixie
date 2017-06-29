@@ -56,7 +56,7 @@ module.exports = function(recipientId, messageText) {
                  var expmin = params.Experience.min;
                  var expmax = params.Experience.max;
                  console.log(expmin);
-                 var myurl = "Mainframe Developer"
+                 var myurl = "Java Developers"
                 msgControllermodule.getFilterInterviewSchedules(myurl,recipientId);
 
               //  msgControllermodule.getInterviewSchedules(recipientId);
