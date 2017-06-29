@@ -23,7 +23,6 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
     var dataFormat = "";
     for (var i = 0; i < responseData.length; i++) {
       dataFormat = ("Company: "+responseData[i].company+".\nWebsite: "+responseData[i].Website+"\nJob Role: "+responseData[i].Job_Role+"\nEligibility: "+responseData[i].Eligibility+"\nExperience: "+responseData[i].Experience+"\nJob Location: "+responseData[i].Job_location+"\nData: "+responseData[i].Walk_In_date+"\nTime: "+responseData[i].Walk_In_Time);
-
     }
     return callback(dataFormat);
     //console.log(dataFormat);

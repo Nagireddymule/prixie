@@ -55,7 +55,7 @@ module.exports = function(recipientId, messageText) {
                  var experience = params.Experience;
                  var expmin = params.Experience.min;
                  var expmax = params.Experience.max;
-                 var myurl = "Java Developers";
+                 var myurl = "Mainframe Developer";
                  if (!date&&!Job_Role&&&&!experience) {
                    console.log("no params");
                    msgControllermodule.getFilterInterviewSchedules(myurl,recipientId);
