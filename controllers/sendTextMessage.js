@@ -47,13 +47,15 @@ module.exports = function(recipientId, messageText) {
               }
               else if (response.result.action == "InterviewSchedule") {
                 console.log("action catched in InterviewSchedule");
-                 var company = response.result.parameters.company;
-                 var date = response.result.parameters.date;
-                 var experience = response.result.parameters.Experience;
-                 var Job_Role =  response.result.parameters.Job_Role;
-                 var subject = response.result.parameters.Subject;
-                 console.log(company+date+Job_Role+subject);
-                 console.log(experience);
+                var params = response.result.parameters;
+                 var company = params.company;
+                 var date = params.date;
+                 var Job_Role = params.Job_Role;
+                 var subject = params.Subject;
+                 var experience = params.Experience;
+                 var expmin = params.Experience.min;
+                 var expmax = params.Experience.max;
+                 console.log(expmax);
                 // if (response.result.parameters) {
                 //   console.log("parameters arrived");
                 // }else {
