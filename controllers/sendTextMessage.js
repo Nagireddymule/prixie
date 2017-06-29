@@ -63,9 +63,11 @@ module.exports = function(recipientId, messageText) {
                     console.log("its params");
                     if (date&&!Job_Role&&!experience) {
                       console.log("only date param");
+                      msgControllermodule.getFilterInterviewSchedules(date,recipientId);
                     }
                     if (!date&&Job_Role&&!experience) {
                       console.log("only jobrole param");
+                      msgControllermodule.getFilterInterviewSchedules(Job_Role,recipientId);
                     }
                     if (!date&&!Job_Role&&experience) {
                       console.log("only experience param");
