@@ -49,13 +49,17 @@ module.exports = function(recipientId, messageText) {
                 console.log("action catched in InterviewSchedule");
                 var params = response.result.parameters;
                  var company = params.company;
+                 if (!company) {
+                   console.log("not company");
+                 }else{
+                   console.log("its a company");
+                 }
                  var date = params.date;
                  var Job_Role = params.Job_Role;
                  var subject = params.Subject;
                  var experience = params.Experience;
                  var expmin = params.Experience.min;
                  var expmax = params.Experience.max;
-                 console.log(expmin);
                  var myurl = "Java Developers"
                 msgControllermodule.getFilterInterviewSchedules(myurl,recipientId);
 
