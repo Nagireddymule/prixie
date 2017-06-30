@@ -19,7 +19,7 @@ module.exports.msgController= function(event){
           id: senderid
         },
         message: {
-            text: "hi"
+            text: ":blue_heart:Hi welcome to Prixie\nHere we go...."
           }
       };
       callSendAPI(messageData);
