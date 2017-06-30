@@ -67,6 +67,18 @@ module.exports.getStartMenu = function(senderid){
                     "payload":"Tutorials"
                   },
                 ]
+              },
+              {
+                "title":"Companies Information",
+                "image_url":"https://image.ibb.co/dJx23Q/companies.jpg",
+                "subtitle":"@Details of Companies selection process",
+                "buttons":[
+                  {
+                    "type":"postback",
+                    "title":"Companies Information",
+                    "payload":"Company_Info"
+                  },
+                ]
               }
             ]
           }
