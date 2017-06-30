@@ -15,7 +15,7 @@ module.exports.msgController= function(event){
     console.log(event.postback);
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
       var messageText = "hi";
-        this.getStartMenu(senderid);
+        //this.getStartMenu(senderid);
         sendTextMessage(senderid, messageText);
     }
     if (event.postback.payload == "interview_schedules") {
