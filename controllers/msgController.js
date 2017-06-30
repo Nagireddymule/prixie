@@ -16,11 +16,11 @@ module.exports.msgController= function(event){
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
       happy= u'\U0001F604';
       var messageData = {
-        recipient: {
-          id: senderid
+        "recipient": {
+          "id": senderid
         },
-        message: {
-            text: "Hi welcome to Prixie\nHere we go...."+happy
+        "message": {
+            "text": "Hi welcome to Prixie\nHere we go...."+happy
           }
       };
       callSendAPI(messageData);
