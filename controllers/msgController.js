@@ -180,7 +180,7 @@ module.exports.getNextCompany = function(event){
               {
                 "type":"postback",
                 "title":"Home",
-                "payload":"GET_STARTED_PAYLOAD"
+                "payload":"GET_STARTED"
               },
             ]
           }

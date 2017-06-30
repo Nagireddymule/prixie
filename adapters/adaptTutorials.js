@@ -23,7 +23,7 @@ module.exports.adaptTutorialsList = function(suburl,callback){
                                 {
                                   "type":"postback",
                                   "title":"Home",
-                                  "payload":"GET_STARTED_PAYLOAD"
+                                  "payload":"GET_STARTED"
                                 }
                               ]
                             });
