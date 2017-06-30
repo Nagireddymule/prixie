@@ -110,6 +110,17 @@ module.exports = function(recipientId, messageText) {
           };
           callSendAPI(messageData);
 
+  }else {
+    var textmsg = response.result.fulfillment.speech;
+    var messageData = {
+      recipient: {
+        id: recipientId
+      },
+      message: {
+          text: textmsg
+        }
+    };
+    callSendAPI(messageData);
   }
 
 });//closing of apiai msg.on(response) function
