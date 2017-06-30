@@ -28,7 +28,7 @@ module.exports.msgController= function(event){
     }
 
   }
-  else {
+  else if (event.message){
     messageReceived.receivedMessage(event);
   //  console.log("logging event object");
   //  console.log(event);
