@@ -10,7 +10,13 @@ module.exports.receivedMessage = function(event) {
   var message = event.message;
   var messageText = message.text;
   var messageAttachments = message.attachments;
-  if (messageText) {
+  if (event.postback){
+    if (event.postback.payload == "GET_STARTED_PAYLOAD") {
+      sendTextMessage(senderID, "hi");
+    }
+
+  }
+  else if (messageText) {
         sendTextMessage(senderID, messageText);
     }
   else if (messageAttachments) {
