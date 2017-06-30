@@ -1,5 +1,6 @@
 var request = require("request");
 var messageReceived = require("./receivedMessage");
+var sendTextMessage = require("./sendTextMessage");
 var callSendAPI = require("./callSendApi");
 var adaptInterviews = require("../adapters/adaptInterviews");
 var adaptTutorials = require("../adapters/adaptTutorials");
@@ -13,6 +14,7 @@ module.exports.msgController= function(event){
   if (event.postback) {
     console.log(event.postback);
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
+      sendTextMessage(senderID, "hi");
         this.getStartMenu(senderid);
     }
     if (event.postback.payload == "interview_schedules") {
