@@ -14,6 +14,15 @@ module.exports.msgController= function(event){
   if (event.postback) {
     console.log(event.postback);
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
+      var messageData = {
+        recipient: {
+          id: senderid
+        },
+        message: {
+            text: "hi"
+          }
+      };
+      callSendAPI(messageData);
       this.getStartMenu(senderid);
     }
     if (event.postback.payload == "interview_schedules") {
