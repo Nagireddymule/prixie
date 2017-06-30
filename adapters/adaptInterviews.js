@@ -15,7 +15,7 @@ module.exports.adaptSchedule = function(suburl,callback){
 }
 module.exports.adaptFilterSchedule = function(suburl,callback){
   request({
-    url:"https://prixie-api.herokuapp.com/walkins/"+suburl,
+    url:"https://prixie-api.herokuapp.com/walkins/get_walkins_by_jobrole/"+suburl,
     method:"Get"
   },function(error,res){
     if(error) throw err;
