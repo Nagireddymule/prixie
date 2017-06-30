@@ -26,6 +26,5 @@ module.exports.receivedMessage = function(event) {
         sendAttachmentMessage(senderID, messageText);
       }
     }
-  }
 
 }
