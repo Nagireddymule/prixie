@@ -25,6 +25,9 @@ module.exports.msgController= function(event){
       callSendAPI(messageData);
       this.getStartMenu(senderid);
     }
+    if (event.postback.payload == "GET_STARTED") {
+      this.getStartMenu(senderid);
+    }
     if (event.postback.payload == "interview_schedules") {
       this.getInterviewSchedules(senderid);
     }
@@ -119,7 +122,7 @@ module.exports.getInterviewSchedules = function(senderid){
                   {
                     "type":"postback",
                     "title":"Home",
-                    "payload":"GET_STARTED_PAYLOAD"
+                    "payload":"GET_STARTED"
                   },
                 ]
               }
@@ -209,7 +212,7 @@ module.exports.getFilterInterviewSchedules = function(myurl,senderid ){
                     {
                       "type":"postback",
                       "title":"Home",
-                      "payload":"GET_STARTED_PAYLOAD"
+                      "payload":"GET_STARTED"
                     },
                   ]
                 }
