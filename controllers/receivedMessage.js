@@ -18,7 +18,7 @@ module.exports.receivedMessage = function(event) {
   if (event.message) {
     var messageText = message.text;
     var messageAttachments = message.attachments;
-    else if (messageText) {
+    if (messageText) {
           sendTextMessage(senderID, messageText);
       }
     else if (messageAttachments) {
