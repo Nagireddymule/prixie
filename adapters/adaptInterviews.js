@@ -22,14 +22,16 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
     var responseData = JSON.parse(res.body);
     var dataFormat = "";
     for (var i = 0; i < responseData.length; i++) {
-      function getSal(sal){
-            if (sal.Salary) {
+      function getSal(){
+            if (responseData[i].Salary) {
+              console.log("Salary given");
               return sal.Salary;
             }else {
-              return "";
+              console.log("Salary not given");
+              return "---";
             }
       }
-      dataFormat = ("Company: "+responseData[i].company+".\nWebsite: "+responseData[i].Website+"\nJob Role: "+responseData[i].Job_Role+"\nEligibility: "+responseData[i].Eligibility+"\nExperience: "+responseData[i].Experience+"\nSalary: "+getSal(responseData[i]));
+      dataFormat = ("Company: "+responseData[i].company+".\nWebsite: "+responseData[i].Website+"\nJob Role: "+responseData[i].Job_Role+"\nEligibility: "+responseData[i].Eligibility+"\nExperience: "+responseData[i].Experience+"\nSalary: "+getSal());
     }
     return callback(dataFormat);
     //console.log(dataFormat);
