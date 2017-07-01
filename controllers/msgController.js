@@ -19,7 +19,9 @@ module.exports.msgController= function(event){
       method:"Get"
     },function(error,res){
       if (error) console.log("from error log");
-      console.log(res);
+      var resbody = res.body;
+      console.log(resbody);
+      console.log(resbody.first_name);
     });
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
         var messageData = {
