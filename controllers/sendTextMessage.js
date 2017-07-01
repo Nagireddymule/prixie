@@ -60,43 +60,43 @@ module.exports = function(recipientId, messageText) {
                  var myurl = "Mainframe Developer";
                  if (!date&&!Job_Role&&!experience) {
                    console.log("no params");
-                   msgControllermodule.getFilterInterviewSchedules(myurl,recipientId);
+                   //msgControllermodule.getFilterInterviewSchedules(myurl,recipientId);
                  }else{
                     console.log("its params");
                     if (date&&!Job_Role&&!experience) {
                       console.log("only date param");
                       if (date.From&&date.To) {
                         var suburl = "get_walkins_by_date/"+date.From+"/"+date.To;
-                        msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
+                    //    msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
                       }
                       else {
                         var suburl = "get_walkins_by_date/"+date;
-                        msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
+                      //  msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
                       }
                     }
                     if (!date&&Job_Role&&!experience) {
                       console.log("only jobrole param");
                       var suburl = "get_walkins_by_jobrole/"+Job_Role;
-                      msgControllermodule.getFilterInterviewSchedules(suburl,recipientId);
+                    //  msgControllermodule.getFilterInterviewSchedules(suburl,recipientId);
                     }
                     if (!date&&!Job_Role&&experience) {
                       console.log("only experience param");
                       if (experience == "fresher||freshers") {
                         console.log("exp as fresher");
-                        msgControllermodule.getFilterInterviewSchedules(experience,recipientId);
+                      //  msgControllermodule.getFilterInterviewSchedules(experience,recipientId);
                       }else if (experience == !isNaN) {
                         console.log("exp as number");
-                        msgControllermodule.getFilterInterviewSchedules(experience,recipientId);
+                      //  msgControllermodule.getFilterInterviewSchedules(experience,recipientId);
                       }
                       else {
                         var expmin = params.Experience.min;
                         var expmax = params.Experience.max;
                         if (expmax) {
                           console.log("min and max");
-                          msgControllermodule.getFilterInterviewSchedules(expmin,expmax,recipientId);
+                        //  msgControllermodule.getFilterInterviewSchedules(expmin,expmax,recipientId);
                         }else {
                           console.log("min only");
-                          msgControllermodule.getFilterInterviewSchedules(expmin,recipientId);
+                        //  msgControllermodule.getFilterInterviewSchedules(expmin,recipientId);
                         }
                       }
 
