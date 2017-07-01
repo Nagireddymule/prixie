@@ -12,7 +12,14 @@ module.exports.msgController= function(event){
   console.log(event);
   //console.log("event log ends here");
   if (event.postback) {
-    console.log(event.postback);
+    //console.log(event.postback);
+    request({
+      url:"https://graph.facebook.com/v2.6/"+senderid"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=EAACHuWOOEu4BAIAEpfIELBhs63ExhJNZARLGrwCChkteb3arwFHTJ2i9ZBrDKc175HwEy3MrM1n55Y68QEQ3XjUyveljluZAVlxOyhnxayo4Bu445p2YTZA02rbnUUyoZAZAHNdSuNXNYb5mx2rZAeOBSKYfSoHfyGcqV7L4bdf6wZDZD",
+      method:"Get"
+    },function(error,res){
+      if (error) console.log("from error log");
+      console.log(res);      
+    });
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
         var messageData = {
         "recipient": {
