@@ -48,7 +48,15 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
           return responseData[i].Walk_In_date;
         }
       }
-      dataFormat = ("Company: "+responseData[i].company+".\nWebsite: "+responseData[i].Website+"\nJob Role: "+responseData[i].Job_Role+"\nEligibility: "+responseData[i].Eligibility+"\nExperience: "+getExp()+"\nSalary: "+getSal()+"\nJob Location: "+responseData[i].Job_location+"\nWalkin Date: "+getWalkin());
+      function getTime(){
+        if (responseData[i].Walk_In_Time == "") {
+          return "9:00AM to 5:00PM"
+        }
+        else {
+          return responseData[i].Walk_In_Time;
+        }
+      }
+      dataFormat = ("Company: "+responseData[i].company+".\nWebsite: "+responseData[i].Website+"\nJob Role: "+responseData[i].Job_Role+"\nEligibility: "+responseData[i].Eligibility+"\nExperience: "+getExp()+"\nSalary: "+getSal()+"\nJob Location: "+responseData[i].Job_location+"\nWalkin Date: "+getWalkin()+"\nWalkin Time: "+getTime());
     }
     return callback(dataFormat);
     //console.log(dataFormat);
