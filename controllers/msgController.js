@@ -13,26 +13,27 @@ module.exports.msgController= function(event){
   //console.log("event log ends here");
   if (event.postback) {
     //console.log(event.postback);
-
-    request({
-      url:"https://graph.facebook.com/v2.6/"+senderid+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=EAACHuWOOEu4BAIAEpfIELBhs63ExhJNZARLGrwCChkteb3arwFHTJ2i9ZBrDKc175HwEy3MrM1n55Y68QEQ3XjUyveljluZAVlxOyhnxayo4Bu445p2YTZA02rbnUUyoZAZAHNdSuNXNYb5mx2rZAeOBSKYfSoHfyGcqV7L4bdf6wZDZD",
-      method:"Get"
-    },function(error,res){
-      if (error) console.log("from error log");
-      var resbody = JSON.parse(res.body);
-      console.log(resbody);
-      console.log(resbody.first_name);
-    });
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
+      var profile = "";
+      request({
+        url:"https://graph.facebook.com/v2.6/"+senderid+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=EAACHuWOOEu4BAIAEpfIELBhs63ExhJNZARLGrwCChkteb3arwFHTJ2i9ZBrDKc175HwEy3MrM1n55Y68QEQ3XjUyveljluZAVlxOyhnxayo4Bu445p2YTZA02rbnUUyoZAZAHNdSuNXNYb5mx2rZAeOBSKYfSoHfyGcqV7L4bdf6wZDZD",
+        method:"Get"
+      },function(error,res){
+        if (error) console.log("from error log");
+        var resbody = JSON.parse(res.body);
+        //console.log(resbody);
+        console.log(resbody.first_name);
+        profile = "💥Hi 💥"+resbody.first_name+" "+resbody.last_name+"💥 welcome to Prixie 💥"
         var messageData = {
         "recipient": {
           "id": senderid
         },
         "message": {
-            "text": "💥💥Hi welcome to Prixie 💥💥"
+            "text":profile
           }
       };
       callSendAPI(messageData);
+      });
       this.getStartMenu(senderid);
     }
     if (event.postback.payload == "GET_STARTED") {
