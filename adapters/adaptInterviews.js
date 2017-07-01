@@ -41,7 +41,7 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
       }
       function getWalkin(){
         if (responseData[i].Walk_In_date.From&&responseData[i].Walk_In_date.To) {
-          return responseData[i].Walk_In_date.From+"-"+responseData[i].Walk_In_date.To;
+          return responseData[i].Walk_In_date.From+" to "+responseData[i].Walk_In_date.To;
         }else if (responseData[i].Walk_In_date == "") {
           return "ASAP";
         }else {
