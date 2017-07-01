@@ -31,7 +31,14 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
               return "---";
             }
       }
-      dataFormat = ("Company: "+responseData[i].company+".\nWebsite: "+responseData[i].Website+"\nJob Role: "+responseData[i].Job_Role+"\nEligibility: "+responseData[i].Eligibility+"\nExperience: "+responseData[i].Experience+"\nSalary: "+getSal());
+      function getExp(){
+        if (responseData[i].Experience.min&&responseData[i].Experience.max) {
+          return responseData[i].Experience.min+"-"+responseData[i].Experience.max+" Years";
+        }else {
+          return responseData[i].Experience.min+" Years";
+        }
+      }
+      dataFormat = ("Company: "+responseData[i].company+".\nWebsite: "+responseData[i].Website+"\nJob Role: "+responseData[i].Job_Role+"\nEligibility: "+responseData[i].Eligibility+"\nExperience: "+getExp()+"\nSalary: "+getSal());
     }
     return callback(dataFormat);
     //console.log(dataFormat);
