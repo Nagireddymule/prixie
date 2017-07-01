@@ -70,8 +70,9 @@ module.exports = function(recipientId, messageText) {
                     //    msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
                       }
                       else {
+                        console.log(date);
                         var suburl = "get_walkins_by_date/"+date;
-                      //  msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
+                        msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
                       }
                     }
                     if (!date&&Job_Role&&!experience) {
