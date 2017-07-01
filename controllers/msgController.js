@@ -19,7 +19,7 @@ module.exports.msgController= function(event){
       method:"Get"
     },function(error,res){
       if (error) console.log("from error log");
-      var resbody = res.body;
+      var resbody = JSON.parse(res.body);
       console.log(resbody);
       console.log(resbody.first_name);
     });
