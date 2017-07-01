@@ -39,7 +39,16 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
           return responseData[i].Experience.min+" Years";
         }
       }
-      dataFormat = ("Company: "+responseData[i].company+".\nWebsite: "+responseData[i].Website+"\nJob Role: "+responseData[i].Job_Role+"\nEligibility: "+responseData[i].Eligibility+"\nExperience: "+getExp()+"\nSalary: "+getSal()+"\nJob Location: "+responseData[i].Job_location);
+      function getWalkin(){
+        if (responseData[i].Walk_In_date.From&&responseData[i].Walk_In_date.To) {
+          return responseData[i].Walk_In_date.From+"-"+responseData[i].Walk_In_date.To;
+        }else if (responseData[i].Walk_In_date == "") {
+          return "ASAP";
+        }else {
+          return responseData[i].Walk_In_date;
+        }
+      }
+      dataFormat = ("Company: "+responseData[i].company+".\nWebsite: "+responseData[i].Website+"\nJob Role: "+responseData[i].Job_Role+"\nEligibility: "+responseData[i].Eligibility+"\nExperience: "+getExp()+"\nSalary: "+getSal()+"\nJob Location: "+responseData[i].Job_location+"\nWalkin Date: "+getWalkin());
     }
     return callback(dataFormat);
     //console.log(dataFormat);
