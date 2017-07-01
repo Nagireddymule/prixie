@@ -21,7 +21,7 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
     if(error) throw err;
     var responseData = JSON.parse(res.body);
     var dataFormat = "";
-    for (var i = 0; i < responseData.length-2; i++) {
+    for (var i = 0; i < responseData.length; i++) {
       console.log(responseData[i]);
       function getSal(){
             if (responseData[i].Salary) {
