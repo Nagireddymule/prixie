@@ -25,7 +25,7 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
       function getSal(){
             if (responseData[i].Salary) {
               console.log("Salary given");
-              return sal.Salary;
+              return responseData[i].Salary;
             }else {
               console.log("Salary not given");
               return "---";
