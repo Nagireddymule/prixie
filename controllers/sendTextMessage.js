@@ -65,11 +65,19 @@ module.exports = function(recipientId, messageText) {
                     console.log("its params");
                     if (date&&!Job_Role&&!experience) {
                       console.log("only date param");
-                      msgControllermodule.getFilterInterviewSchedules(date,recipientId);
+                      if (date.From&&date.To) {
+                        var suburl = "get_walkins_by_date/"+date.From+"/"+date.To;
+                        msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
+                      }
+                      else {
+                        var suburl = "get_walkins_by_date/"+date;
+                        msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
+                      }                      
                     }
                     if (!date&&Job_Role&&!experience) {
                       console.log("only jobrole param");
-                      msgControllermodule.getFilterInterviewSchedules(Job_Role,recipientId);
+                      var suburl = "get_walkins_by_jobrole/"+Job_Role;
+                      msgControllermodule.getFilterInterviewSchedules(suburl,recipientId);
                     }
                     if (!date&&!Job_Role&&experience) {
                       console.log("only experience param");
