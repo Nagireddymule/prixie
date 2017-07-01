@@ -21,7 +21,7 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
     if(error) throw err;
     var responseData = JSON.parse(res.body);
     var dataFormat = "";
-    for (var i = 0; i < responseData.length; i++) {
+    for (var i = 0; i < responseData.length-2; i++) {
       console.log(responseData[i]);
       function getSal(){
             if (responseData[i].Salary) {
@@ -29,7 +29,7 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
               return responseData[i].Salary;
             }else {
               console.log("Salary not given");
-              return "---";
+              return "Not Mentioned";
             }
       }
       function getExp(){
