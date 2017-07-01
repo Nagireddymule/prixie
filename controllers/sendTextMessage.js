@@ -72,12 +72,12 @@ module.exports = function(recipientId, messageText) {
                       else {
                         var suburl = "get_walkins_by_date/"+date;
                         msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
-                      }                      
+                      }
                     }
                     if (!date&&Job_Role&&!experience) {
                       console.log("only jobrole param");
                       var suburl = "get_walkins_by_jobrole/"+Job_Role;
-                      msgControllermodule.getFilterInterviewSchedules(suburl,recipientId);
+                      //msgControllermodule.getFilterInterviewSchedules(suburl,recipientId);
                     }
                     if (!date&&!Job_Role&&experience) {
                       console.log("only experience param");
