@@ -40,7 +40,6 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
       }
       dataFormat = ("Company: "+responseData[i].company+".\nWebsite: "+responseData[i].Website+"\nJob Role: "+responseData[i].Job_Role+"\nEligibility: "+responseData[i].Eligibility+"\nExperience: "+getExp()+"\nSalary: "+getSal());
     }
-    
     return callback(dataFormat);
     //console.log(dataFormat);
   });
