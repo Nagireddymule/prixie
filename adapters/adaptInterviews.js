@@ -20,6 +20,7 @@ module.exports.adaptFilterSchedule = function(suburl,callback){
   },function(error,res){
     if(error) throw err;
     var responseData = JSON.parse(res.body);
+    console.log(responseData);
     var dataFormat = "";
     for (var i = 0; i < responseData.length; i++) {
       console.log(responseData[i]);
