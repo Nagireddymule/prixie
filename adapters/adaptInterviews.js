@@ -59,8 +59,9 @@ module.exports.adaptAllSchedules = function(suburl,callback){
         }
       }
       dataFormat = ("Company     : "+responseData[i].company+"\nWebsite       : "+responseData[i].Website+"\nJob Role       : "+responseData[i].Job_Role+"\nEligibility      : "+responseData[i].Eligibility+"\nExperience   : "+getExp()+"\nSalary           : "+getSal()+"\nJob Location: "+responseData[i].Job_location+"\nWalkin Date : "+getWalkin()+"\nWalkin Time : "+getTime());
+return callback(dataFormat);
     }
-    return callback(dataFormat);
+
   });
 }
 
