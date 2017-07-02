@@ -218,7 +218,7 @@ module.exports.getNextCompanySchedule = function(event){
               {
                 "type":"postback",
                 "title":"Click here for more",
-                "payload":indexend
+                "payload":indexNext
               },
               {
                 "type":"postback",
