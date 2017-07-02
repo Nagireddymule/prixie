@@ -22,6 +22,7 @@ module.exports.adaptAllSchedules = function(suburl,callback){
     if(error) throw err;
     var responseData = JSON.parse(res.body);
     console.log(responseData);
+    console.log("from adapter");
     var dataFormat = "";
     for (var i = 0; i < responseData.length; i++) {
       console.log(responseData[i]);
@@ -59,9 +60,9 @@ module.exports.adaptAllSchedules = function(suburl,callback){
         }
       }
       dataFormat = ("Company     : "+responseData[i].company+"\nWebsite       : "+responseData[i].Website+"\nJob Role       : "+responseData[i].Job_Role+"\nEligibility      : "+responseData[i].Eligibility+"\nExperience   : "+getExp()+"\nSalary           : "+getSal()+"\nJob Location: "+responseData[i].Job_location+"\nWalkin Date : "+getWalkin()+"\nWalkin Time : "+getTime());
-return callback(dataFormat);
-    }
 
+    }
+    return callback(dataFormat);
   });
 }
 
