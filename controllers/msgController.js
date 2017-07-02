@@ -194,10 +194,15 @@ module.exports.getNextCompany = function(event){
                 "payload":indexend
               },
               {
-                "type":"postback",
-                "title":"Home",
-                "payload":"GET_STARTED"
-              },
+    "type":"web_url",
+    "url":"https://prixie-api.herokuapp.com/",
+    "title":"Take the Hat Quiz",
+  },
+              // {
+              //   "type":"postback",
+              //   "title":"Home",
+              //   "payload":"GET_STARTED"
+              // },
             ]
           }
         }
