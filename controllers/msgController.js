@@ -113,7 +113,7 @@ module.exports.getStartMenu = function(senderid){
     callSendAPI(messageData);
   }
 module.exports.getAllInterviewSchedules = function(senderid){
-        adaptInterviews.adaptAllSchedules("0/5",function(callback){
+        adaptInterviews.adaptAllSchedules("0",function(callback){
           var messageData = {
             "recipient":{
               "id":senderid
@@ -127,8 +127,8 @@ module.exports.getAllInterviewSchedules = function(senderid){
                   "buttons":[
                     {
                       "type":"postback",
-                      "title":"Click here for more",
-                      "payload":"5"
+                      "title":"Click here for Next",
+                      "payload":"0"
                     },
                     {
                       "type":"postback",
