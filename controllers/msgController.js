@@ -40,7 +40,7 @@ module.exports.msgController= function(event){
       this.getStartMenu(senderid);
     }
     if (event.postback.payload == "interview_schedules") {
-      this.getInterviewSchedules(senderid);
+      this.getAllInterviewSchedules(senderid);
     }
     if (event.postback.payload == "Tutorials") {
        this.getTutorialList(senderid);
@@ -111,6 +111,38 @@ module.exports.getStartMenu = function(senderid){
     }
     console.log("from getstart function");
     callSendAPI(messageData);
+  }
+module.exports.getAllInterviewSchedules = function(senderid){
+        adaptInterviews.adaptAllSchedules("0/5",function(callback){
+          var messageData = {
+            "recipient":{
+              "id":senderid
+            },
+            "message":{
+              "attachment":{
+                "type":"template",
+                "payload":{
+                  "template_type":"button",
+                  "text":callback,
+                  "buttons":[
+                    {
+                      "type":"postback",
+                      "title":"Click here for more",
+                      "payload":"5"
+                    },
+                    {
+                      "type":"postback",
+                      "title":"Home",
+                      "payload":"GET_STARTED"
+                    },
+                  ]
+                }
+              }
+            }
+          };
+          callSendAPI(messageData);
+        });
+
   }
 module.exports.getInterviewSchedules = function(senderid){
       adaptInterviews.adaptSchedule("0/5",function(callback){
