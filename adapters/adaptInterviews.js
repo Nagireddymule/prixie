@@ -16,7 +16,7 @@ module.exports.adaptSchedule = function(suburl,callback){
 
 module.exports.adaptAllSchedules = function(suburl,callback){
   request({
-    url:"https://prixie-api.herokuapp.com/get_walkins_All"+suburl,
+    url:"https://prixie-api.herokuapp.com/get_walkins_All/"+suburl,
     method:"Get"
   },function(error,res){
     if(error) throw err;
