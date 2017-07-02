@@ -49,6 +49,9 @@ module.exports.msgController= function(event){
       console.log("payload came as number");
       this.getNextCompanySchedule(event);
     }
+    if (event.postback.payload.includes("Role")) {
+        console.log(event.postback.payload);
+    }
 
   }
   else if (event.message){
@@ -212,7 +215,7 @@ module.exports.getNextCompanySchedule = function(event){
   });
 
 }
-module.exports.getFilterInterviewSchedules = function(myurl,senderid ){
+module.exports.getFilterInterviewSchedulesByRole = function(myurl,senderid ){
         adaptInterviews.adaptFilterSchedules(myurl,function(callback){
           var messageData = {
             "recipient":{
@@ -228,7 +231,7 @@ module.exports.getFilterInterviewSchedules = function(myurl,senderid ){
                     {
                       "type":"postback",
                       "title":"Click here for more",
-                      "payload":"5"
+                      "payload":"Role-0"
                     },
                     {
                       "type":"postback",
@@ -243,7 +246,7 @@ module.exports.getFilterInterviewSchedules = function(myurl,senderid ){
           callSendAPI(messageData);
         });
 }
-module.exports.getFilterInterviewSchedulesByDate = function(suburl,senderid){
+module.exports.getNextFilterInterviewSchedulesByRole = function(suburl,senderid){
           adaptInterviews.adaptFilterSchedules(suburl,function(callback){
             var messageData = {
               "recipient":{

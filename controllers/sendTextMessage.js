@@ -56,13 +56,22 @@ module.exports = function(recipientId, messageText) {
                  var Job_Role = params.Job_Role;
                  var subject = params.Subject;
                  var experience = params.Experience;
-
-                 var myurl = "Developer";
                  if (!date&&!Job_Role&&!experience&&!company&&!subject) {
                    console.log("no params");
                    msgControllermodule.getAllInterviewSchedules(recipientId);
-                 }else{
-                    console.log("its params");
+                 }
+
+
+
+
+
+                 else{
+                    console.log("from parameters block");
+                    if (!date&&Job_Role&&!experience) {
+                      console.log("only jobrole param");
+                      var suburl = "get_walkins_by_jobrole/"+Job_Role+"/0";
+                      msgControllermodule.getFilterInterviewSchedulesByRole(suburl,recipientId);
+                    }
                     if (date&&!Job_Role&&!experience) {
                       console.log("only date param");
                       if (date.From&&date.To) {
@@ -75,11 +84,7 @@ module.exports = function(recipientId, messageText) {
                         msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
                       }
                     }
-                    if (!date&&Job_Role&&!experience) {
-                      console.log("only jobrole param");
-                      var suburl = "get_walkins_by_jobrole/"+Job_Role;
-                      msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
-                    }
+
                     if (!date&&!Job_Role&&experience) {
                       console.log("only experience param");
                       if (experience == "fresher||freshers") {
