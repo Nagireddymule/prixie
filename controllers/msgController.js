@@ -235,7 +235,7 @@ module.exports.getNextCompany = function(event){
 
 }
 module.exports.getFilterInterviewSchedules = function(myurl,senderid ){
-        adaptInterviews.adaptFilterSchedule(myurl,function(callback){
+        adaptInterviews.adaptFilterSchedules(myurl,function(callback){
           var messageData = {
             "recipient":{
               "id":senderid
@@ -266,7 +266,7 @@ module.exports.getFilterInterviewSchedules = function(myurl,senderid ){
         });
 }
 module.exports.getFilterInterviewSchedulesByDate = function(suburl,senderid){
-          adaptInterviews.adaptFilterSchedule(suburl,function(callback){
+          adaptInterviews.adaptFilterSchedules(suburl,function(callback){
             var messageData = {
               "recipient":{
                 "id":senderid

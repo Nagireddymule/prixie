@@ -64,7 +64,7 @@ module.exports.adaptAllSchedules = function(suburl,callback){
   });
 }
 
-module.exports.adaptFilterSchedule = function(suburl,callback){
+module.exports.adaptFilterSchedules = function(suburl,callback){
   console.log(suburl);
   request({
     url:"https://prixie-api.herokuapp.com/"+suburl,
