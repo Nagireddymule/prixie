@@ -126,10 +126,15 @@ module.exports.getInterviewSchedules = function(senderid){
                 "text":callback,
                 "buttons":[
                   {
-                    "type":"postback",
-                    "title":"Click here for more",
-                    "payload":"5"
-                  },
+        "type":"web_url",
+        "url":"https://prixie-api.herokuapp.com/",
+        "title":"Take the Hat Quiz",
+      },
+                  // {
+                  //   "type":"postback",
+                  //   "title":"Click here for more",
+                  //   "payload":"5"
+                  // },
                   {
                     "type":"postback",
                     "title":"Home",
