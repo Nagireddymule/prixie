@@ -51,16 +51,16 @@ module.exports = function(recipientId, messageText) {
               else if (response.result.action == "InterviewSchedule") {
                 console.log("action catched in InterviewSchedule");
                 var params = response.result.parameters;
-                 //var company = params.company;
+                 var company = params.company;
                  var date = params.date;
                  var Job_Role = params.Job_Role;
-                 //var subject = params.Subject;
+                 var subject = params.Subject;
                  var experience = params.Experience;
 
                  var myurl = "Developer";
-                 if (!date&&!Job_Role&&!experience) {
+                 if (!date&&!Job_Role&&!experience&&!company&&!subject) {
                    console.log("no params");
-                   //msgControllermodule.getFilterInterviewSchedules(myurl,recipientId);
+                   msgControllermodule.getAllInterviewSchedules(recipientId);
                  }else{
                     console.log("its params");
                     if (date&&!Job_Role&&!experience) {

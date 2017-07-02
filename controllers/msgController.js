@@ -154,7 +154,6 @@ module.exports.getAllInterviewSchedules = function(senderid){
                       "type":"web_url",
                       "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules",
                       "title":"View all Jobs",
-                      "webview_height_ratio": "compact"
                     },
                     {
                       "type":"postback",
@@ -197,7 +196,7 @@ module.exports.getNextCompanySchedule = function(event){
               {
                 "type":"web_url",
                 "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules",
-                "title":"View all Jobs",                
+                "title":"View all Jobs",
               },
               {
                 "type":"postback",
