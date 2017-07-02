@@ -47,7 +47,7 @@ module.exports.msgController= function(event){
     }
     if (!isNaN(event.postback.payload)) {
       console.log("payload came as number");
-      this.getNextCompany(event);
+      this.getNextCompanySchedule(event);
     }
 
   }
