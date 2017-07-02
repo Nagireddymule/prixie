@@ -16,7 +16,7 @@ module.exports.adaptSchedule = function(suburl,callback){
 
 module.exports.adaptAllSchedules = function(suburl,callback){
   request({
-    url:"https://prixie-api.herokuapp.com/get_walkins_All/0",
+    url:"https://prixie-api.herokuapp.com/get_walkins_All/"+suburl,
     method:"Get"
   },function(error,res){
     if(error) throw err;
@@ -26,10 +26,8 @@ module.exports.adaptAllSchedules = function(suburl,callback){
     var dataFormat = "";
       function getSal(){
             if (responseData.Salary) {
-              console.log("Salary given");
               return responseData.Salary;
             }else {
-              console.log("Salary not given");
               return "Not Mentioned";
             }
       }
