@@ -216,7 +216,7 @@ module.exports.getNextCompanySchedule = function(event){
 
 }
 module.exports.getFilterInterviewSchedulesByRole = function(myurl,senderid ){
-        adaptInterviews.adaptFilterSchedules(myurl,function(callback){
+        adaptInterviews.adaptAllSchedules(myurl,function(callback){
           var messageData = {
             "recipient":{
               "id":senderid
