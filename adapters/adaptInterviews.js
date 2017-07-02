@@ -24,8 +24,6 @@ module.exports.adaptAllSchedules = function(suburl,callback){
     //console.log(responseData);
     console.log("from adapter");
     var dataFormat = "";
-  //  for (var i = 0; i < responseData.length; i++) {
-      console.log(responseData);
       function getSal(){
             if (responseData.Salary) {
               console.log("Salary given");
@@ -60,9 +58,6 @@ module.exports.adaptAllSchedules = function(suburl,callback){
         }
       }
       dataFormat = ("Company     : "+responseData.company+"\nWebsite       : "+responseData.Website+"\nJob Role       : "+responseData.Job_Role+"\nEligibility      : "+responseData.Eligibility+"\nExperience   : "+getExp()+"\nSalary           : "+getSal()+"\nJob Location: "+responseData.Job_location+"\nWalkin Date : "+getWalkin()+"\nWalkin Time : "+getTime());
-
-    //}
-    console.log(dataFormat);
     return callback(dataFormat);
   });
 }

@@ -114,8 +114,6 @@ module.exports.getStartMenu = function(senderid){
   }
 module.exports.getAllInterviewSchedules = function(senderid){
         adaptInterviews.adaptAllSchedules("0",function(callback){
-          console.log("from controller");
-          //console.log(callback);
           var messageData = {
             "recipient":{
               "id":senderid
@@ -198,6 +196,45 @@ module.exports.getTutorialList = function(senderid){
         callSendAPI(messageData);
       });
 }
+module.exports.getNextCompanySchedule = function(event){
+  var senderid = event.sender.id;
+  var index = event.postback.payload;
+  console.log(index);
+  var indexNext = parseInt(index)+1;
+  console.log(indexNext);
+  var suburl = indexNext;
+  adaptInterviews.adaptAllSchedules(suburl,function(callback){
+    var messageData = {
+      "recipient":{
+        "id":senderid
+      },
+      "message":{
+        "attachment":{
+          "type":"template",
+          "payload":{
+            "template_type":"button",
+            "text":callback,
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Click here for more",
+                "payload":indexend
+              },
+              {
+                "type":"postback",
+                "title":"Home",
+                "payload":"GET_STARTED"
+              },
+            ]
+          }
+        }
+      }
+    };
+    callSendAPI(messageData);
+  });
+
+}
+module.exports.getFilterInterviewSched
 module.exports.getNextCompany = function(event){
   var senderid = event.sender.id;
   var indexstart = event.postback.payload;
