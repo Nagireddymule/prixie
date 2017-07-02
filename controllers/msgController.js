@@ -115,7 +115,7 @@ module.exports.getStartMenu = function(senderid){
 module.exports.getAllInterviewSchedules = function(senderid){
         adaptInterviews.adaptAllSchedules("0",function(callback){
           console.log("from controller");
-          console.log(callback);
+          //console.log(callback);
           var messageData = {
             "recipient":{
               "id":senderid
