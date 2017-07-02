@@ -126,15 +126,10 @@ module.exports.getInterviewSchedules = function(senderid){
                 "text":callback,
                 "buttons":[
                   {
-        "type":"web_url",
-        "url":"https://prixie-api.herokuapp.com/",
-        "title":"Take the Hat Quiz",
-      },
-                  // {
-                  //   "type":"postback",
-                  //   "title":"Click here for more",
-                  //   "payload":"5"
-                  // },
+                    "type":"postback",
+                    "title":"Click here for more",
+                    "payload":"5"
+                  },
                   {
                     "type":"postback",
                     "title":"Home",
@@ -194,15 +189,10 @@ module.exports.getNextCompany = function(event){
                 "payload":indexend
               },
               {
-    "type":"web_url",
-    "url":"https://prixie-api.herokuapp.com/",
-    "title":"Take the Hat Quiz",
-  },
-              // {
-              //   "type":"postback",
-              //   "title":"Home",
-              //   "payload":"GET_STARTED"
-              // },
+                "type":"postback",
+                "title":"Home",
+                "payload":"GET_STARTED"
+              },
             ]
           }
         }
