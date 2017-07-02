@@ -21,47 +21,47 @@ module.exports.adaptAllSchedules = function(suburl,callback){
   },function(error,res){
     if(error) throw err;
     var responseData = JSON.parse(res.body);
-    console.log(responseData);
+    //console.log(responseData);
     console.log("from adapter");
     var dataFormat = "";
-    for (var i = 0; i < responseData.length; i++) {
-      console.log(responseData[i]);
+  //  for (var i = 0; i < responseData.length; i++) {
+      console.log(responseData);
       function getSal(){
-            if (responseData[i].Salary) {
+            if (responseData.Salary) {
               console.log("Salary given");
-              return responseData[i].Salary;
+              return responseData.Salary;
             }else {
               console.log("Salary not given");
               return "Not Mentioned";
             }
       }
       function getExp(){
-        if (responseData[i].Experience.min&&responseData[i].Experience.max) {
-          return responseData[i].Experience.min+"-"+responseData[i].Experience.max+" Years";
+        if (responseData.Experience.min&&responseData.Experience.max) {
+          return responseData.Experience.min+"-"+responseData.Experience.max+" Years";
         }else {
-          return responseData[i].Experience.min+" Years";
+          return responseData.Experience.min+" Years";
         }
       }
       function getWalkin(){
-        if (responseData[i].Walk_In_date.From&&responseData[i].Walk_In_date.To) {
-          return responseData[i].Walk_In_date.From+" to "+responseData[i].Walk_In_date.To;
-        }else if (responseData[i].Walk_In_date == "") {
+        if (responseData.Walk_In_date.From&&responseData.Walk_In_date.To) {
+          return responseData.Walk_In_date.From+" to "+responseData.Walk_In_date.To;
+        }else if (responseData.Walk_In_date == "") {
           return "ASAP";
         }else {
-          return responseData[i].Walk_In_date;
+          return responseData.Walk_In_date;
         }
       }
       function getTime(){
-        if (responseData[i].Walk_In_Time == "") {
+        if (responseData.Walk_In_Time == "") {
           return "9:00AM to 5:00PM"
         }
         else {
-          return responseData[i].Walk_In_Time;
+          return responseData.Walk_In_Time;
         }
       }
-      dataFormat = ("Company     : "+responseData[i].company+"\nWebsite       : "+responseData[i].Website+"\nJob Role       : "+responseData[i].Job_Role+"\nEligibility      : "+responseData[i].Eligibility+"\nExperience   : "+getExp()+"\nSalary           : "+getSal()+"\nJob Location: "+responseData[i].Job_location+"\nWalkin Date : "+getWalkin()+"\nWalkin Time : "+getTime());
+      dataFormat = ("Company     : "+responseData.company+"\nWebsite       : "+responseData.Website+"\nJob Role       : "+responseData.Job_Role+"\nEligibility      : "+responseData.Eligibility+"\nExperience   : "+getExp()+"\nSalary           : "+getSal()+"\nJob Location: "+responseData.Job_location+"\nWalkin Date : "+getWalkin()+"\nWalkin Time : "+getTime());
 
-    }
+    //}
     console.log(dataFormat);
     return callback(dataFormat);
   });
