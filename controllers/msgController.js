@@ -112,6 +112,26 @@ module.exports.getStartMenu = function(senderid){
     console.log("from getstart function");
     callSendAPI(messageData);
   }
+module.exports.getTutorialList = function(senderid){
+        adaptTutorials.adaptTutorialsList("tutorials_list",function(callback){
+            var messageData = {
+              "recipient":{
+                "id":senderid
+              },
+              "message":{
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"generic",
+                    "elements":callback
+                  }
+                }
+              }
+            }
+
+          callSendAPI(messageData);
+        });
+  }
 module.exports.getAllInterviewSchedules = function(senderid){
         adaptInterviews.adaptAllSchedules("0",function(callback){
           var messageData = {
@@ -131,6 +151,12 @@ module.exports.getAllInterviewSchedules = function(senderid){
                       "payload":"0"
                     },
                     {
+                      "type":"web_url",
+                      "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules",
+                      "title":"View Item",
+                      "webview_height_ratio": "compact"
+                    },
+                    {
                       "type":"postback",
                       "title":"Home",
                       "payload":"GET_STARTED"
@@ -144,58 +170,6 @@ module.exports.getAllInterviewSchedules = function(senderid){
         });
 
   }
-module.exports.getInterviewSchedules = function(senderid){
-      adaptInterviews.adaptSchedule("0/5",function(callback){
-        var messageData = {
-          "recipient":{
-            "id":senderid
-          },
-          "message":{
-            "attachment":{
-              "type":"template",
-              "payload":{
-                "template_type":"button",
-                "text":callback,
-                "buttons":[
-                  {
-                    "type":"postback",
-                    "title":"Click here for more",
-                    "payload":"5"
-                  },
-                  {
-                    "type":"postback",
-                    "title":"Home",
-                    "payload":"GET_STARTED"
-                  },
-                ]
-              }
-            }
-          }
-        };
-        callSendAPI(messageData);
-      });
-
-}
-module.exports.getTutorialList = function(senderid){
-      adaptTutorials.adaptTutorialsList("tutorials_list",function(callback){
-          var messageData = {
-            "recipient":{
-              "id":senderid
-            },
-            "message":{
-              "attachment":{
-                "type":"template",
-                "payload":{
-                  "template_type":"generic",
-                  "elements":callback
-                }
-              }
-            }
-          }
-
-        callSendAPI(messageData);
-      });
-}
 module.exports.getNextCompanySchedule = function(event){
   var senderid = event.sender.id;
   var index = event.postback.payload;
@@ -219,45 +193,6 @@ module.exports.getNextCompanySchedule = function(event){
                 "type":"postback",
                 "title":"Click here for more",
                 "payload":indexNext
-              },
-              {
-                "type":"postback",
-                "title":"Home",
-                "payload":"GET_STARTED"
-              },
-            ]
-          }
-        }
-      }
-    };
-    callSendAPI(messageData);
-  });
-
-}
-module.exports.getFilterInterviewSched
-module.exports.getNextCompany = function(event){
-  var senderid = event.sender.id;
-  var indexstart = event.postback.payload;
-  console.log(indexstart);
-  var indexend = parseInt(indexstart)+5;
-  console.log(indexend);
-  var suburl = indexstart+"/"+indexend;
-  adaptInterviews.adaptSchedule(suburl,function(callback){
-    var messageData = {
-      "recipient":{
-        "id":senderid
-      },
-      "message":{
-        "attachment":{
-          "type":"template",
-          "payload":{
-            "template_type":"button",
-            "text":callback,
-            "buttons":[
-              {
-                "type":"postback",
-                "title":"Click here for more",
-                "payload":indexend
               },
               {
                 "type":"postback",
@@ -335,3 +270,82 @@ module.exports.getFilterInterviewSchedulesByDate = function(suburl,senderid){
         callSendAPI(messageData);
       });
 }
+
+
+
+
+
+
+
+
+// module.exports.getInterviewSchedules = function(senderid){
+//       adaptInterviews.adaptSchedule("0/5",function(callback){
+//         var messageData = {
+//           "recipient":{
+//             "id":senderid
+//           },
+//           "message":{
+//             "attachment":{
+//               "type":"template",
+//               "payload":{
+//                 "template_type":"button",
+//                 "text":callback,
+//                 "buttons":[
+//                   {
+//                     "type":"postback",
+//                     "title":"Click here for more",
+//                     "payload":"5"
+//                   },
+//                   {
+//                     "type":"postback",
+//                     "title":"Home",
+//                     "payload":"GET_STARTED"
+//                   },
+//                 ]
+//               }
+//             }
+//           }
+//         };
+//         callSendAPI(messageData);
+//       });
+//
+// }
+
+// module.exports.getNextCompany = function(event){
+//   var senderid = event.sender.id;
+//   var indexstart = event.postback.payload;
+//   console.log(indexstart);
+//   var indexend = parseInt(indexstart)+5;
+//   console.log(indexend);
+//   var suburl = indexstart+"/"+indexend;
+//   adaptInterviews.adaptSchedule(suburl,function(callback){
+//     var messageData = {
+//       "recipient":{
+//         "id":senderid
+//       },
+//       "message":{
+//         "attachment":{
+//           "type":"template",
+//           "payload":{
+//             "template_type":"button",
+//             "text":callback,
+//             "buttons":[
+//               {
+//                 "type":"postback",
+//                 "title":"Click here for more",
+//                 "payload":indexend
+//               },
+//               {
+//                 "type":"postback",
+//                 "title":"Home",
+//                 "payload":"GET_STARTED"
+//               },
+//             ]
+//           }
+//         }
+//       }
+//     };
+//     callSendAPI(messageData);
+//   });
+//
+// }
