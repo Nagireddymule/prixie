@@ -53,6 +53,9 @@ module.exports.msgController= function(event){
         console.log(event.postback.payload);
         this.getNextFilterInterviewSchedulesByRole(event);
     }
+    if (event.postback.payload.includes("Date")) {
+      console.log("Date payload");
+    }
 
   }
   else if (event.message){
@@ -216,8 +219,8 @@ module.exports.getNextCompanySchedule = function(event){
   });
 
 }
-module.exports.getFilterInterviewSchedulesByRole = function(myurl,role,senderid ){
-        adaptInterviews.adaptFilterSchedules(myurl,function(callback){
+module.exports.getFilterInterviewSchedulesByRole = function(suburl,role,senderid ){
+        adaptInterviews.adaptFilterSchedules(suburl,function(callback){
           var messageData = {
             "recipient":{
               "id":senderid
@@ -298,6 +301,44 @@ module.exports.getNextFilterInterviewSchedulesByRole = function(event){
         callSendAPI(messageData);
       });
 }
+module.exports.getFilterInterviewSchedulesByDate = function(suburl,date,senderid){
+  adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+    var messageData = {
+      "recipient":{
+        "id":senderid
+      },
+      "message":{
+        "attachment":{
+          "type":"template",
+          "payload":{
+            "template_type":"button",
+            "text":callback,
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Click here for more",
+                "payload":"Date-"+date+"-0"
+              },
+              {
+                "type":"web_url",
+                "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules_By_Job_Role/"+date,
+                "title":"View all Jobs on "+date,
+              },
+              {
+                "type":"postback",
+                "title":"Home",
+                "payload":"GET_STARTED"
+              },
+            ]
+          }
+        }
+      }
+    };
+    callSendAPI(messageData);
+  });
+}
+
+
 
 
 

@@ -82,10 +82,9 @@ module.exports = function(recipientId, messageText) {
                       else {
                         console.log(date);
                         var suburl = "get_walkins_by_Walk_In_date/"+date;
-                        msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
+                        msgControllermodule.getFilterInterviewSchedulesByDate(suburl,date,recipientId);
                       }
                     }
-
                     if (!date&&!Job_Role&&experience) {
                       console.log("only experience param");
                       if (experience == "fresher||freshers") {
