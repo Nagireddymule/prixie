@@ -61,14 +61,14 @@ module.exports.adaptAllSchedules = function(suburl,callback){
 }
 
 module.exports.adaptFilterSchedules = function(suburl,callback){
-  console.log(suburl);
+  //console.log(suburl);
   request({
     url:"https://prixie-api.herokuapp.com/"+suburl,
     method:"Get"
   },function(error,res){
     if(error) throw err;
     var responseData = JSON.parse(res.body);
-    console.log(responseData);
+    console.log("response data = "+responseData);
     var dataFormat = "";
       function getSal(){
             if (responseData.Salary) {
