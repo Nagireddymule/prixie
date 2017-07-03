@@ -20,6 +20,9 @@ module.exports.adaptAllSchedules = function(suburl,callback){
     method:"Get"
   },function(error,res){
     if(error) throw err;
+    if (res.body == "") {
+      return callback("No records found");
+    }
     var responseData = JSON.parse(res.body);
     //console.log(responseData);
     console.log("from adapter");
