@@ -255,7 +255,7 @@ module.exports.getFilterInterviewSchedulesByRole = function(myurl,role,senderid 
 module.exports.getNextFilterInterviewSchedulesByRole = function(event){
           var senderid = event.sender.id;
           var s = event.postback.payload;
-          var r = /-(\w+)-(\d{1,3})$/gi;
+          var r = /-(.+)-(\d{1,3})$/gi;
           var m = r.exec(s);
           var role = m[1];
           console.log("role " +role);
