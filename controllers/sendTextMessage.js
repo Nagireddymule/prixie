@@ -60,11 +60,6 @@ module.exports = function(recipientId, messageText) {
                    console.log("no params");
                    msgControllermodule.getAllInterviewSchedules(recipientId);
                  }
-
-
-
-
-
                  else{
                     console.log("from parameters block");
                     if (!date&&Job_Role&&!experience) {
@@ -73,6 +68,11 @@ module.exports = function(recipientId, messageText) {
                       var suburl = "get_walkins_by_jobrole/"+Job_Role+"/0";
                       msgControllermodule.getFilterInterviewSchedulesByRole(suburl,role,recipientId);
                     }
+
+
+
+
+
                     if (date&&!Job_Role&&!experience) {
                       console.log("only date param");
                       if (date.From&&date.To) {

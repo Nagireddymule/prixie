@@ -236,7 +236,7 @@ module.exports.getFilterInterviewSchedulesByRole = function(myurl,role,senderid 
                     },
                     {
                       "type":"web_url",
-                      "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules",
+                      "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules_By_Job_Role/"+role,
                       "title":"View all Jobs of "+role,
                     },
                     {
@@ -282,7 +282,7 @@ module.exports.getNextFilterInterviewSchedulesByRole = function(event){
                     },
                     {
                       "type":"web_url",
-                      "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules",
+                      "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules_By_Job_Role/"+role,
                       "title":"View all Jobs of "+role,
                     },
                     {
