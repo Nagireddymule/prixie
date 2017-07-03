@@ -67,8 +67,9 @@ module.exports.adaptFilterSchedules = function(suburl,callback){
     method:"Get"
   },function(error,res){
     if(error) throw err;
+    console.log("response body ="res.body);
     var responseData = JSON.parse(res.body);
-    console.log("response data = "+responseData);
+    //console.log("response data = "+responseData);
     var dataFormat = "";
       function getSal(){
             if (responseData.Salary) {
