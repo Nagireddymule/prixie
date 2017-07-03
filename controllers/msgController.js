@@ -252,8 +252,10 @@ module.exports.getNextFilterInterviewSchedulesByRole = function(event){
           var s = event.postback.payload;
           var r = /-(\w+)-(\d{1,3})$/gi;
           var m = r.exec(s);
-          var index = m;
-          console.log(index);
+          var role = m[1];
+          console.log("role" +role);
+          var index = m[2];
+          console.log("index "+index);
       //     adaptInterviews.adaptFilterSchedules(suburl,function(callback){
       //       var messageData = {
       //         "recipient":{
