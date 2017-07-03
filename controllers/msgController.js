@@ -216,8 +216,8 @@ module.exports.getNextCompanySchedule = function(event){
   });
 
 }
-module.exports.getFilterInterviewSchedulesByRole = function(myurl,senderid ){
-        adaptInterviews.adaptFilterSchedules(myurl,role,function(callback){
+module.exports.getFilterInterviewSchedulesByRole = function(myurl,role,senderid ){
+        adaptInterviews.adaptFilterSchedules(myurl,function(callback){
           var messageData = {
             "recipient":{
               "id":senderid
