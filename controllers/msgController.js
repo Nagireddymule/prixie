@@ -253,9 +253,10 @@ module.exports.getNextFilterInterviewSchedulesByRole = function(event){
           var r = /-(\w+)-(\d{1,3})$/gi;
           var m = r.exec(s);
           var role = m[1];
-          console.log("role" +role);
-          var index = m[2];
+          console.log("role " +role);
+          var index = m[2]+1;
           console.log("index "+index);
+          var suburl = "get_walkins_by_jobrole/"+role+"/"+index;
       //     adaptInterviews.adaptFilterSchedules(suburl,function(callback){
       //       var messageData = {
       //         "recipient":{
