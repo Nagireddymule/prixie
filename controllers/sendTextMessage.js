@@ -69,8 +69,9 @@ module.exports = function(recipientId, messageText) {
                     console.log("from parameters block");
                     if (!date&&Job_Role&&!experience) {
                       console.log("only jobrole param");
+                      var role = Job_Role;
                       var suburl = "get_walkins_by_jobrole/"+Job_Role+"/0";
-                      msgControllermodule.getFilterInterviewSchedulesByRole(suburl,recipientId);
+                      msgControllermodule.getFilterInterviewSchedulesByRole(suburl,role,recipientId);
                     }
                     if (date&&!Job_Role&&!experience) {
                       console.log("only date param");
