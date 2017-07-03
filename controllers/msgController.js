@@ -258,35 +258,35 @@ module.exports.getNextFilterInterviewSchedulesByRole = function(event){
           console.log("index "+index);
           var suburl = "get_walkins_by_jobrole/"+role+"/"+index;
           console.log(suburl);
-      //     adaptInterviews.adaptFilterSchedules(suburl,function(callback){
-      //       var messageData = {
-      //         "recipient":{
-      //           "id":senderid
-      //         },
-      //         "message":{
-      //           "attachment":{
-      //             "type":"template",
-      //             "payload":{
-      //               "template_type":"button",
-      //               "text":callback,
-      //               "buttons":[
-      //                 {
-      //               "type":"postback",
-      //               "title":"Click here for more",
-      //               "payload":"5"
-      //             },
-      //             {
-      //               "type":"postback",
-      //               "title":"Home",
-      //               "payload":"GET_STARTED"
-      //             },
-      //           ]
-      //         }
-      //       }
-      //     }
-      //   };
-      //   callSendAPI(messageData);
-      // });
+          adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+            var messageData = {
+              "recipient":{
+                "id":senderid
+              },
+              "message":{
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"button",
+                    "text":callback,
+                    "buttons":[
+                      {
+                    "type":"postback",
+                    "title":"Click here for more",
+                    "payload":"Role-"+role+"-"+index
+                    },
+                      {
+                    "type":"postback",
+                    "title":"Home",
+                    "payload":"GET_STARTED"
+                    },
+                ]
+              }
+            }
+          }
+        };
+        callSendAPI(messageData);
+      });
 }
 
 
