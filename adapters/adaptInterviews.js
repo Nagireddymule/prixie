@@ -68,8 +68,7 @@ module.exports.adaptFilterSchedules = function(suburl,callback){
   },function(error,res){
     if(error) throw err;
     if (res.body == "") {
-      return callback("No more records are found");
-      console.log("NO more records found");
+      return callback("No records found");
     }
     var responseData = JSON.parse(res.body);
     //console.log("response data = "+responseData);
