@@ -235,6 +235,11 @@ module.exports.getFilterInterviewSchedulesByRole = function(myurl,role,senderid 
                       "payload":"Role-"+role+"-0"
                     },
                     {
+                      "type":"web_url",
+                      "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules",
+                      "title":"View all Jobs of"+role,
+                    },
+                    {
                       "type":"postback",
                       "title":"Home",
                       "payload":"GET_STARTED"
@@ -270,12 +275,17 @@ module.exports.getNextFilterInterviewSchedulesByRole = function(event){
                     "template_type":"button",
                     "text":callback,
                     "buttons":[
-                      {
+                    {
                     "type":"postback",
                     "title":"Click here for more",
                     "payload":"Role-"+role+"-"+index
                     },
-                      {
+                    {
+                      "type":"web_url",
+                      "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules",
+                      "title":"View all Jobs of"+role,
+                    },
+                    {
                     "type":"postback",
                     "title":"Home",
                     "payload":"GET_STARTED"
