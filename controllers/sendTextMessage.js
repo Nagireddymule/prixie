@@ -86,7 +86,7 @@ module.exports = function(recipientId, messageText) {
                       }
                     }
                     if (!date&&!Job_Role&&experience) {
-                      console.log("only experience param" +experience);
+                      console.log("only experience param " +experience);
                       if (experience == "freshers") {
                         console.log("exp as fresher");
                         var suburl = "get_walkins_by_Experience/0"
