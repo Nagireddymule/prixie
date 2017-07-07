@@ -84,7 +84,7 @@ module.exports.adaptFilterSchedules = function(suburl,callback){
             }
       }
       function getExp(){
-        console.log(responseData);
+        console.log(responseData.Experience);
         if (responseData.Experience.min&&responseData.Experience.max) {
           return responseData.Experience.min+"-"+responseData.Experience.max+" Years";
         }else {
