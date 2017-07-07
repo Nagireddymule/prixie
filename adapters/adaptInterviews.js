@@ -64,7 +64,7 @@ module.exports.adaptAllSchedules = function(suburl,callback){
 }
 
 module.exports.adaptFilterSchedules = function(suburl,callback){
-  console.log(suburl);
+  //console.log(suburl);
   request({
     url:"https://prixie-api.herokuapp.com/"+suburl,
     method:"Get"
@@ -74,7 +74,7 @@ module.exports.adaptFilterSchedules = function(suburl,callback){
       return callback("No records found");
     }
     var responseData = JSON.parse(res.body);
-    //console.log("response data = "+responseData);
+    console.log("response data = "+responseData);
     var dataFormat = "";
       function getSal(){
             if (responseData.Salary) {
