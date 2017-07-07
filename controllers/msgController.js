@@ -338,7 +338,7 @@ module.exports.getFilterInterviewSchedulesByDate = function(suburl,date,senderid
   });
 }
 
-module.exports.getFilterInterviewSchedulesByExpFresher(suburl,senderid){
+module.exports.getFilterInterviewSchedulesByExpFresher = function(suburl,senderid){
                     adaptInterviews.adaptFilterSchedules(suburl,function(callback){
                         var messageData = {
                           "recipient":{
@@ -373,7 +373,6 @@ module.exports.getFilterInterviewSchedulesByExpFresher(suburl,senderid){
                         };
                         callSendAPI(messageData);
                       });
-
 }
 
 
