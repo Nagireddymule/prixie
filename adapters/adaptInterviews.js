@@ -95,7 +95,10 @@ module.exports.adaptFilterSchedules = function(suburl,callback){
         }
       }
       function getWalkin(){
-        if (responseData.Walk_In_date.From&&responseData.Walk_In_date.To) {
+        if (!responseData.Walk_In_date) {
+          console.log("Walkin date in undefined");
+        }
+        else if (responseData.Walk_In_date.From&&responseData.Walk_In_date.To) {
           return responseData.Walk_In_date.From+" to "+responseData.Walk_In_date.To;
         }else if (responseData.Walk_In_date == "") {
           return "ASAP";
@@ -104,7 +107,10 @@ module.exports.adaptFilterSchedules = function(suburl,callback){
         }
       }
       function getTime(){
-        if (responseData.Walk_In_Time == "") {
+        if (!responseData.Walk_In_Time) {
+          console.log("Walk_In_Time in undefined");
+        }
+        else if (responseData.Walk_In_Time == "") {
           return "9:00AM to 5:00PM"
         }
         else {
