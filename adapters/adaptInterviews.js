@@ -74,7 +74,7 @@ module.exports.adaptFilterSchedules = function(suburl,callback){
       return callback("No records found");
     }
     var responseData = JSON.parse(res.body);
-    console.log("response data = "+responseData[1]);
+    console.log(res.body);
     var dataFormat = "";
       function getSal(){
             if (responseData.Salary) {
