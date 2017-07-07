@@ -85,8 +85,10 @@ module.exports.adaptFilterSchedules = function(suburl,callback){
       }
       function getExp(){
         console.log(responseData.Experience);
-        if (responseData.Experience.min&&responseData.Experience.max) {
+        if (responseData.Experience.min && responseData.Experience.max) {
           return responseData.Experience.min+"-"+responseData.Experience.max+" Years";
+        }else if (responseData.Experience.min == undefined) {
+          return "0 Years";
         }else {
           return responseData.Experience.min+" Years";
         }
