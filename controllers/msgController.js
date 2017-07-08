@@ -422,7 +422,7 @@ module.exports.getNextFilterInterviewSchedulesByExpFresher = function(event){
     });
 
 }
-module.exports.getFilterInterviewSchedulesByExp = function(suburl,expmin,recipientId){
+module.exports.getFilterInterviewSchedulesByExp = function(suburl,expmin,senderid){
             adaptInterviews.adaptFilterSchedules(suburl,function(callback){
               var messageData = {
                 "recipient":{
