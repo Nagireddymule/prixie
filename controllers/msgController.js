@@ -522,7 +522,7 @@ module.exports.getFilterInterviewSchedulesByExpMinMax = function(suburl,expmin,e
                               {
                                 "type":"postback",
                                 "title":"Click here for more",
-                                "payload":"Expmm-"+expmin+"-"+expmax+"-0"
+                                "payload":"Exp2mm-"+expmin+"-"+expmax+"-0"
                               },
                               {
                                 "type":"web_url",
