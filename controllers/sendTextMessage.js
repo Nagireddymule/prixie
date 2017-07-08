@@ -89,7 +89,7 @@ module.exports = function(recipientId, messageText) {
                       console.log("only experience param " +experience);
                       if (experience == "freshers") {
                         console.log("exp as fresher");
-                        var suburl = "get_walkins_by_ExperienceIndex/0/0"
+                        var suburl = "get_walkins_by_ExperienceIndex/0/1"
                         msgControllermodule.getFilterInterviewSchedulesByExpFresher(suburl,recipientId);
                       }else if (experience == !isNaN) {
                         console.log("exp as number");
