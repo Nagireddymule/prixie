@@ -487,7 +487,7 @@ module.exports.getNextFilterInterviewSchedulesByExpm = function(event){
                         {
                           "type":"postback",
                           "title":"Click here for more",
-                          "payload":"ExpF-"+index
+                          "payload":"Expm-"+expm+"-"+index
                         },
                         {
                           "type":"web_url",
