@@ -556,6 +556,40 @@ module.exports.getNextFilterInterviewSchedulesByExpMinMax = function(event){
                   var index = parseInt(m[3])+1;
                   var suburl = "get_walkins_by_Experience/"+expmin+"/"+expmax+"/"+index;
                   console.log(suburl);
+                  adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+                    var messageData = {
+                      "recipient":{
+                        "id":senderid
+                      },
+                      "message":{
+                        "attachment":{
+                          "type":"template",
+                          "payload":{
+                            "template_type":"button",
+                            "text":callback,
+                            "buttons":[
+                              {
+                                "type":"postback",
+                                "title":"Click here for more",
+                                "payload":"Exp2mm-"+expmin+"-"+expmax+"-"+index
+                              },
+                              {
+                                "type":"web_url",
+                                "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                                "title":"View all Jobs of Exp",
+                              },
+                              {
+                                "type":"postback",
+                                "title":"Home",
+                                "payload":"GET_STARTED"
+                              },
+                            ]
+                          }
+                        }
+                      }
+                    };
+            callSendAPI(messageData);
+          });
 }
 
 
