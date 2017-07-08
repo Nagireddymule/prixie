@@ -103,7 +103,13 @@ module.exports = function(recipientId, messageText) {
                         //  msgControllermodule.getFilterInterviewSchedulesByDate(expmin,expmax,recipientId);
                         }else {
                           console.log("min only");
-                        //  msgControllermodule.getFilterInterviewSchedulesByDate(expmin,recipientId);
+                          if (expmin == 0) {
+                            console.log("min only with 0 year exp");
+                            var suburl = "get_walkins_by_ExperienceIndex/0/0"
+                            msgControllermodule.getFilterInterviewSchedulesByExpFresher(suburl,recipientId);
+                          }else {
+                            
+                          }
                         }
                       }
 
