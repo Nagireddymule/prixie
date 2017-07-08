@@ -89,12 +89,13 @@ module.exports = function(recipientId, messageText) {
                       console.log("only experience param " +experience);
                       if (experience == "freshers"||"fresher") {
                         console.log("exp as fresher");
-                        var suburl = "get_walkins_by_ExperienceIndex/0/0"
+                        var suburl = "get_walkins_by_ExperienceIndex/0/0";
                         msgControllermodule.getFilterInterviewSchedulesByExpFresher(suburl,recipientId);
-                      }else if (experience == !isNaN) {
-                        console.log("exp as number");
-                      //  msgControllermodule.getFilterInterviewSchedulesByDate(experience,recipientId);
-                      }
+                       }
+                      //else if (experience == !isNaN) {
+                      //   console.log("exp as number");
+                      // //  msgControllermodule.getFilterInterviewSchedulesByDate(experience,recipientId);
+                      // }
                       else {
                         var expmin = params.Experience.min;
                         var expmax = params.Experience.max;
@@ -108,7 +109,7 @@ module.exports = function(recipientId, messageText) {
                             var suburl = "get_walkins_by_ExperienceIndex/0/0"
                             msgControllermodule.getFilterInterviewSchedulesByExpFresher(suburl,recipientId);
                           }else {
-                            
+
                           }
                         }
                       }
