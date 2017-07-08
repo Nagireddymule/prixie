@@ -438,7 +438,7 @@ module.exports.getFilterInterviewSchedulesByExp = function(suburl,expmin,recipie
                         {
                           "type":"postback",
                           "title":"Click here for more",
-                          "payload":"Expm-"+expmin+"0";
+                          "payload":"Expm-"+expmin+"0"
                         },
                         {
                           "type":"web_url",
@@ -457,7 +457,7 @@ module.exports.getFilterInterviewSchedulesByExp = function(suburl,expmin,recipie
               };
               callSendAPI(messageData);
             });
-            
+
 }
 
 
