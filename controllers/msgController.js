@@ -60,6 +60,10 @@ module.exports.msgController= function(event){
       console.log(event.postback.payload);
       this.getNextFilterInterviewSchedulesByExpFresher(event);
     }
+    if (event.postback.payload.includes("Expm")) {
+      console.log(event.postback.payload);
+      this.getNextFilterInterviewSchedulesByExpm(event);
+    }
 
   }
   else if (event.message){
@@ -438,7 +442,7 @@ module.exports.getFilterInterviewSchedulesByExp = function(suburl,expmin,senderi
                         {
                           "type":"postback",
                           "title":"Click here for more",
-                          "payload":"Expm-"+expmin+"0"
+                          "payload":"Expm-"+expmin+"-0"
                         },
                         {
                           "type":"web_url",
@@ -457,6 +461,51 @@ module.exports.getFilterInterviewSchedulesByExp = function(suburl,expmin,senderi
               };
               callSendAPI(messageData);
             });
+
+}
+module.exports.getNextFilterInterviewSchedulesByExpm = function(event){
+            var senderid = event.sender.id;
+            var s =  event.postback.payload;
+            var r = /-(.+)-(\d{1,3})$/gi;
+            var m = r.exec(s);
+            var expm = parseInt(m[1]);
+            var index = parseInt(m[2])+1;
+            var suburl = "get_walkins_by_ExperienceIndex/"+expm+"/"+index;
+            console.log(suburl);
+    //         adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+    //           var messageData = {
+    //             "recipient":{
+    //               "id":senderid
+    //             },
+    //             "message":{
+    //               "attachment":{
+    //                 "type":"template",
+    //                 "payload":{
+    //                   "template_type":"button",
+    //                   "text":callback,
+    //                   "buttons":[
+    //                     {
+    //                       "type":"postback",
+    //                       "title":"Click here for more",
+    //                       "payload":"ExpF-"+index
+    //                     },
+    //                     {
+    //                       "type":"web_url",
+    //                       "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+    //                       "title":"View all Jobs of Exp 0years",
+    //                     },
+    //                     {
+    //                       "type":"postback",
+    //                       "title":"Home",
+    //                       "payload":"GET_STARTED"
+    //                     },
+    //                   ]
+    //                 }
+    //               }
+    //             }
+    //           };
+    //   callSendAPI(messageData);
+    // });
 
 }
 
