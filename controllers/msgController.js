@@ -57,7 +57,7 @@ module.exports.msgController= function(event){
       console.log("Date payload");
     }
     if (event.postback.payload.includes("ExpF")) {
-      console.log("payload as ExpF");
+      console.log(event.postback.payload);
       this.getNextFilterInterviewSchedulesByExpFresher(event);
     }
 
@@ -378,45 +378,50 @@ module.exports.getFilterInterviewSchedulesByExpFresher = function(suburl,senderi
                         callSendAPI(messageData);
                       });
 }
-// module.exports.getNextFilterInterviewSchedulesByExpFresher = function(event){
-//             var senderid = event.sender.id;
-//             var inIndex =
-//             adaptInterviews.adaptFilterSchedules(suburl,function(callback){
-//               var messageData = {
-//                 "recipient":{
-//                   "id":senderid
-//                 },
-//                 "message":{
-//                   "attachment":{
-//                     "type":"template",
-//                     "payload":{
-//                       "template_type":"button",
-//                       "text":callback,
-//                       "buttons":[
-//                         {
-//                           "type":"postback",
-//                           "title":"Click here for more",
-//                           "payload":"ExpF"
-//                         },
-//                         {
-//                           "type":"web_url",
-//                           "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
-//                           "title":"View all Jobs of Exp 0years",
-//                         },
-//                         {
-//                           "type":"postback",
-//                           "title":"Home",
-//                           "payload":"GET_STARTED"
-//                         },
-//                       ]
-//                     }
-//                   }
-//                 }
-//               };
-//       callSendAPI(messageData);
-//     });
-//
-// }
+module.exports.getNextFilterInterviewSchedulesByExpFresher = function(event){
+            var senderid = event.sender.id;
+            var s =  event.postback.payload;
+            var r = /-(\d{1,3})/g;
+            var m = r.exec(s);
+            var index = parseInt(m[1])+1;
+            var suburl = "get_walkins_by_ExperienceIndex/0/"+index;
+            console.log(index+" "+suburl);
+            adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+              var messageData = {
+                "recipient":{
+                  "id":senderid
+                },
+                "message":{
+                  "attachment":{
+                    "type":"template",
+                    "payload":{
+                      "template_type":"button",
+                      "text":callback,
+                      "buttons":[
+                        {
+                          "type":"postback",
+                          "title":"Click here for more",
+                          "payload":"ExpF-"+index
+                        },
+                        {
+                          "type":"web_url",
+                          "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                          "title":"View all Jobs of Exp 0years",
+                        },
+                        {
+                          "type":"postback",
+                          "title":"Home",
+                          "payload":"GET_STARTED"
+                        },
+                      ]
+                    }
+                  }
+                }
+              };
+      callSendAPI(messageData);
+    });
+
+}
 
 
 
