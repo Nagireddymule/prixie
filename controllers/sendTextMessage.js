@@ -101,7 +101,8 @@ module.exports = function(recipientId, messageText) {
                         var expmax = params.Experience.max;
                         if (expmin && expmax) {
                           console.log("min and max");
-                        //  msgControllermodule.getFilterInterviewSchedulesByDate(expmin,expmax,recipientId);
+                          var suburl = "get_walkins_by_Experience/"+expmin+"/"+expmax+"/0";
+                          msgControllermodule.getFilterInterviewSchedulesByExpMinMax(suburl,expmin,expmax,recipientId);
                         }else {
                           console.log("min only");
                           if (expmin == 0) {
