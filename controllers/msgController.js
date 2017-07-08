@@ -64,6 +64,10 @@ module.exports.msgController= function(event){
       console.log(event.postback.payload);
       this.getNextFilterInterviewSchedulesByExpm(event);
     }
+    if (event.postback.payload.includes("Exp2mm")) {
+      console.log(event.postback.payload);
+      this.getNextFilterInterviewSchedulesByExpMinMax(event);
+    }
 
   }
   else if (event.message){
@@ -542,7 +546,17 @@ module.exports.getFilterInterviewSchedulesByExpMinMax = function(suburl,expmin,e
                     callSendAPI(messageData);
                   });
 }
-
+module.exports.getNextFilterInterviewSchedulesByExpMinMax = function(event){
+                  var senderid = event.sender.id;
+                  var s = event.postback.payload;
+                  var r = /-(.+)-(.+)-(\d{1,3})$/g;
+                  var m = r.exec(s);
+                  var expmin = m[1];
+                  var expmax = m[2];
+                  var index = parseInt(m[3])+1;
+                  var suburl = "get_walkins_by_Experience/"+expmin+"/"+expmax+"/"+;
+                  console.log(suburl);
+}
 
 
 
