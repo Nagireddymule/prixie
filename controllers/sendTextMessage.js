@@ -99,7 +99,7 @@ module.exports = function(recipientId, messageText) {
                       else {
                         var expmin = params.Experience.min;
                         var expmax = params.Experience.max;
-                        if (expmax) {
+                        if (expmin && expmax) {
                           console.log("min and max");
                         //  msgControllermodule.getFilterInterviewSchedulesByDate(expmin,expmax,recipientId);
                         }else {
@@ -109,7 +109,9 @@ module.exports = function(recipientId, messageText) {
                             var suburl = "get_walkins_by_ExperienceIndex/0/0"
                             msgControllermodule.getFilterInterviewSchedulesByExpFresher(suburl,recipientId);
                           }else {
-
+                            console.log("min only with 1 or more years exp");
+                            var suburl = "get_walkins_by_ExperienceIndex/"+expmin+"/0";
+                            msgControllermodule.getFilterInterviewSchedulesByExp(suburl,expmin,recipientId);
                           }
                         }
                       }

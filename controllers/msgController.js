@@ -422,7 +422,42 @@ module.exports.getNextFilterInterviewSchedulesByExpFresher = function(event){
     });
 
 }
-
+module.exports.getFilterInterviewSchedulesByExp = function(suburl,expmin,recipientId){
+            adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+              var messageData = {
+                "recipient":{
+                  "id":senderid
+                },
+                "message":{
+                  "attachment":{
+                    "type":"template",
+                    "payload":{
+                      "template_type":"button",
+                      "text":callback,
+                      "buttons":[
+                        {
+                          "type":"postback",
+                          "title":"Click here for more",
+                          "payload":"Expm-"+expmin+"0";
+                        },
+                        {
+                          "type":"web_url",
+                          "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                          "title":"View all Jobs of Exp 0years",
+                        },
+                        {
+                          "type":"postback",
+                          "title":"Home",
+                          "payload":"GET_STARTED"
+                        },
+                      ]
+                    }
+                  }
+                }
+              };
+              callSendAPI(messageData);
+            });
+}
 
 
 
