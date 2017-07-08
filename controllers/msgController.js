@@ -554,7 +554,7 @@ module.exports.getNextFilterInterviewSchedulesByExpMinMax = function(event){
                   var expmin = m[1];
                   var expmax = m[2];
                   var index = parseInt(m[3])+1;
-                  var suburl = "get_walkins_by_Experience/"+expmin+"/"+expmax+"/"+;
+                  var suburl = "get_walkins_by_Experience/"+expmin+"/"+expmax+"/"+index;
                   console.log(suburl);
 }
 
