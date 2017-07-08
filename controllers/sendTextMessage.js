@@ -87,7 +87,7 @@ module.exports = function(recipientId, messageText) {
                     }
                     if (!date&&!Job_Role&&experience) {
                       console.log("only experience param " +experience);
-                      if (experience == "freshers") {
+                      if (experience == "freshers"||"fresher") {
                         console.log("exp as fresher");
                         var suburl = "get_walkins_by_ExperienceIndex/0/0"
                         msgControllermodule.getFilterInterviewSchedulesByExpFresher(suburl,recipientId);
