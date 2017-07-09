@@ -254,6 +254,7 @@ module.exports.getNextFilterInterviewSchedulesByRole = function(event){
           var m = r.exec(s);
           var index = m[0];
           console.log(index);
+          
       //     adaptInterviews.adaptFilterSchedules(suburl,function(callback){
       //       var messageData = {
       //         "recipient":{
