@@ -63,16 +63,16 @@ module.exports = function(recipientId, messageText) {
                  else{
                     console.log("from parameters block");
                     if (!date&&Job_Role&&!experience) {
+                      if (Job_Role&&subject) {
+                          console.log("jobrole and subject params");
+                          var suburl = "get_walkins_by_jobrole_subject/"+Job_Role+"/"+subject+"/0";
+                          msgControllermodule.getFilterInterviewSchedulesByRole_Subject(suburl,Job_Role,subject,recipientId);
+                      }else {
                       console.log("only jobrole param");
                       var role = Job_Role;
                       var suburl = "get_walkins_by_jobrole/"+Job_Role+"/0";
                       msgControllermodule.getFilterInterviewSchedulesByRole(suburl,role,recipientId);
                     }
-
-
-
-
-
                     if (date&&!Job_Role&&!experience) {
                       console.log("only date param");
                       if (date.From&&date.To) {
@@ -92,10 +92,6 @@ module.exports = function(recipientId, messageText) {
                         var suburl = "get_walkins_by_ExperienceIndex/0/0";
                         msgControllermodule.getFilterInterviewSchedulesByExpFresher(suburl,recipientId);
                        }
-                      //else if (experience == !isNaN) {
-                      //   console.log("exp as number");
-                      // //  msgControllermodule.getFilterInterviewSchedulesByDate(experience,recipientId);
-                      // }
                       else {
                         var expmin = params.Experience.min;
                         var expmax = params.Experience.max;
@@ -119,9 +115,6 @@ module.exports = function(recipientId, messageText) {
 
                     }
                  }
-
-
-              //  msgControllermodule.getInterviewSchedules(recipientId);
 
               }
 

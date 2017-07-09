@@ -68,6 +68,10 @@ module.exports.msgController= function(event){
       console.log(event.postback.payload);
       this.getNextFilterInterviewSchedulesByExpMinMax(event);
     }
+    if (event.postback.payload.includes("subject_role")) {
+        console.log(event.postback.payload);
+        this.getNextFilterInterviewSchedulesByRole_Subject(event);
+    }
 
   }
   else if (event.message){
@@ -593,78 +597,83 @@ module.exports.getNextFilterInterviewSchedulesByExpMinMax = function(event){
             callSendAPI(messageData);
           });
 }
-
-
-
-
-// module.exports.getInterviewSchedules = function(senderid){
-//       adaptInterviews.adaptSchedule("0/5",function(callback){
-//         var messageData = {
-//           "recipient":{
-//             "id":senderid
-//           },
-//           "message":{
-//             "attachment":{
-//               "type":"template",
-//               "payload":{
-//                 "template_type":"button",
-//                 "text":callback,
-//                 "buttons":[
-//                   {
-//                     "type":"postback",
-//                     "title":"Click here for more",
-//                     "payload":"5"
-//                   },
-//                   {
-//                     "type":"postback",
-//                     "title":"Home",
-//                     "payload":"GET_STARTED"
-//                   },
-//                 ]
-//               }
-//             }
-//           }
-//         };
-//         callSendAPI(messageData);
-//       });
-//
-// }
-
-// module.exports.getNextCompany = function(event){
-//   var senderid = event.sender.id;
-//   var indexstart = event.postback.payload;
-//   console.log(indexstart);
-//   var indexend = parseInt(indexstart)+5;
-//   console.log(indexend);
-//   var suburl = indexstart+"/"+indexend;
-//   adaptInterviews.adaptSchedule(suburl,function(callback){
-//     var messageData = {
-//       "recipient":{
-//         "id":senderid
-//       },
-//       "message":{
-//         "attachment":{
-//           "type":"template",
-//           "payload":{
-//             "template_type":"button",
-//             "text":callback,
-//             "buttons":[
-//               {
-//                 "type":"postback",
-//                 "title":"Click here for more",
-//                 "payload":indexend
-//               },
-//               {
-//                 "type":"postback",
-//                 "title":"Home",
-//                 "payload":"GET_STARTED"
-//               },
-//             ]
-//           }
-//         }
-//       }
-//     };
-//     callSendAPI(messageData);
-//   });
-//
-// }
+module.exports.getFilterInterviewSchedulesByRole_Subject = function(suburl,role,subject,senderid){
+                adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+                  var messageData = {
+                    "recipient":{
+                      "id":senderid
+                    },
+                    "message":{
+                      "attachment":{
+                        "type":"template",
+                        "payload":{
+                          "template_type":"button",
+                          "text":callback,
+                          "buttons":[
+                            {
+                              "type":"postback",
+                              "title":"Click here for more",
+                              "payload":"subject_role-"+role+"-"+subject+"-0"
+                            },
+                            {
+                              "type":"web_url",
+                              "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                              "title":"View all Jobs of Exp 0years",
+                            },
+                            {
+                              "type":"postback",
+                              "title":"Home",
+                              "payload":"GET_STARTED"
+                            },
+                          ]
+                        }
+                      }
+                    }
+                  };
+                  callSendAPI(messageData);
+                });
+}
+module.exports.getNextFilterInterviewSchedulesByRole_Subject = function(event){
+                var senderid = event.sender.id;
+                var s = event.postback.payload;
+                var r = /subject_role-(.+)-(.+)-(\d{1,3})/gi;
+                var m = r.exec(s);
+                var role = m[1];
+                var subject = m[2];
+                var index = parseInt(m[3])+1;
+                var suburl = "get_walkins_by_jobrole_subject/"+role+"/"+subject+"/"+index;
+                adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+                  var messageData = {
+                    "recipient":{
+                      "id":senderid
+                    },
+                    "message":{
+                      "attachment":{
+                        "type":"template",
+                        "payload":{
+                          "template_type":"button",
+                          "text":callback,
+                          "buttons":[
+                            {
+                              "type":"postback",
+                              "title":"Click here for more",
+                              "payload":"subject_role-"+role+"-"+subject+"-"+index;
+                            },
+                            {
+                              "type":"web_url",
+                              "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                              "title":"View all Jobs of Exp 0years",
+                            },
+                            {
+                              "type":"postback",
+                              "title":"Home",
+                              "payload":"GET_STARTED"
+                            },
+                          ]
+                        }
+                      }
+                    }
+                  };
+                  callSendAPI(messageData);
+                });
+}
