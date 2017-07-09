@@ -53,6 +53,21 @@ module.exports.msgController= function(event){
         console.log(event.postback.payload);
         this.getNextFilterInterviewSchedulesByRole(event);
     }
+    if (event.postback.payload.includes("Date")) {
+      console.log("Date payload");
+    }
+    if (event.postback.payload.includes("ExpF")) {
+      console.log(event.postback.payload);
+      this.getNextFilterInterviewSchedulesByExpFresher(event);
+    }
+    if (event.postback.payload.includes("Expm")) {
+      console.log(event.postback.payload);
+      this.getNextFilterInterviewSchedulesByExpm(event);
+    }
+    if (event.postback.payload.includes("Exp2mm")) {
+      console.log(event.postback.payload);
+      this.getNextFilterInterviewSchedulesByExpMinMax(event);
+    }
 
   }
   else if (event.message){
@@ -216,8 +231,8 @@ module.exports.getNextCompanySchedule = function(event){
   });
 
 }
-module.exports.getFilterInterviewSchedulesByRole = function(myurl,senderid ){
-        adaptInterviews.adaptFilterSchedules(myurl,function(callback){
+module.exports.getFilterInterviewSchedulesByRole = function(suburl,role,senderid ){
+        adaptInterviews.adaptFilterSchedules(suburl,function(callback){
           var messageData = {
             "recipient":{
               "id":senderid
@@ -232,7 +247,12 @@ module.exports.getFilterInterviewSchedulesByRole = function(myurl,senderid ){
                     {
                       "type":"postback",
                       "title":"Click here for more",
-                      "payload":"Role-0"
+                      "payload":"Role-"+role+"-0"
+                    },
+                    {
+                      "type":"web_url",
+                      "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules_By_Job_Role/"+role,
+                      "title":"View all Jobs of "+role,
                     },
                     {
                       "type":"postback",
@@ -250,45 +270,329 @@ module.exports.getFilterInterviewSchedulesByRole = function(myurl,senderid ){
 module.exports.getNextFilterInterviewSchedulesByRole = function(event){
           var senderid = event.sender.id;
           var s = event.postback.payload;
-          var r = /\d{1,3}$/gi;
+          var r = /-(.+)-(\d{1,3})$/gi;
           var m = r.exec(s);
           var index = m[0];
           console.log(index);
-          
-      //     adaptInterviews.adaptFilterSchedules(suburl,function(callback){
-      //       var messageData = {
-      //         "recipient":{
-      //           "id":senderid
-      //         },
-      //         "message":{
-      //           "attachment":{
-      //             "type":"template",
-      //             "payload":{
-      //               "template_type":"button",
-      //               "text":callback,
-      //               "buttons":[
-      //                 {
-      //               "type":"postback",
-      //               "title":"Click here for more",
-      //               "payload":"5"
-      //             },
-      //             {
-      //               "type":"postback",
-      //               "title":"Home",
-      //               "payload":"GET_STARTED"
-      //             },
-      //           ]
-      //         }
-      //       }
-      //     }
-      //   };
-      //   callSendAPI(messageData);
-      // });
+          var role = m[1];
+          console.log("role " +role);
+          var index = parseInt(m[2])+1;
+          console.log("index "+index);
+          var suburl = "get_walkins_by_jobrole/"+role+"/"+index;
+          console.log(suburl);
+          adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+            var messageData = {
+              "recipient":{
+                "id":senderid
+              },
+              "message":{
+                "attachment":{
+                  "type":"template",
+                  "payload":{
+                    "template_type":"button",
+                    "text":callback,
+                    "buttons":[
+                    {
+                    "type":"postback",
+                    "title":"Click here for more",
+                    "payload":"Role-"+role+"-"+index
+                    },
+                    {
+                      "type":"web_url",
+                      "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules_By_Job_Role/"+role,
+                      "title":"View all Jobs of "+role,
+                    },
+                    {
+                    "type":"postback",
+                    "title":"Home",
+                    "payload":"GET_STARTED"
+                    },
+                ]
+              }
+            }
+          }
+        };
+        callSendAPI(messageData);
+      });
+}
+module.exports.getFilterInterviewSchedulesByDate = function(suburl,date,senderid){
+  adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+    var messageData = {
+      "recipient":{
+        "id":senderid
+      },
+      "message":{
+        "attachment":{
+          "type":"template",
+          "payload":{
+            "template_type":"button",
+            "text":callback,
+            "buttons":[
+              {
+                "type":"postback",
+                "title":"Click here for more",
+                "payload":"Date-"+date+"-0"
+              },
+              {
+                "type":"web_url",
+                "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules_By_Job_Role/"+date,
+                "title":"View all Jobs on "+date,
+              },
+              {
+                "type":"postback",
+                "title":"Home",
+                "payload":"GET_STARTED"
+              },
+            ]
+          }
+        }
+      }
+    };
+    callSendAPI(messageData);
+  });
 }
 
+module.exports.getFilterInterviewSchedulesByExpFresher = function(suburl,senderid){
+                    adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+                        var messageData = {
+                          "recipient":{
+                            "id":senderid
+                          },
+                          "message":{
+                            "attachment":{
+                              "type":"template",
+                              "payload":{
+                                "template_type":"button",
+                                "text":callback,
+                                "buttons":[
+                                  {
+                                    "type":"postback",
+                                    "title":"Click here for more",
+                                    "payload":"ExpF-0"
+                                  },
+                                  {
+                                    "type":"web_url",
+                                    "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                                    "title":"View all Jobs of Exp 0years",
+                                  },
+                                  {
+                                    "type":"postback",
+                                    "title":"Home",
+                                    "payload":"GET_STARTED"
+                                  },
+                                ]
+                              }
+                            }
+                          }
+                        };
+                        callSendAPI(messageData);
+                      });
+}
+module.exports.getNextFilterInterviewSchedulesByExpFresher = function(event){
+            var senderid = event.sender.id;
+            var s =  event.postback.payload;
+            var r = /-(\d{1,3})/g;
+            var m = r.exec(s);
+            var index = parseInt(m[1])+1;
+            var suburl = "get_walkins_by_ExperienceIndex/0/"+index;
+            adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+              var messageData = {
+                "recipient":{
+                  "id":senderid
+                },
+                "message":{
+                  "attachment":{
+                    "type":"template",
+                    "payload":{
+                      "template_type":"button",
+                      "text":callback,
+                      "buttons":[
+                        {
+                          "type":"postback",
+                          "title":"Click here for more",
+                          "payload":"ExpF-"+index
+                        },
+                        {
+                          "type":"web_url",
+                          "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                          "title":"View all Jobs of Exp 0years",
+                        },
+                        {
+                          "type":"postback",
+                          "title":"Home",
+                          "payload":"GET_STARTED"
+                        },
+                      ]
+                    }
+                  }
+                }
+              };
+      callSendAPI(messageData);
+    });
 
+}
+module.exports.getFilterInterviewSchedulesByExp = function(suburl,expmin,senderid){
+            adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+              var messageData = {
+                "recipient":{
+                  "id":senderid
+                },
+                "message":{
+                  "attachment":{
+                    "type":"template",
+                    "payload":{
+                      "template_type":"button",
+                      "text":callback,
+                      "buttons":[
+                        {
+                          "type":"postback",
+                          "title":"Click here for more",
+                          "payload":"Expm-"+expmin+"-0"
+                        },
+                        {
+                          "type":"web_url",
+                          "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                          "title":"View all Jobs of Exp 0years",
+                        },
+                        {
+                          "type":"postback",
+                          "title":"Home",
+                          "payload":"GET_STARTED"
+                        },
+                      ]
+                    }
+                  }
+                }
+              };
+              callSendAPI(messageData);
+            });
 
+}
+module.exports.getNextFilterInterviewSchedulesByExpm = function(event){
+            var senderid = event.sender.id;
+            var s =  event.postback.payload;
+            var r = /-(.+)-(\d{1,3})$/gi;
+            var m = r.exec(s);
+            var expm = parseInt(m[1]);
+            var index = parseInt(m[2])+1;
+            var suburl = "get_walkins_by_ExperienceIndex/"+expm+"/"+index;
+            adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+              var messageData = {
+                "recipient":{
+                  "id":senderid
+                },
+                "message":{
+                  "attachment":{
+                    "type":"template",
+                    "payload":{
+                      "template_type":"button",
+                      "text":callback,
+                      "buttons":[
+                        {
+                          "type":"postback",
+                          "title":"Click here for more",
+                          "payload":"Expm-"+expm+"-"+index
+                        },
+                        {
+                          "type":"web_url",
+                          "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                          "title":"View all Jobs of Exp 0years",
+                        },
+                        {
+                          "type":"postback",
+                          "title":"Home",
+                          "payload":"GET_STARTED"
+                        },
+                      ]
+                    }
+                  }
+                }
+              };
+      callSendAPI(messageData);
+    });
 
+}
+module.exports.getFilterInterviewSchedulesByExpMinMax = function(suburl,expmin,expmax,senderid){
+                  adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+                    var messageData = {
+                      "recipient":{
+                        "id":senderid
+                      },
+                      "message":{
+                        "attachment":{
+                          "type":"template",
+                          "payload":{
+                            "template_type":"button",
+                            "text":callback,
+                            "buttons":[
+                              {
+                                "type":"postback",
+                                "title":"Click here for more",
+                                "payload":"Exp2mm-"+expmin+"-"+expmax+"-0"
+                              },
+                              {
+                                "type":"web_url",
+                                "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                                "title":"View all Jobs of Exp 0years",
+                              },
+                              {
+                                "type":"postback",
+                                "title":"Home",
+                                "payload":"GET_STARTED"
+                              },
+                            ]
+                          }
+                        }
+                      }
+                    };
+                    callSendAPI(messageData);
+                  });
+}
+module.exports.getNextFilterInterviewSchedulesByExpMinMax = function(event){
+                  var senderid = event.sender.id;
+                  var s = event.postback.payload;
+                  var r = /-(.+)-(.+)-(\d{1,3})$/g;
+                  var m = r.exec(s);
+                  var expmin = m[1];
+                  var expmax = m[2];
+                  var index = parseInt(m[3])+1;
+                  var suburl = "get_walkins_by_Experience/"+expmin+"/"+expmax+"/"+index;
+                  console.log(suburl);
+                  adaptInterviews.adaptFilterSchedules(suburl,function(callback){
+                    var messageData = {
+                      "recipient":{
+                        "id":senderid
+                      },
+                      "message":{
+                        "attachment":{
+                          "type":"template",
+                          "payload":{
+                            "template_type":"button",
+                            "text":callback,
+                            "buttons":[
+                              {
+                                "type":"postback",
+                                "title":"Click here for more",
+                                "payload":"Exp2mm-"+expmin+"-"+expmax+"-"+index
+                              },
+                              {
+                                "type":"web_url",
+                                "url":"https://prixie-api.herokuapp.com/get_walkins_by_Experience/0",
+                                "title":"View all Jobs of Exp",
+                              },
+                              {
+                                "type":"postback",
+                                "title":"Home",
+                                "payload":"GET_STARTED"
+                              },
+                            ]
+                          }
+                        }
+                      }
+                    };
+            callSendAPI(messageData);
+          });
+}
 
 
 

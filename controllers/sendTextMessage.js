@@ -60,18 +60,19 @@ module.exports = function(recipientId, messageText) {
                    console.log("no params");
                    msgControllermodule.getAllInterviewSchedules(recipientId);
                  }
-
-
-
-
-
                  else{
                     console.log("from parameters block");
                     if (!date&&Job_Role&&!experience) {
                       console.log("only jobrole param");
+                      var role = Job_Role;
                       var suburl = "get_walkins_by_jobrole/"+Job_Role+"/0";
-                      msgControllermodule.getFilterInterviewSchedulesByRole(suburl,recipientId);
+                      msgControllermodule.getFilterInterviewSchedulesByRole(suburl,role,recipientId);
                     }
+
+
+
+
+
                     if (date&&!Job_Role&&!experience) {
                       console.log("only date param");
                       if (date.From&&date.To) {
@@ -81,28 +82,38 @@ module.exports = function(recipientId, messageText) {
                       else {
                         console.log(date);
                         var suburl = "get_walkins_by_Walk_In_date/"+date;
-                        msgControllermodule.getFilterInterviewSchedulesByDate(suburl,recipientId);
+                        msgControllermodule.getFilterInterviewSchedulesByDate(suburl,date,recipientId);
                       }
                     }
-
                     if (!date&&!Job_Role&&experience) {
-                      console.log("only experience param");
-                      if (experience == "fresher||freshers") {
+                      console.log("only experience param " +experience);
+                      if (experience == "freshers"||experience == "fresher") {
                         console.log("exp as fresher");
-                      //  msgControllermodule.getFilterInterviewSchedulesByDate(experience,recipientId);
-                      }else if (experience == !isNaN) {
-                        console.log("exp as number");
-                      //  msgControllermodule.getFilterInterviewSchedulesByDate(experience,recipientId);
-                      }
+                        var suburl = "get_walkins_by_ExperienceIndex/0/0";
+                        msgControllermodule.getFilterInterviewSchedulesByExpFresher(suburl,recipientId);
+                       }
+                      //else if (experience == !isNaN) {
+                      //   console.log("exp as number");
+                      // //  msgControllermodule.getFilterInterviewSchedulesByDate(experience,recipientId);
+                      // }
                       else {
                         var expmin = params.Experience.min;
                         var expmax = params.Experience.max;
-                        if (expmax) {
+                        if (expmin && expmax) {
                           console.log("min and max");
-                        //  msgControllermodule.getFilterInterviewSchedulesByDate(expmin,expmax,recipientId);
+                          var suburl = "get_walkins_by_Experience/"+expmin+"/"+expmax+"/0";
+                          msgControllermodule.getFilterInterviewSchedulesByExpMinMax(suburl,expmin,expmax,recipientId);
                         }else {
                           console.log("min only");
-                        //  msgControllermodule.getFilterInterviewSchedulesByDate(expmin,recipientId);
+                          if (expmin == 0) {
+                            console.log("min only with 0 year exp");
+                            var suburl = "get_walkins_by_ExperienceIndex/0/0"
+                            msgControllermodule.getFilterInterviewSchedulesByExpFresher(suburl,recipientId);
+                          }else {
+                            console.log("min only with 1 or more years exp");
+                            var suburl = "get_walkins_by_ExperienceIndex/"+expmin+"/0";
+                            msgControllermodule.getFilterInterviewSchedulesByExp(suburl,expmin,recipientId);
+                          }
                         }
                       }
 

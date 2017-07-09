@@ -20,6 +20,9 @@ module.exports.adaptAllSchedules = function(suburl,callback){
     method:"Get"
   },function(error,res){
     if(error) throw err;
+    if (res.body == "") {
+      return callback("No records found");
+    }
     var responseData = JSON.parse(res.body);
     //console.log(responseData);
     console.log("from adapter");
@@ -61,14 +64,16 @@ module.exports.adaptAllSchedules = function(suburl,callback){
 }
 
 module.exports.adaptFilterSchedules = function(suburl,callback){
-  console.log(suburl);
+  //console.log(suburl);
   request({
     url:"https://prixie-api.herokuapp.com/"+suburl,
     method:"Get"
   },function(error,res){
     if(error) throw err;
+    if (res.body == "") {
+      return callback("No records found");
+    }
     var responseData = JSON.parse(res.body);
-    console.log(responseData);
     var dataFormat = "";
       function getSal(){
             if (responseData.Salary) {
@@ -78,14 +83,21 @@ module.exports.adaptFilterSchedules = function(suburl,callback){
             }
       }
       function getExp(){
-        if (responseData.Experience.min&&responseData.Experience.max) {
+        console.log(responseData.Experience);
+        if (!responseData.Experience) {
+          console.log("Experience is undefined");
+        }
+        else if (responseData.Experience.max && responseData.Experience.min) {
           return responseData.Experience.min+"-"+responseData.Experience.max+" Years";
         }else {
           return responseData.Experience.min+" Years";
         }
       }
       function getWalkin(){
-        if (responseData.Walk_In_date.From&&responseData.Walk_In_date.To) {
+        if (!responseData.Walk_In_date) {
+          console.log("Walkin date in undefined");
+        }
+        else if (responseData.Walk_In_date.From&&responseData.Walk_In_date.To) {
           return responseData.Walk_In_date.From+" to "+responseData.Walk_In_date.To;
         }else if (responseData.Walk_In_date == "") {
           return "ASAP";
@@ -94,7 +106,10 @@ module.exports.adaptFilterSchedules = function(suburl,callback){
         }
       }
       function getTime(){
-        if (responseData.Walk_In_Time == "") {
+        if (!responseData.Walk_In_Time) {
+          console.log("Walk_In_Time in undefined");
+        }
+        else if (responseData.Walk_In_Time == "") {
           return "9:00AM to 5:00PM"
         }
         else {
