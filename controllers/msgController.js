@@ -48,7 +48,10 @@ module.exports.msgController= function(event){
     if (event.postback.payload == "Company_Info") {
       console.log(event.postback.payload);
       this.getCompanyInfo(senderid);
-
+    }
+    if (event.postback.payload.includes("Company_Info-")) {
+      console.log(event.postback.payload);
+      this.getNextCompanyInfo(event);
     }
     if (!isNaN(event.postback.payload)) {
       console.log("payload came as number");
@@ -181,7 +184,7 @@ module.exports.getCompanyInfo = function(senderid){
                         {
                           "type":"web_url",
                           "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules",
-                          "title":"View all Jobs",
+                          "title":"View all company_info",
                         },
                         {
                           "type":"postback",
@@ -196,7 +199,48 @@ module.exports.getCompanyInfo = function(senderid){
               callSendAPI(messageData);
             });
 }
-
+module.exports.getNextCompanyInfo = function(event){
+            var senderid = event.sender.id;
+            var s =  event.postback.payload;
+            var r = /(.+)-(\d{1,3})$/gi;
+            var m = r.exec(s);
+            var index = parseInt(m[2]+1);
+            var suburl = index;
+            adaptInterviews.adaptCompanyInfo(suburl,function(callback){
+              var messageData = {
+                "recipient":{
+                  "id":senderid
+                },
+                "message":{
+                  "attachment":{
+                    "type":"template",
+                    "payload":{
+                      "template_type":"button",
+                      "text":callback,
+                      "buttons":[
+                        {
+                          "type":"postback",
+                          "title":"Click here for Next",
+                          "payload":"Company_Info-"+index
+                        },
+                        {
+                          "type":"web_url",
+                          "url":"https://prixie-api.herokuapp.com/",
+                          "title":"View all company_info",
+                        },
+                        {
+                          "type":"postback",
+                          "title":"Home",
+                          "payload":"GET_STARTED"
+                        },
+                      ]
+                    }
+                  }
+                }
+              };
+              callSendAPI(messageData);
+            });
+}
 module.exports.getAllInterviewSchedules = function(senderid){
         adaptInterviews.adaptAllSchedules("0",function(callback){
           var messageData = {
