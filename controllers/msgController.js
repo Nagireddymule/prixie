@@ -55,7 +55,6 @@ module.exports.msgController= function(event){
     }
     if (event.postback.payload == "view_selection_process") {
       console.log(event.postback.payload);
-      this.
     }
     if (!isNaN(event.postback.payload)) {
       console.log("payload came as number");
