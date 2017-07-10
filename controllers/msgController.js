@@ -24,9 +24,11 @@ module.exports.msgController= function(event){
         //console.log(resbody);
         console.log(resbody.first_name);
         profile = "💥Hi 💥"+resbody.first_name+" "+resbody.last_name+"💥 welcome to Prixie 💥"
+        var phno = "+919440614399";
         var messageData = {
         "recipient": {
           "id": senderid
+          "phone_number": phno
         },
         "message": {
             "text":profile
