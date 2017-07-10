@@ -62,7 +62,7 @@ module.exports = function(recipientId, messageText) {
                  }
                  else{
                     console.log("from parameters block");
-                    if (!date&&Job_Role&&!experience) {
+                    if (!date&&(Job_Role||subject)&&!experience) {
                       if (subject) {
                           console.log("jobrole and subject params");
                         //  var suburl = "get_walkins_by_jobrole_subject/"+Job_Role+"/"+subject+"/0";
