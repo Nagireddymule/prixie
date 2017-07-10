@@ -220,6 +220,11 @@ module.exports.getNextCompanyInfo = function(event){
                       "buttons":[
                         {
                           "type":"postback",
+                          "title":"view selection Process",
+                          "payload":"view_selection_process"
+                        },
+                        {
+                          "type":"postback",
                           "title":"Click here for Next",
                           "payload":"Company_Info-"+index
                         },
@@ -228,11 +233,11 @@ module.exports.getNextCompanyInfo = function(event){
                           "url":"https://prixie-api.herokuapp.com/",
                           "title":"View all company_info",
                         },
-                        {
-                          "type":"postback",
-                          "title":"Home",
-                          "payload":"GET_STARTED"
-                        },
+                        // {
+                        //   "type":"postback",
+                        //   "title":"Home",
+                        //   "payload":"GET_STARTED"
+                        // },
                       ]
                     }
                   }
