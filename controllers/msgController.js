@@ -181,6 +181,11 @@ module.exports.getCompanyInfo = function(senderid){
                       "buttons":[
                         {
                           "type":"postback",
+                          "title":"Selection Process",
+                          "payload":"view_selection_process"
+                        },
+                        {
+                          "type":"postback",
                           "title":"Click here for Next",
                           "payload":"Company_Info-0"
                         },
@@ -189,11 +194,11 @@ module.exports.getCompanyInfo = function(senderid){
                           "url":"https://prixie-api.herokuapp.com/view_all_companies_info",
                           "title":"View all company_info",
                         },
-                        {
-                          "type":"postback",
-                          "title":"Home",
-                          "payload":"GET_STARTED"
-                        },
+                        // {
+                        //   "type":"postback",
+                        //   "title":"Home",
+                        //   "payload":"GET_STARTED"
+                        // },
                       ]
                     }
                   }
