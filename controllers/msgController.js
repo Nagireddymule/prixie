@@ -23,7 +23,7 @@ module.exports.msgController= function(event){
         var resbody = JSON.parse(res.body);
         //console.log(resbody);
         console.log(resbody.first_name);
-        profile = "💥Hi 💥"+resbody.first_name+" "+resbody.last_name+"💥 welcome to Prixie 💥";
+        profile = "💥Hi "+resbody.first_name+" "+resbody.last_name+" welcome to Prixie 💥";
         var messageData = {
         "recipient": {
           "id": senderid
