@@ -204,7 +204,7 @@ module.exports.getNextCompanyInfo = function(event){
             var s =  event.postback.payload;
             var r = /(.+)-(\d{1,3})$/gi;
             var m = r.exec(s);
-            var index = parseInt(m[2]+1);
+            var index = parseInt(m[2])+1;
             var suburl = index;
             adaptInterviews.adaptCompanyInfo(suburl,function(callback){
               var messageData = {
