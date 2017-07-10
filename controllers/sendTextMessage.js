@@ -63,7 +63,7 @@ module.exports = function(recipientId, messageText) {
                  else{
                     console.log("from parameters block");
                     if (!date&&Job_Role&&!experience) {
-                      if (Job_Role&&subject) {
+                      if (subject) {
                           console.log("jobrole and subject params");
                         //  var suburl = "get_walkins_by_jobrole_subject/"+Job_Role+"/"+subject+"/0";
                         //  msgControllermodule.getFilterInterviewSchedulesByRole_Subject(suburl,Job_Role,subject,recipientId);
