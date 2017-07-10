@@ -47,6 +47,7 @@ module.exports.msgController= function(event){
     }
     if (event.postback.payload == "Company_Info") {
       console.log(event.postback.payload);
+      this.getCompanyInfo(senderid);
 
     }
     if (!isNaN(event.postback.payload)) {
