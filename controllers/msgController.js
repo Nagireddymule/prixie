@@ -45,6 +45,10 @@ module.exports.msgController= function(event){
     if (event.postback.payload == "Tutorials") {
        this.getTutorialList(senderid);
     }
+    if (event.postback.payload == "Company_Info") {
+      console.log(event.postback.payload);
+
+    }
     if (!isNaN(event.postback.payload)) {
       console.log("payload came as number");
       this.getNextCompanySchedule(event);
