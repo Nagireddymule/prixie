@@ -53,6 +53,10 @@ module.exports.msgController= function(event){
       console.log(event.postback.payload);
       this.getNextCompanyInfo(event);
     }
+    if (event.postback.payload == "view_selection_process") {
+      console.log(event.postback.payload);
+      this.
+    }
     if (!isNaN(event.postback.payload)) {
       console.log("payload came as number");
       this.getNextCompanySchedule(event);
@@ -220,7 +224,7 @@ module.exports.getNextCompanyInfo = function(event){
                       "buttons":[
                         {
                           "type":"postback",
-                          "title":"view selection Process",
+                          "title":"Selection Process",
                           "payload":"view_selection_process"
                         },
                         {
@@ -230,7 +234,7 @@ module.exports.getNextCompanyInfo = function(event){
                         },
                         {
                           "type":"web_url",
-                          "url":"https://prixie-api.herokuapp.com/",
+                          "url":"https://prixie-api.herokuapp.com/view_all_companies_info",
                           "title":"View all company_info",
                         },
                         // {
@@ -246,6 +250,10 @@ module.exports.getNextCompanyInfo = function(event){
               callSendAPI(messageData);
             });
 }
+module.exports.getCompanyRoundsInfo = function(event){
+
+}
+
 module.exports.getAllInterviewSchedules = function(senderid){
         adaptInterviews.adaptAllSchedules("0",function(callback){
           var messageData = {
