@@ -63,6 +63,20 @@ module.exports.adaptAllSchedules = function(suburl,callback){
   });
 }
 
+module.exports.adaptCompanyInfo = function(suburl,callback){
+  request({
+    url:"https://prixie-api.herokuapp.com/company_info/"+suburl,
+    method:"Get"
+  },function(error,res){
+    if(error) throw error;
+    if (res.body == "") {
+      return callback("No records Found");
+    }
+    var responseData = JSON.parse(res.body);
+    console.log(responseData);
+  });
+}
+
 module.exports.adaptFilterSchedules = function(suburl,callback){
   //console.log(suburl);
   request({

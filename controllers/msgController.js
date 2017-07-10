@@ -160,6 +160,43 @@ module.exports.getTutorialList = function(senderid){
           callSendAPI(messageData);
         });
   }
+module.exports.getCompanyInfo = function(senderid){
+            adaptInterviews.adaptCompanyInfo("0",function(callback){
+              var messageData = {
+                "recipient":{
+                  "id":senderid
+                },
+                "message":{
+                  "attachment":{
+                    "type":"template",
+                    "payload":{
+                      "template_type":"button",
+                      "text":callback,
+                      "buttons":[
+                        {
+                          "type":"postback",
+                          "title":"Click here for Next",
+                          "payload":"Company_Info-0"
+                        },
+                        {
+                          "type":"web_url",
+                          "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules",
+                          "title":"View all Jobs",
+                        },
+                        {
+                          "type":"postback",
+                          "title":"Home",
+                          "payload":"GET_STARTED"
+                        },
+                      ]
+                    }
+                  }
+                }
+              };
+              callSendAPI(messageData);
+            });
+}
+
 module.exports.getAllInterviewSchedules = function(senderid){
         adaptInterviews.adaptAllSchedules("0",function(callback){
           var messageData = {
