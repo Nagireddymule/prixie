@@ -186,7 +186,7 @@ module.exports.getCompanyInfo = function(senderid){
                         },
                         {
                           "type":"web_url",
-                          "url":"https://prixie-api.herokuapp.com/view_All_Interview_Schedules",
+                          "url":"https://prixie-api.herokuapp.com/view_all_companies_info",
                           "title":"View all company_info",
                         },
                         {
