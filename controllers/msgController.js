@@ -660,7 +660,7 @@ module.exports.getNextFilterInterviewSchedulesByRole_Subject = function(event){
                             {
                               "type":"postback",
                               "title":"Click here for more",
-                              "payload":"subject_role-"+role+"-"+subject+"-"+index;
+                              "payload":"subject_role-"+role+"-"+subject+"-"+index
                             },
                             {
                               "type":"web_url",
