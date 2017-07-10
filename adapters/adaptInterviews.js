@@ -76,6 +76,7 @@ module.exports.adaptCompanyInfo = function(suburl,callback){
     console.log(responseData);
     var dataFormat = "Company Name: "+responseData.company_name+"\nAddress: "+responseData.address+"\nContact NO: "responseData.contact_number+"\nWebsite: "+responseData.website;
     return callback(dataFormat);
+    
   });
 }
 
