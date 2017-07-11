@@ -168,7 +168,7 @@ module.exports.getTutorialList = function(senderid){
 module.exports.getCompanyInfo = function(senderid){
             adaptInterviews.adaptCompanyInfo("0",function(callback){
               var domain = callback[1];
-              console.log(domain);
+              console.log("domain code = "+domain);
               var messageData = {
                 "recipient":{
                   "id":senderid
@@ -181,9 +181,9 @@ module.exports.getCompanyInfo = function(senderid){
                       "text":callback[0],
                       "buttons":[
                         {
-                          "type":"postback",
+                          "type":"web_url",
+                          "url":"https://prixie-api.herokuapp.com/view_selection_process/"+domain,
                           "title":"Selection Process",
-                          "payload":"https://prixie-api.herokuapp.com/view_selection_process/"+domain
                         },
                         {
                           "type":"postback",
@@ -217,7 +217,7 @@ module.exports.getNextCompanyInfo = function(event){
             var suburl = index;
             adaptInterviews.adaptCompanyInfo(suburl,function(callback){
               var domain = callback[1];
-              console.log(domain);
+              console.log("domain code = "+domain);
               var messageData = {
                 "recipient":{
                   "id":senderid
@@ -230,9 +230,9 @@ module.exports.getNextCompanyInfo = function(event){
                       "text":callback[0],
                       "buttons":[
                         {
-                          "type":"postback",
+                          "type":"web_url",
+                          "url":"https://prixie-api.herokuapp.com/view_selection_process/"+domain
                           "title":"Selection Process",
-                          "payload":"view_selection_process"
                         },
                         {
                           "type":"postback",
@@ -241,7 +241,7 @@ module.exports.getNextCompanyInfo = function(event){
                         },
                         {
                           "type":"web_url",
-                          "url":"https://prixie-api.herokuapp.com/view_selection_process/"+domain,
+                          "url":"https://prixie-api.herokuapp.com/view_all_companies_info",
                           "title":"View all company_info",
                         },
                         // {
