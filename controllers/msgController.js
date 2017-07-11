@@ -231,7 +231,7 @@ module.exports.getNextCompanyInfo = function(event){
                       "buttons":[
                         {
                           "type":"web_url",
-                          "url":"https://prixie-api.herokuapp.com/view_selection_process/"+domain
+                          "url":"https://prixie-api.herokuapp.com/view_selection_process/"+domain,
                           "title":"Selection Process",
                         },
                         {
