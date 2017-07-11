@@ -167,7 +167,8 @@ module.exports.getTutorialList = function(senderid){
   }
 module.exports.getCompanyInfo = function(senderid){
             adaptInterviews.adaptCompanyInfo("0",function(callback){
-              console.log(callback[1]);
+              var domain = callback[1];
+              console.log(domain);
               var messageData = {
                 "recipient":{
                   "id":senderid
@@ -182,7 +183,7 @@ module.exports.getCompanyInfo = function(senderid){
                         {
                           "type":"postback",
                           "title":"Selection Process",
-                          "payload":"https://prixie-api.herokuapp.com/view_selection_process/"
+                          "payload":"https://prixie-api.herokuapp.com/view_selection_process/"+domain
                         },
                         {
                           "type":"postback",
@@ -215,6 +216,8 @@ module.exports.getNextCompanyInfo = function(event){
             var index = parseInt(m[2])+1;
             var suburl = index;
             adaptInterviews.adaptCompanyInfo(suburl,function(callback){
+              var domain = callback[1];
+              console.log(domain);
               var messageData = {
                 "recipient":{
                   "id":senderid
@@ -224,7 +227,7 @@ module.exports.getNextCompanyInfo = function(event){
                     "type":"template",
                     "payload":{
                       "template_type":"button",
-                      "text":callback,
+                      "text":callback[0],
                       "buttons":[
                         {
                           "type":"postback",
@@ -238,7 +241,7 @@ module.exports.getNextCompanyInfo = function(event){
                         },
                         {
                           "type":"web_url",
-                          "url":"https://prixie-api.herokuapp.com/view_all_companies_info",
+                          "url":"https://prixie-api.herokuapp.com/view_selection_process/"+domain,
                           "title":"View all company_info",
                         },
                         // {
