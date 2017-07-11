@@ -167,7 +167,7 @@ module.exports.getTutorialList = function(senderid){
   }
 module.exports.getCompanyInfo = function(senderid){
             adaptInterviews.adaptCompanyInfo("0",function(callback){
-              console.log("domain code = "+callback.domain_code);
+              console.log(callback[1]);
               var messageData = {
                 "recipient":{
                   "id":senderid
@@ -177,7 +177,7 @@ module.exports.getCompanyInfo = function(senderid){
                     "type":"template",
                     "payload":{
                       "template_type":"button",
-                      "text":callback,
+                      "text":callback[0],
                       "buttons":[
                         {
                           "type":"postback",
