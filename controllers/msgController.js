@@ -83,7 +83,6 @@ module.exports.msgController= function(event){
         console.log(event.postback.payload);
         this.getNextFilterInterviewSchedulesByRole_Subject(event);
     }
-
   }
   else if (event.message){
     messageReceived.receivedMessage(event);
@@ -182,7 +181,7 @@ module.exports.getCompanyInfo = function(senderid){
                         {
                           "type":"postback",
                           "title":"Selection Process",
-                          "payload":"view_selection_process"
+                          "payload":"https://prixie-api.herokuapp.com/view_selection_process/"
                         },
                         {
                           "type":"postback",
