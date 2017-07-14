@@ -12,7 +12,7 @@ module.exports.receivedMessage = function(event) {
   var messageText = message.text;
   var messageAttachments = message.attachments;
   if (messageText) {
-    if (messageText == "home") {
+    if (messageText == "home"||messageText == "Home") {
       msgControllermodule.getStartMenu(senderID);
     }else {
         sendTextMessage(senderID, messageText);
