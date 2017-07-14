@@ -6,7 +6,7 @@ var apiai = require("apiai");
 var api = apiai("34959a387b7540929f81521d84577970");
 //var api = apiai("0234db581fca4495b6b48d02cae74333");
 var callSendAPI = require("./callSendApi");
-var msgControllermodule = require("./msgController")
+var msgControllermodule = require("./msgController");
 var adaptTutorials = require("../adapters/adaptTutorials");
 
 module.exports = function(recipientId, messageText) {
