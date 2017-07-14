@@ -16,7 +16,7 @@ module.exports.msgController= function(event){
     if (event.postback.payload == "GET_STARTED_PAYLOAD") {
       var profile = "";
       request({
-        url:"https://graph.facebook.com/v2.6/"+senderid+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=EAACHuWOOEu4BAIAEpfIELBhs63ExhJNZARLGrwCChkteb3arwFHTJ2i9ZBrDKc175HwEy3MrM1n55Y68QEQ3XjUyveljluZAVlxOyhnxayo4Bu445p2YTZA02rbnUUyoZAZAHNdSuNXNYb5mx2rZAeOBSKYfSoHfyGcqV7L4bdf6wZDZD",
+        url:"https://graph.facebook.com/v2.6/"+senderid+"?fields=first_name,last_name,profile_pic,locale,timezone,gender&access_token=EAAWm6bJnXK4BAK4DWyZCL6IXaroDjmCsYNTuZBzovVvE8si1qHb0VgjNoZASHb5ZCaWU5pe2yUUcOlMTbZBumneeOo1274KteTsL4rrPAVIskaaHQ2hyXrO3GC7AG4IxtbtnFOGygVUnbiKVUFe7XhOoeZBWq9hpgXrABkswKrZCrdlpMYAL1gs",
         method:"Get"
       },function(error,res){
         if (error) console.log("from error log");
