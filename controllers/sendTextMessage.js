@@ -120,7 +120,9 @@ module.exports = function(recipientId, messageText) {
                  }
 
               }
-
+              else if (response.result.action == "Company_info") {
+                msgControllermodule.getCompanyInfo(recipientId);
+              }
           var textmsg = response.result.fulfillment.speech;
           var messageData = {
             recipient: {
